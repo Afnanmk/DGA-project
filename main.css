@@ -246,6 +246,8 @@ li {
   }
 
 
+
+/******** Responsive design  *********/
   
 @media only screen and (max-width: 640px) {
     footer > .container-custom {
