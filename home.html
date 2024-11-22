@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="main.css"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav
+      class="navbar border-b-2 flex flex-row-reverse md:flex-row justify-between items-center px-6 text-sm h-16"
+    >
+      <div class="nav-left flex-row font-semibold h-full">
+        <a href="home.html" class="logo mr-0 md:mr-4">
+          <img src="/images/Logo-header.svg" alt=""/>
+        </a>
+        <ul class="nav-menu hidden md:flex flex-row items-center">
+          <a href="home.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
+            <li class="inline-flex items-center"
+              ><span>Home</span
+              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></li>
+          </a>
+          <a href="services.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
+            <li class="inline-flex items-center"
+              ><span>Services</span
+              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></li>
+          </a>
+          <a href="feedback.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
+            <li class="inline-flex items-center"
+              ><span>Feedback</span
+              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></li>
+          </a>
+          <a href="form.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
+            <li class="inline-flex items-center"
+              ><span>Form</span
+              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></li>
+          </a>
+          <a href="contact.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
+            <li class="inline-flex items-center"
+              ><span>Contact</span
+              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></li>
+          </a>
+          <a href="help.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
+            <li class="inline-flex items-center"
+              ><span>Help & Support</span
+              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></li>
+          </a>
+        </ul>
+      </div>
+      <div class="nav-right hidden md:flex flex-row items-center ml-3 h-full font-semibold">
+        
+        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3" id="search-btn">
+          <img
+            class="w-5"
+            src="/icons/search-Icon.svg"
+            alt=""
+          /><span class="ml-1">Search</span>
+        </button>
+      
+        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
+          <img
+            class="w-5"
+            src="/icons/translate-icon.svg"
+            alt=""
+          /><span class="ml-1">Arabic</span>
+        </button>
+        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
+          <img class="w-5" src="/icons/user.svg" alt="" /><span
+            class="ml-1"
+            >Login</span
+          >
+        </button>
+      </div>
+      <div class="hamburger block md:hidden" onClick="toggleMenu()">
+        <img src="/icons/hamburger-menu-svgrepo-com.svg" alt="" class="w-6" />
+      </div>
+    </nav>
+
+    <!-- SEARCH BAR -->
+    <div class="absolute bg-white border w-full left-0 z-30 rounded-b-xl hidden overflow-hidden" id="search-bar">
+      <div class="container-custom">
+        <button class="float-right mt-5" id="close-btn"><img src="/icons/multiplication-sign.svg" alt=""></button>
+        
+         <div class="input relative flex items-center gap-3 pt-14">
+        <div class="relative flex-1">
+          <span class="search-bar-icon left-2"><img src="/icons/search-input.svg" alt=""></span>
+          <button class="search-bar-icon right-2"><img src="/icons/mic-01.svg" alt=""></button>
+          <input type="text" placeholder="Search" class="w-full px-3 pl-8 py-2 rounded-sm border border-gray-400 outline-none">
+          
+        </div>
+        <button class="btn text-white rounded-sm px-3 py-2">Search</button>
+      </div>
+
+      <div class="suggestions py-7">
+        <p class="text-[#1B8354] font-semibold mb-3">Suggestions for you</p>
+        <div class="inline-flex gap-2">
+          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
+            <img src="/icons/plus.svg" alt="">
+            <span class="text-sm font-semibold">Training</span>
+          </a>
+          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
+            <img src="/icons/plus.svg" alt="">
+            <span class="text-sm font-semibold">Services</span>
+          </a>
+          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
+            <img src="/icons/plus.svg" alt="">
+            <span class="text-sm font-semibold">Articles</span>
+          </a>
+        </div>
+      </div>
+      </div>
+    </div>
+
+
+    <!-- MOBILE NAV -->
+    <div
+      class="bg-gray-100 absolute w-full left-0 z-30 md:hidden overflow-hidden transition-all ease-in-out duration-500" id="mobile-nav"
+    >
+    <ul class="px-6 pt-4">
+      <li class="pb-2 mb-2 border-b-2">
+        <a href="home.html" class="flex items-center justify-between"
+          ><span>Home</span
+          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+        /></a>
+      </li>
+      <li class="pb-2 mb-2 border-b-2">
+        <a href="services.html" class="flex items-center justify-between"
+          ><span>Services</span
+          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+        /></a>
+      </li>
+      <li class="pb-2 mb-2 border-b-2">
+        <a href="feedback.html" class="flex items-center justify-between"
+          ><span>Feedback</span
+          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+        /></a>
+      </li>
+      <li class="pb-2 mb-2 border-b-2">
+        <a href="form.html" class="flex items-center justify-between"
+          ><span>Form</span
+          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+        /></a>
+      </li>
+      <li class="pb-2 mb-2 border-b-2">
+        <a href="contact.html" class="flex items-center justify-between"
+          ><span>Contact</span
+          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+        /></a>
+      </li>
+      <li class="">
+        <a href="help.html" class="flex items-center justify-between"
+          ><span>Help & Support</span
+          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+        /></a>
+      </li>
+    </ul>
+      <div class="px-6 py-7 flex flex-col gap-4">
+        <button class="inline-flex items-center">
+          <img class="w-5" src="/icons/translate-you-svgrepo-com.svg" alt="" /><span
+            class="ml-1"
+            >Arabic</span
+          >
+        </button>
+        <button class="inline-flex items-center">
+          <img class="w-5" src="/icons/user-svgrepo-com.svg" alt="" /><span
+            class="ml-1"
+            >Login</span
+          >
+        </button>
+      </div>
+    </div>
+
+    <!-- HERO SECTION STARTS -->
+
+    <section class="swiper hero-slider w-full h-[90vh] relative">
+      <div class="swiper-wrapper">
+        <div
+          class="swiper-slide flex items-center swiper-slide-bg bg-cover bg-center h-full relative"
+          style="background-image: url('/images/hero-desktop.jpg')"
+        >
+          <div
+            class="overlay absolute top-0 left-0 w-full h-full bg-[rgba(16,33,21,0.8)] z-[1]"
+          ></div>
+          <div class="container-custom hero-text text-white z-[2] relative">
+            <h1 class="font-bold text-3xl sm:text-5xl">Hero Section 1</h1>
+            <p class="w-full md:w-[50%] my-7">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+              doloribus, officiis adipisci quasi recusandae veritatis
+              repellendus nostrum facilis eos odio placeat dolor perspiciatis
+              est expedita dolorem alias temporibus aut? Similique!
+            </p>
+            <button
+            class="z-[2] relative text-[#161616] bg-white rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[rgba(255,255,255,0.8)] text-sm"
+          >
+            Primary Button
+          </button>
+          </div>
+        </div>
+        <div
+          class="swiper-slide flex items-center h-full relative"
+          style="
+            background: rgb(20, 87, 58);
+            background: linear-gradient(
+              90deg,
+              rgba(20, 87, 58, 1) 0%,
+              rgba(27, 131, 84, 1) 100%
+            );
+          "
+        >
+          <div class="container-custom hero-text text-white z-[2] relative">
+            <h1 class="font-bold text-3xl sm:text-5xl">Hero Section 2</h1>
+            <p class="w-full md:w-[50%] my-7">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
+              doloribus, officiis adipisci quasi recusandae veritatis
+              repellendus nostrum facilis eos odio placeat dolor perspiciatis
+              est expedita dolorem alias temporibus aut? Similique!
+            </p>
+            <button
+            class="z-[2] relative text-[#161616] bg-white rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[rgba(255,255,255,0.8)] text-sm"
+          >
+            Primary Button
+          </button>
+          </div>
+        </div>
+        <div
+          class="swiper-slide flex items-center h-full relative bg-[#F3F4F6]"
+        
+        >
+          <div class="container-custom hero-text text-black z-[2] relative flex items-center justify-between">
+            <div>
+            <h1 class="font-bold text-3xl sm:text-5xl">Hero Section 3</h1>
+            <p class="w-full my-7">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo qui
+              ab nobis obcaecati consectetur nesciunt nulla rem natus vitae
+              unde? Sapiente consectetur ipsum repellendus veritatis numquam
+              cupiditate, ratione soluta temporibus.
+            </p>
+            <button
+              class="z-[2] relative text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+            >
+              Primary Button
+            </button>
+            </div>
+            <img src="/images//Object.svg" alt="" class="w-1/2 hidden md:block">
+          </div>
+        </div>
+      </div>
+      <!-- Add pagination for bullet navigation -->
+      <div class="swiper-pagination pb-3"></div>
+    </section>
+
+    <!-- HERO SECTION ENDS -->
+
+    <!-- ABOUT SECTION STARTS -->
+    <section class="py-10">
+      <div class="container-custom">
+      <div
+        class="flex items-center justify-between"
+      >
+      <h2 class="font-bold text-2xl">About Us</h2>
+      <a href="#"><button
+      class="text-[--button-secondary-text-color] border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm mt-5 sm:mt-0"
+    >
+      Secondary
+    </button>
+  </a>
+  </div>
+         <p class="text-sm pt-5 w-full sm:w-[70%]">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+            reprehenderit ipsam velit tempore modi quam impedit natus ex cumque
+            illo.
+          </p>
+      
+        </div>
+        
+
+
+      <div
+        class="container-custom about_numbers pt-7 flex items-center justify-center gap-14 sm:gap-28 flex-wrap"
+      >
+        <div class="flex flex-col items-center">
+          <div class="icon-wrapper w-12">
+            <img src="/icons/people-icon.svg" alt="" class="" />
+          </div>
+          <h3
+            class="text-[#074D31] font-semibold text-3xl sm:text-4xl pt-4 pb-3"
+          >
+            1.5M
+          </h3>
+          <p>Person</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="icon-wrapper w-12">
+            <img src="/icons/plus-icon.svg" alt="" class="" />
+          </div>
+          <h3
+            class="text-[#074D31] font-semibold text-3xl sm:text-4xl pt-4 pb-3"
+          >
+            1.5M
+          </h3>
+          <p>Person</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="icon-wrapper w-12">
+            <img src="/icons/star-icon.svg" alt="" class="" />
+          </div>
+          <h3
+            class="text-[#074D31] font-semibold text-3xl sm:text-4xl pt-4 pb-3"
+          >
+            1.5M
+          </h3>
+          <p>Person</p>
+        </div>
+        <div class="flex flex-col items-center">
+          <div class="icon-wrapper w-12">
+            <img
+              src="/icons/water-drop-icon.svg"
+              alt=""
+              class=""
+            />
+          </div>
+          <h3
+            class="text-[#074D31] font-semibold text-3xl sm:text-4xl pt-4 pb-3"
+          >
+            1.5M
+          </h3>
+          <p>Person</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT SECTION ENDS -->
+
+    <!-- SERVICES SECTION STARTS -->
+    <section class="py-10 bg-[#F9FAFB]">
+      <div class="container-custom">
+        <div
+          class="flex items-center justify-between"
+        >
+        <h2 class="font-bold text-2xl">Services</h2>
+        <a href="#"><button
+        class="text-[--button-secondary-text-color] border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm mt-5 sm:mt-0"
+      >
+        Secondary
+      </button>
+    </a>
+    </div>
+           <p class="text-sm pt-5 w-full sm:w-[70%]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+              reprehenderit ipsam velit tempore modi quam impedit natus ex cumque
+              illo.
+            </p>
+        
+          </div>
+
+      <div class="swiper service-slider mt-5 pb-10 w-full">
+        <div class="swiper-wrapper mb-10 h-auto">
+          <!-- Card 1 -->
+          <div
+            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          >
+            <div class="card p-4">
+              <div class="card-icon w-10 mb-4">
+                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+              </div>
+              <h3 class="card-title font-semibold mb-2">Card Title</h3>
+              <p class="card-content text-sm mb-4">
+                Card content placeholder text goes here
+              </p>
+              <div class="tags text-xs font-semibold mb-4">
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</span
+                >
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</span
+                >
+                <span
+                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</span
+                >
+              </div>
+              <div class="">
+                <button
+                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+                >
+                  Action
+                </button>
+                <button
+                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+                >
+                  Action
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          >
+            <div class="card p-4">
+              <div class="card-icon w-10 mb-4">
+                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+              </div>
+              <h3 class="card-title font-semibold mb-2">Card Title</h3>
+              <p class="card-content text-sm mb-4">
+                Card content placeholder text goes here
+              </p>
+              <div class="tags text-xs font-semibold mb-4">
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</span
+                >
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</span
+                >
+                <span
+                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</span
+                >
+              </div>
+              <div class="">
+                <button
+                class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+              >
+                Action
+              </button>
+              <button
+                class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+              >
+                Action
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          >
+            <div class="card p-4">
+              <div class="card-icon w-10 mb-4">
+                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+              </div>
+              <h3 class="card-title font-semibold mb-2">Card Title</h3>
+              <p class="card-content text-sm mb-4">
+                Card content placeholder text goes here
+              </p>
+              <div class="tags text-xs font-semibold mb-4">
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</span
+                >
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</span
+                >
+                <span
+                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</span
+                >
+              </div>
+              <div class="">
+                <button
+                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+                >
+                  Action
+                </button>
+                <button
+                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+                >
+                  Action
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          >
+            <div class="card p-4">
+              <div class="card-icon w-10 mb-4">
+                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+              </div>
+              <h3 class="card-title font-semibold mb-2">Card Title</h3>
+              <p class="card-content text-sm mb-4">
+                Card content placeholder text goes here
+              </p>
+              <div class="tags text-xs font-semibold mb-4">
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</span
+                >
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</span
+                >
+                <span
+                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</span
+                >
+              </div>
+              <div class="">
+                <button
+                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+                >
+                  Action
+                </button>
+                <button
+                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+                >
+                  Action
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div
+          class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+        >
+          <div class="card p-4">
+            <div class="card-icon w-10 mb-4">
+              <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+            </div>
+            <h3 class="card-title font-semibold mb-2">Card Title</h3>
+            <p class="card-content text-sm mb-4">
+              Card content placeholder text goes here
+            </p>
+            <div class="tags text-xs font-semibold mb-4">
+              <span
+                class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                >Tag 1</span
+              >
+              <span
+                class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                >Tag 2</span
+              >
+              <span
+                class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                >Tag 3</span
+              >
+            </div>
+            <div class="">
+              <button
+                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+                >
+                  Action
+                </button>
+                <button
+                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+                >
+                  Action
+                </button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Pagination & Navigation -->
+        <div class="flex items-center px-5 md:px-14">
+ <!--Custom Pagination -->
+ <div class="custom-swiper-pagination"></div>
+       
+     <!-- Custom navigation -->
+   <div class="container flex gap-5 justify-end items-center">
+<div class="custom-button custom-prev"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="48" height="48" rx="24" fill="#F9FAFB"/>
+ <path d="M27 32.67C26.81 32.67 26.62 32.6 26.47 32.45L19.95 25.93C18.89 24.87 18.89 23.13 19.95 22.07L26.47 15.55C26.76 15.26 27.24 15.26 27.53 15.55C27.82 15.84 27.82 16.32 27.53 16.61L21.01 23.13C20.53 23.61 20.53 24.39 21.01 24.87L27.53 31.39C27.82 31.68 27.82 32.16 27.53 32.45C27.38 32.59 27.19 32.67 27 32.67Z" fill="black"/>
+ </svg>
+ </div>
+<div class="custom-button custom-next"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="48" height="48" rx="24" fill="#1B8354"/>
+ <path d="M20.9101 32.67C20.7201 32.67 20.5301 32.6 20.3801 32.45C20.0901 32.16 20.0901 31.68 20.3801 31.39L26.9001 24.87C27.3801 24.39 27.3801 23.61 26.9001 23.13L20.3801 16.61C20.0901 16.32 20.0901 15.84 20.3801 15.55C20.6701 15.26 21.1501 15.26 21.4401 15.55L27.9601 22.07C28.4701 22.58 28.7601 23.27 28.7601 24C28.7601 24.73 28.4801 25.42 27.9601 25.93L21.4401 32.45C21.2901 32.59 21.1001 32.67 20.9101 32.67Z" fill="white"/>
+ </svg>
+ </div>
+</div>
+
+</div>
+   
+
+      </div>
+    </section>
+    <!-- SERVICES SECTION ENDS -->
+
+    
+    <!-- ARTICLES SECTION STARTS-->
+    <section class="py-10">
+      <div class="container-custom">
+        
+          <div
+            class="flex items-center justify-between"
+          >
+          <h2 class="font-bold text-2xl">Articles & News</h2>
+          <a href="#"><button
+          class="text-[--button-secondary-text-color] border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm mt-5 sm:mt-0"
+        >
+          Secondary
+        </button>
+      </a>
+      </div>
+             <p class="text-sm pt-5 w-full sm:w-[70%]">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+                reprehenderit ipsam velit tempore modi quam impedit natus ex cumque
+                illo.
+              </p>
+          
+           
+        <div class="swiper articles-slider mt-7">
+          <div class="swiper-wrapper mb-10">
+            <div class="swiper-slide">
+              <div
+                class="border border-[--border-primary-color] rounded-[--border-radius] bg-white overflow-hidden shadow-sm"
+              >
+                <img
+                  src="/images/flag-image.svg"
+                  alt="Card Image"
+                  class="w-full h-48 object-cover p-4 rounded-xl"
+                />
+                <div class="p-4">
+                  <h3 class="font-semibold mb-2 text-lg">
+                    The Title of the News Card in two Lines
+                  </h3>
+                  <p class="text-sm text-gray-600 mb-4">
+                    Here you can include a brief description of the headline in
+                    four lines. Here you can include a brief description of the
+                    headline in four lines.
+                  </p>
+                  <a href="#"><button class="text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm">
+                    Read More
+                  </button></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div
+                class="border border-[--border-primary-color] rounded-[--border-radius] bg-white overflow-hidden shadow-sm"
+              >
+                <img
+                  src="/images/flag-image.svg"
+                  alt="Card Image"
+                  class="w-full h-48 object-cover p-4 rounded-xl"
+                />
+                <div class="p-4">
+                  <h3 class="font-semibold mb-2 text-lg">
+                    The Title of the News Card in two Lines
+                  </h3>
+                  <p class="text-sm text-gray-600 mb-4">
+                    Here you can include a brief description of the headline in
+                    four lines. Here you can include a brief description of the
+                    headline in four lines.
+                  </p>
+                  <a href="#"><button class="text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm">
+                    Read More
+                  </button></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div
+                class="border border-[--border-primary-color] rounded-[--border-radius] bg-white overflow-hidden shadow-sm"
+              >
+                <img
+                  src="/images/flag-image.svg"
+                  alt="Card Image"
+                  class="w-full h-48 object-cover p-4 rounded-xl"
+                />
+                <div class="p-4">
+                  <h3 class="font-semibold mb-2 text-lg">
+                    The Title of the News Card in two Lines
+                  </h3>
+                  <p class="text-sm text-gray-600 mb-4">
+                    Here you can include a brief description of the headline in
+                    four lines. Here you can include a brief description of the
+                    headline in four lines.
+                  </p>
+                  <a href="#"><button class="text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm">
+                    Read More
+                  </button></a>
+                </div>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div
+                class="border border-gray-300 rounded-xl bg-white overflow-hidden shadow-sm"
+              >
+                <img
+                  src="/images/card-img-figma.jpg"
+                  alt="Card Image"
+                  class="w-full h-48 object-cover p-4 rounded-xl"
+                />
+                <div class="p-4">
+                  <h3 class="font-semibold mb-2 text-lg">
+                    The Title of the News Card in two Lines
+                  </h3>
+                  <p class="text-sm text-gray-600 mb-4">
+                    Here you can include a brief description of the headline in
+                    four lines. Here you can include a brief description of the
+                    headline in four lines.
+                  </p>
+                  <button class="btn text-white px-4 py-2 rounded">
+                    Read More
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+              <!-- Pagination & Navigation -->
+        <div class="flex items-center px-5 md:hidden">
+          <!--Custom Pagination -->
+          <div class="custom-swiper-pagination"></div>
+                
+              <!-- Custom navigation -->
+            <div class="container flex gap-4 justify-end items-center">
+         <div class="custom-button custom-prev"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="24" fill="#F9FAFB"/>
+          <path d="M27 32.67C26.81 32.67 26.62 32.6 26.47 32.45L19.95 25.93C18.89 24.87 18.89 23.13 19.95 22.07L26.47 15.55C26.76 15.26 27.24 15.26 27.53 15.55C27.82 15.84 27.82 16.32 27.53 16.61L21.01 23.13C20.53 23.61 20.53 24.39 21.01 24.87L27.53 31.39C27.82 31.68 27.82 32.16 27.53 32.45C27.38 32.59 27.19 32.67 27 32.67Z" fill="black"/>
+          </svg>
+          </div>
+         <div class="custom-button custom-next"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="48" height="48" rx="24" fill="#1B8354"/>
+          <path d="M20.9101 32.67C20.7201 32.67 20.5301 32.6 20.3801 32.45C20.0901 32.16 20.0901 31.68 20.3801 31.39L26.9001 24.87C27.3801 24.39 27.3801 23.61 26.9001 23.13L20.3801 16.61C20.0901 16.32 20.0901 15.84 20.3801 15.55C20.6701 15.26 21.1501 15.26 21.4401 15.55L27.9601 22.07C28.4701 22.58 28.7601 23.27 28.7601 24C28.7601 24.73 28.4801 25.42 27.9601 25.93L21.4401 32.45C21.2901 32.59 21.1001 32.67 20.9101 32.67Z" fill="white"/>
+          </svg>
+          </div>
+         </div>
+         
+         </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- PARTNER SECTION STARTS -->
+     <section class="mb-14">
+      <div class="container-custom">
+      <h2 class="font-bold text-2xl mb-7">Partner Section</h2>
+      <div class="swiper partner-slider border">
+        <div class="swiper-wrapper">
+
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-xl p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-xl p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-lg p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-lg p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-lg p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-lg p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-lg p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-lg p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-lg p-3">
+          </div>
+          <div class="swiper-slide">
+            <img src="/images/Partner Logo Placeholder.svg" alt="" class="border border-gray-300 rounded-lg p-3">
+          </div>
+        </div>
+      </div>
+    </div>
+     </section>
+    <!-- PARTNER SECTION ENDS -->
+
+
+    <!-- FOOTER SECTION STARTS -->
+    <footer class="bg-[#074D31] text-white py-10">
+        <div class="container-custom mb-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+          <!-- Overview -->
+          <div class="footer-section">
+            <h3 class="font-semibold relative pb-2 mb-2">Overview</h3>
+            <ul class="text-sm flex flex-col gap-1.5">
+              <li><a href="#">About [name of the portal]</a></li>
+              <li><a href="#">Privacy and terms of use</a></li>
+              <li><a href="#">How to use [name of the portal]</a></li>
+              <li><a href="#">News and events</a></li>
+              <li><a href="#">Service level agreement statistics</a></li>
+            </ul>
+          </div>
+      
+          <!-- Important Links -->
+          <div class="footer-section">
+            <h3 class="font-semibold relative pb-2 mb-2">Important Links</h3>
+            <ul class="text-sm flex flex-col gap-1.5">
+              <li><a href="#">National service portal</a></li>
+              <li><a href="#">Open government data</a></li>
+              <li><a href="#">National strategy for data &amp; Artificial intelligence</a></li>
+              <li><a href="#">Open data portal</a></li>
+              <li><a href="#">E-Participation portal</a></li>
+            </ul>
+          </div>
+      
+          <!-- Contact & Support -->
+          <div class="footer-section">
+            <h3 class="font-semibold relative pb-2 mb-2">Contact & Support</h3>
+            <ul class="text-sm flex flex-col gap-1.5">
+              <li><a href="#">Customer hub</a></li>
+              <li><a href="#">Contact us</a></li>
+              <li><a href="#">Engage with Us</a></li>
+              <li><a href="#">Submit complaint</a></li>
+              <li><a href="#">Report corruption</a></li>
+            </ul>
+          </div>
+      
+          <!-- Social Media & Accessibility Tools -->
+          <div class="footer-section flex flex-row flex-wrap sm:flex-col justify-between mt-5 sm:mt-0">
+            <div>
+              <h3 class="font-semibold relative pb-2 mb-2">Social Media</h3>
+              <div class="social-icons inline-flex gap-3">
+                <a href="#" class="icon"><img src="/icons/x-bg.svg" alt=""></a>
+                <a href="#" class="icon"><img src="/icons/linkedin-bg.svg" alt=""></a>
+                <a href="#" class="icon"><img src="/icons/instagram-bg.svg" alt=""></a>
+              </div>
+              </div>
+              <div>
+              <h3 class="font-semibold relative pb-2 mb-2">Accessibility Tools</h3>
+              <div class="accessibility-icons inline-flex gap-3">
+                <a href="#" class="icon"><img src="/icons/hand-bg.svg" alt=""></a>
+                <a href="#" class="icon"><img src="/icons/zoom-in-bg.svg" alt=""></a>
+                <a href="#" class="icon"><img src="/icons/eye-bg.svg" alt=""></a>
+              </div>
+            </div>
+            </div> 
+          </div>
+      
+      
+        <div class="container-custom text-sm flex-wrap sm:flex-nowrap flex justify-between items-center mt-2">
+          <div class="">
+            <div class="links text-sm mb-6">
+            <a href="#" class="underline">Sitemap</a>
+            <a href="#" class="underline">RSS</a>
+            <a href="#" class="underline">Mobile App</a>
+          </div>
+            <p class="font-semibold">All Right Reserved For Digital Government Authority © 2024</p>
+          </div> 
+        
+        <div class="footer-logos inline-flex gap-3 mt-8 sm:mt-0">
+          <a class="logo-box"><img src="/images/Logo Placeholder.svg" alt="Platform Logo"></a>
+          <a class="logo-box"><img src="/images/Registerd on DGA.svg" alt="Registered Logo"></a>
+        </div>
+      </div>
+    </footer>
+    <!-- FOOTER SECTION ENDS -->
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Swiper for Hero section
+        var heroSwiper = new Swiper(".hero-slider", {
+          loop: true, // Enables continuous looping
+          // autoplay: {
+          //   delay: 5000, // 5-second delay for automatic slide change
+          //   disableOnInteraction: false, // Keeps autoplay running after interaction
+          // },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true, 
+          },
+          effect: "fade", 
+          speed: 1000, 
+        })
+
+
+        
+        // Swiper for services action
+        var serviceSwiper = new Swiper(".service-slider", {
+          loop: true,
+          spaceBetween: 20,
+          centeredSlides: false,
+          navigation: {
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+          },
+          pagination: {
+            el: ".custom-swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+              return `<span class="${className} custom-pagination-bullet"></span>`
+            },
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1.2,
+              spaceBetween: 5,
+            },
+            640: {
+              slidesPerView: 2.2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3.5,
+              spaceBetween: 15,
+            },
+            1024: {
+              slidesPerView: 4.5,
+              spaceBetween: 15,
+            },
+          },
+        })
+
+
+
+        // Swiper for articles section
+        var articlesSwiper = new Swiper(".articles-slider", {
+          loop: true,
+          slidesPerView: 3,
+          spaceBetween: 20,
+          centeredSlides: false,
+         navigation: {
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+          },
+          pagination: {
+            el: ".custom-swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+              return `<span class="${className} custom-pagination-bullet"></span>`
+            },
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 5,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 15,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          },
+        })
+
+
+        //Swiper for partner slider
+        var partnerSwiper = new Swiper(".partner-slider", {
+          loop: true,
+          centeredSlides: true,
+          breakpoints: {
+            0: {
+              slidesPerView: 3,
+              spaceBetween: 5,
+            },
+            450: {
+              slidesPerView: 4,
+              spaceBetween: 10,
+            },
+            640: {
+              slidesPerView: 6,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 9,
+              spaceBetween: 15,
+            },
+            1024: {
+              slidesPerView: 9,
+              spaceBetween:15,
+            },
+          },
+        })
+        
+        
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,320 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services</title>
+      <!-- Link Swiper's CSS -->
+      <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+   
+  <div  class="bg-gradient-to-b from-[#F7FDF9] via-[#F7FDF9] to-white"
+  style="background-size: 100% 250px; background-repeat: no-repeat;">
+    <!-- BREADCRUMB -->
+ <nav aria-label="breadcrumb" class="pt-5">
+   <ul class="container-custom breadcrumb flex items-center text-sm">
+     <li class="inline-flex items-center"><a href="#">Link</a></li>
+     <li class="current-page inline-flex items-center">
+       <a href="#">Link</a>
+     </li>
+   </ul>
+ </nav>
+
+ <!-- MAIN SECTION STARTS -->
+ <section class="pb-8">
+   <div class="container-custom flex flex-col md:flex-row gap-5">
+     <!-- Left Side -->
+     <div class="left-side">
+       <div class="">
+         <h3 class="font-bold text-2xl">Contact us</h3>
+         <p class="my-3.5">
+          Service description example To buy a plot to build your house, this
+          requires documenting the sale and purchase process in the notarial
+          offices or notary services to register the property in your name.
+        </p>
+       </div>
+       
+
+       <!-- Form -->
+    <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6 bg-white mt-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <!-- First Name -->
+        <div>
+          <label for="first-name" class="block text-sm font-medium">
+            <span>*</span> First Name
+          </label>
+          <input 
+            type="text" 
+            id="first-name" 
+            name="first_name" 
+            placeholder="Type your first name"
+            required
+            class="mt-1 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm"
+          >
+        </div>
+        <!-- Last Name -->
+        <div>
+          <label for="last-name" class="block text-sm font-medium">
+            <span>*</span> Last Name
+          </label>
+          <input 
+            type="text" 
+            id="last-name" 
+            name="last_name" 
+            placeholder="Type your last name"
+            required
+            class="mt-1 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm"
+          >
+        </div>
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-medium">
+            <span>*</span> Email
+          </label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Type your email"
+            required
+            class="mt-1 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm"
+          >
+        </div>
+        <!-- Phone -->
+        <div>
+          <label for="phone" class="block text-sm font-medium text-gray-700">
+            <span>*</span> Phone
+          </label>
+          <div class="flex mt-1">
+            <select 
+              id="country-code" 
+              name="country_code" 
+              class="mt-1 block rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm"
+            >
+              <option value="+966" selected>+966</option>
+              <option value="+1">+1</option>
+              <option value="+44">+44</option>
+              <option value="+971">+971</option>
+            </select>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              placeholder="00 000 0000"
+              required
+              class="mt-1 block w-full rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm"
+            >
+          </div>
+        </div>
+        
+        <!-- Subject -->
+        <div class="">
+          <label for="subject" class="block text-sm font-medium">
+            Subject
+          </label>
+          <input 
+            type="text" 
+            id="subject" 
+            name="subject" 
+            placeholder="Type your subject"
+            class="mt-1 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm"
+          >
+        </div>
+        <!-- Category -->
+        <div>
+          <label for="category" class="block text-sm font-medium">
+            Category
+          </label>
+          <select 
+            id="category" 
+            name="category" 
+            class="mt-1 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm"
+          >
+            <option>Suggestion</option>
+            <option>Complaint</option>
+            <option>Inquiry</option>
+          </select>
+        </div>
+        <!-- Message -->
+        <div class="">
+          <label for="message" class="block text-sm font-medium">
+            How Can We Help?
+          </label>
+          <textarea 
+            id="message" 
+            name="message" 
+            placeholder="Placeholder text"
+            rows="4"
+            class="mt-1 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm max-h-24"
+          ></textarea>
+        </div>
+        <!-- File Upload -->
+        <div>
+          <label for="file-upload" class="block text-md font-medium ">
+            Upload files
+          </label>
+          <p class="text-xs text-gray-500 mb-2">
+            Maximum file size allowed is 2MB, supported file formats include .jpg, .png, and .pdf.
+          </p>
+          <input 
+            type="file" 
+            id="file-upload" 
+            name="file_upload"
+            class="mt-1 block w-full bg-white sm:text-sm"
+          >
+        </div>
+      </div>
+      <!-- Submit Button -->
+      <div class="">
+        <button 
+          type="submit" 
+          class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block]"
+        >
+          Request permit
+        </button>
+      </div>
+    </form>
+     </div>
+
+
+
+     <!-- Right side -->
+     <div
+       class="right-side self-start mt-[-1rem] bg-white border border-[--border-primary-color] rounded-[--border-radius] w-full md:w-[60%] p-5"
+     >
+
+       <div class="right-side_top border-b-2 border-[#D2D6DB] pb-5">
+         <p class="text-[1.1rem]">
+           <strong>Contact Amer</strong>
+         </p>
+         <div class="flex items-start my-3 gap-1">
+           <img src="/icons/phone_services.svg" alt="" class="mt-1.5 w-5" />
+           <div>
+             <p class="font-bold">Phone</p>
+             <a href="#" class="text-[#1B8354]"
+               >920034222
+               <span
+                 ><img
+                   src="/icons/copy-01.svg"
+                   alt=""
+                   class="inline-flex w-4" /></span
+             ></a>
+           </div>
+         </div>
+
+         <div class="flex items-start my-3 gap-1">
+          <img src="/icons/sms.svg" alt="" class="mt-1.5 w-5" />
+          <div>
+            <p class="font-bold">SMS</p>
+            <a href="#" class="text-[#1B8354]"
+              >920034222
+              <span
+                ><img
+                  src="/icons/copy-01.svg"
+                  alt=""
+                  class="inline-flex w-4" /></span
+            ></a>
+          </div>
+        </div>
+
+        <div class="flex items-start my-3 gap-1">
+          <img src="/icons/email_services.svg" alt="" class="mt-1.5 w-5" />
+          <div>
+            <p class="font-bold">Email</p>
+            <a href="#" class="text-[#1B8354]"
+              >920034222
+              <span
+                ><img
+                  src="/icons/copy-01.svg"
+                  alt=""
+                  class="inline-flex w-4" /></span
+            ></a>
+          </div>
+        </div>
+
+        <div class="flex items-start my-3 gap-1">
+          <img src="/icons/email_services.svg" alt="" class="mt-1.5 w-5" />
+          <div>
+            <p class="font-bold">FAX</p>
+            <a href="#" class="text-[#1B8354]"
+              >920034222
+              <span
+                ><img
+                  src="/icons/copy-01.svg"
+                  alt=""
+                  class="inline-flex w-4" /></span
+            ></a>
+          </div>
+        </div>
+
+         <div class="flex items-start my-3 gap-1">
+           <img src="/icons/location.svg" alt="" class="mt-1.5 w-5" />
+           <div>
+             <p class="font-bold">Location</p>
+             <a href="#" class="text-[#1B8354]"
+               >Riyadh
+               <span
+                 ><img
+                   src="/icons/link-icon.svg"
+                   alt=""
+                   class="inline-flex w-4" /></span
+             ></a>
+           </div>
+         </div>
+
+        <p class="text-[1.1rem]"><strong>Follow us</strong></p>
+        <div class="social-links inline-flex gap-4">
+          <img src="/icons/x.svg" alt="">
+          <img src="/icons/linkedin.svg" alt="">
+          <img src="icons/instagram.svg" alt="">
+        </div>
+       </div>
+
+       <div class="right-side_bottom mt-5">
+         <p class="text-[1.1rem] mb-2">
+           <strong>Emergency Contacts</strong>
+         </p>
+         <div class="flex items-center gap-2"> 
+          <p><strong>Civil defence</strong></p>
+        <p class="text-[#1B8354] inline-flex items-center gap-1.5">988 <img src="/icons/copy-01.svg" alt=""></p>
+        </div>
+        <div class="flex items-center gap-2"> 
+          <p><strong>Police</strong></p>
+          <p class="text-[#1B8354] inline-flex items-center gap-1.5">988 <img src="/icons/copy-01.svg" alt=""></p>
+          </div>
+          <div class="flex items-center gap-2"> 
+            <p><strong>Ambulance</strong></p>
+            <p class="text-[#1B8354] inline-flex items-center gap-1.5">988 <img src="/icons/copy-01.svg" alt=""></p>
+            </div>
+       </div>
+       <a href="#" class="text-[#1B8354]">View More</a>
+     </div>
+   </div>
+ </section>
+</div>
+    
+
+
+<!-- FEEDBACK SECTION -->
+<section class="py-4 border-t-2 border-[--primary-color]">
+  <div class="container-custom flex flex-col gap-2.5 sm:flex-row sm:gap-0 sm:items-center flex-wrap">
+    <p class="mr-5 order-1 sm:order-1">Was this page useful?</p>
+    <div class="order-3 sm:order2 space-x-2 flex-initial sm:flex-1">
+      <button class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color]">Yes</button>
+      <button class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color]">No</button>
+    </div>
+    <p class="text-sm order-2 sm:order-3">60% of users said Yes from 2843 Feedbacks</p>
+  
+  </div>
+ </section>
+ 
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

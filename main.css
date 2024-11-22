@@ -1,0 +1,271 @@
+:root {
+    --text-default-color: #161616;
+    --primary-color: #1B8354;
+
+    --border-primary-color:#D2D6DB;
+    --border-radius: 12px;
+
+    --button-primary-color: #1B8354;
+    --button-primary-hover: #166A45;
+    --button-secondary-color: #D2D6DB;
+    --button-secondary-hover:#F3F4F6;
+    --button-secondary-border-hover: #E5E7EB;
+    --button-border-radius: 4px;
+    --button-padding-block: 0.5rem;
+    --button-padding-inline: 0.75rem;
+    --button-text-color: #ffffff;
+    --button-secondary-text-color:#161616;
+
+    --contact-form-bg: #F3F4F6;
+    --contact-form-text: #6C737F;
+    --form-input-radius: 4px;
+    --form-padding-block: 0.5rem;
+    --form-padding-inline:0.5rem;
+}
+
+body {
+    color: var(--text-default-color);
+}
+
+
+.breadcrumb li::after {
+    content: '';
+    display: inline-block;
+    width: 16px; /* Adjust size as needed */
+    height: 16px; /* Adjust size as needed */
+    background-image: url('/icons/arrow-right-s-line.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin-left: 5px;
+    margin-right: 5px;
+    
+}
+.container-custom {
+    width: 90% !important;
+    max-width: 80rem !important;
+    margin:0 auto !important;
+}
+
+.breadcrumb li:last-child::after {
+    content: ''; /* Remove the arrow for the last item */
+    background: none;
+}
+.breadcrumb li:last-child a {
+    color: #9DA4AE;
+    pointer-events: none;
+    text-decoration: none;
+}
+
+
+
+
+@media only screen and (max-width: 650px) {
+    .container-custom {
+     width: 95% !important;
+    }
+   }
+li {
+    text-decoration: none;
+    list-style: none;
+}
+.nav-menu a {
+    position: relative;
+}
+.nav-right button {
+    position: relative;
+}
+.nav-menu a:hover::after, .nav-right button:hover::after  {
+    position: absolute;
+    content: '';
+    background-color: gray;
+    width: 100%;
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    border-radius: 3px;
+}
+
+
+.btn {
+    background-color: #1B8354;
+}
+.hero-slider .swiper-pagination-bullet {
+    background-color: #E5E7EB;
+    opacity: 0.5;
+    width: 13px;
+    height: 13px;
+}
+.hero-slider .swiper-pagination-bullet-active {
+   background-color: #1B8354;
+   opacity: 1;
+   width: 13px;
+   height: 13px;
+}
+.light-green {
+    background-color: #F3FCF6;
+}
+.custom-pagination-bullet {
+    width: 12px;
+    height: 12px;
+    background-color: #e0e0e0;
+    border-radius: 50%;
+    opacity: 1;
+    transition: background-color 0.3s;
+}
+.custom-pagination-bullet.swiper-pagination-bullet-active {
+    background-color: #1B8354; /* Active state color */
+  }
+
+
+.footer-section h3:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px; /* Adjust thickness as needed */
+    background-color: #fff;
+    opacity: 0.5;
+}
+.search-bar-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+#tab-steps {
+    position: relative;
+}
+.tab-content-style::after {
+   position: absolute;
+   content: '';
+   background-color:#1B8354;
+   width: 100%;
+   height: 3px;
+   left: 0;
+   bottom: 0;
+   border-radius: 3px;
+    
+}
+.list-decimal li {
+    list-style: decimal;
+}
+
+
+/******* Form page: Step Indicator Desktop styling *******/
+
+ .steps {
+	 max-width: 300px;
+	 margin: 0 auto;
+}
+ .step {
+	 display: flex;
+	 position: relative;
+}
+ .step:after {
+	 content: "";
+	 position: absolute;
+     left: .8rem;
+	 top: 29px;
+	 height: 73%;
+	 width: 2px;
+	 background-color: #1B8354;
+}
+ .step .info {
+	 /* margin: 8px 0 20px; */
+     padding-bottom: 4rem;
+}
+ .step .title {
+	 font-size: 16px;
+	 font-weight: 600;
+	 /* margin: 0 0 8px; */
+     margin-bottom: .2rem;
+}
+ .step .text {
+	 font-size: 12px;
+	 margin: 0;
+
+}
+.step:last-child .number{
+    color: #D2D6DB;
+    border: 2px solid #D2D6DB;
+}
+.step:last-child::after {
+    height: 0;
+    background-color: #D2D6DB;
+}
+.step:last-child .info {
+    padding-bottom: 0;
+}
+.step:nth-child(2)::after {
+    background-color: #D2D6DB;
+} 
+
+ .number {
+	 width: 29px;
+	 height: 29px;
+	 background-color: transparent;
+	 border-radius: 50%;
+	 border: 2px solid #1B8354;
+	 flex-shrink: 0;
+	 display: flex;
+	 justify-content: center;
+	 align-items: center;
+	 font-size: 15px;
+	 font-weight: 600;
+	 margin-right: 14px;
+     color: #1B8354;
+}
+ .number.completed {
+	 background-color: #1B8354;
+}
+ .number svg {
+	 width: 16px;
+	 height: 16px;
+	 object-fit: contain;
+}
+ .number svg path {
+	 fill: white;
+}
+ 
+
+/******* Form page: Step Indicator Mobile styling *******/
+
+  .circle-progress {
+    fill: none;
+    stroke: #1B8354;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    transition: stroke-dasharray 0.4s ease;
+  }
+
+
+  
+@media only screen and (max-width: 640px) {
+    footer > .container-custom {
+        width: 90% !important;
+    }
+}
+
+@media only screen and (max-width:850px) {
+    .right-side {
+        position:initial !important;
+        width: 100% !important;
+        margin: 0 auto !important;
+    }
+    .tabs-width {
+        width: 100% !important;
+    }
+    .upper-section-width {
+        width: 100% !important;
+    }
+}
+
+
+

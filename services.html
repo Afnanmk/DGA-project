@@ -1,0 +1,951 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <nav
+      class="border-b-2 navbar flex flex-row-reverse md:flex-row justify-between items-center px-6 text-sm h-16"
+    >
+      <div class="nav-left flex-row font-semibold h-full">
+        <a href="home.html" class="logo mr-0 md:mr-4">
+          <img src="/images/Logo-header.svg" alt="" />
+        </a>
+        <ul class="nav-menu hidden md:flex flex-row items-center">
+          <a
+            href="home.html"
+            class="inline-flex items-center hover:bg-gray-200 h-full px-2"
+          >
+            <li class="inline-flex items-center">
+              <span>Home</span
+              ><img
+                src="/icons/arrow-down-svgrepo-com.svg"
+                alt=""
+                class="w-5"
+              />
+            </li>
+          </a>
+          <a
+            href="services.html"
+            class="inline-flex items-center hover:bg-gray-200 h-full px-2"
+          >
+            <li class="inline-flex items-center">
+              <span>Services</span
+              ><img
+                src="/icons/arrow-down-svgrepo-com.svg"
+                alt=""
+                class="w-5"
+              />
+            </li>
+          </a>
+          <a
+            href="feedback.html"
+            class="inline-flex items-center hover:bg-gray-200 h-full px-2"
+          >
+            <li class="inline-flex items-center">
+              <span>Feedback</span
+              ><img
+                src="/icons/arrow-down-svgrepo-com.svg"
+                alt=""
+                class="w-5"
+              />
+            </li>
+          </a>
+          <a
+            href="form.html"
+            class="inline-flex items-center hover:bg-gray-200 h-full px-2"
+          >
+            <li class="inline-flex items-center">
+              <span>Form</span
+              ><img
+                src="/icons/arrow-down-svgrepo-com.svg"
+                alt=""
+                class="w-5"
+              />
+            </li>
+          </a>
+          <a
+            href="contact.html"
+            class="inline-flex items-center hover:bg-gray-200 h-full px-2"
+          >
+            <li class="inline-flex items-center">
+              <span>Contact</span
+              ><img
+                src="/icons/arrow-down-svgrepo-com.svg"
+                alt=""
+                class="w-5"
+              />
+            </li>
+          </a>
+          <a
+            href="help.html"
+            class="inline-flex items-center hover:bg-gray-200 h-full px-2"
+          >
+            <li class="inline-flex items-center">
+              <span>Help & Support</span
+              ><img
+                src="/icons/arrow-down-svgrepo-com.svg"
+                alt=""
+                class="w-5"
+              />
+            </li>
+          </a>
+        </ul>
+      </div>
+      <div class="nav-right hidden md:flex flex-row items-center ml-3 h-full">
+        <button
+          class="inline-flex items-center hover:bg-gray-200 h-full px-3"
+          id="search-btn"
+        >
+          <img
+            class="w-5"
+            src="/icons/search-alt-svgrepo-com.svg"
+            alt=""
+          /><span class="ml-1">Search</span>
+        </button>
+
+        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
+          <img class="w-5" src="/icons/translate-icon.svg" alt="" /><span
+            class="ml-1"
+            >Arabic</span
+          >
+        </button>
+        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
+          <img class="w-5" src="/icons/user-svgrepo-com.svg" alt="" /><span
+            class="ml-1"
+            >Login</span
+          >
+        </button>
+      </div>
+      <div class="hamburger block md:hidden" onClick="toggleMenu()">
+        <img src="/icons/hamburger-menu-svgrepo-com.svg" alt="" class="w-6" />
+      </div>
+    </nav>
+
+    <!-- SEARCH BAR -->
+    <div
+      class="absolute bg-white border w-full left-0 z-30 rounded-b-xl hidden overflow-hidden"
+      id="search-bar"
+    >
+      <div class="container-custom">
+        <button class="float-right mt-5" id="close-btn">
+          <img src="/icons/multiplication-sign.svg" alt="" />
+        </button>
+
+        <div class="input relative flex items-center gap-3 pt-14">
+          <div class="relative flex-1">
+            <span class="search-bar-icon left-2"
+              ><img src="/icons/search-input.svg" alt=""
+            /></span>
+            <button class="search-bar-icon right-2">
+              <img src="/icons/mic-01.svg" alt="" />
+            </button>
+            <input
+              type="text"
+              placeholder="Search"
+              class="w-full px-3 pl-8 py-2 rounded-sm border border-gray-400 outline-none"
+            />
+          </div>
+          <button class="btn text-white rounded-sm px-3 py-2">Search</button>
+        </div>
+
+        <div class="suggestions py-7">
+          <p class="text-[#1B8354] font-semibold mb-3">Suggestions for you</p>
+          <div class="inline-flex gap-2">
+            <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
+              <img src="/icons/plus.svg" alt="" />
+              <span class="text-sm font-semibold">Training</span>
+            </a>
+            <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
+              <img src="/icons/plus.svg" alt="" />
+              <span class="text-sm font-semibold">Services</span>
+            </a>
+            <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
+              <img src="/icons/plus.svg" alt="" />
+              <span class="text-sm font-semibold">Articles</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE NAV -->
+    <div
+      class="bg-gray-100 absolute w-full left-0 z-30 md:hidden overflow-hidden transition-all ease-in-out duration-500"
+      id="mobile-nav"
+    >
+      <ul class="px-6 pt-4">
+        <li class="pb-2 mb-2 border-b-2">
+          <a href="home.html" class="flex items-center justify-between"
+            ><span>Home</span
+            ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
+          /></a>
+        </li>
+        <li class="pb-2 mb-2 border-b-2">
+          <a href="services.html" class="flex items-center justify-between"
+            ><span>Services</span
+            ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
+          /></a>
+        </li>
+        <li class="pb-2 mb-2 border-b-2">
+          <a href="feedback.html" class="flex items-center justify-between"
+            ><span>Feedback</span
+            ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
+          /></a>
+        </li>
+        <li class="pb-2 mb-2 border-b-2">
+          <a href="form.html" class="flex items-center justify-between"
+            ><span>Form</span
+            ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
+          /></a>
+        </li>
+        <li class="pb-2 mb-2 border-b-2">
+          <a href="contact.html" class="flex items-center justify-between"
+            ><span>Contact</span
+            ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
+          /></a>
+        </li>
+        <li class="">
+          <a href="help.html" class="flex items-center justify-between"
+            ><span>Help & Support</span
+            ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
+          /></a>
+        </li>
+      </ul>
+      <div class="px-6 py-7 flex flex-col gap-4">
+        <button class="inline-flex items-center">
+          <img
+            class="w-5"
+            src="/icons/translate-you-svgrepo-com.svg"
+            alt=""
+          /><span class="ml-1">Arabic</span>
+        </button>
+        <button class="inline-flex items-center">
+          <img class="w-5" src="/icons/user-svgrepo-com.svg" alt="" /><span
+            class="ml-1"
+            >Login</span
+          >
+        </button>
+      </div>
+    </div>
+
+   
+     <div  class="bg-gradient-to-b from-[#F7FDF9] via-[#F7FDF9] to-white"
+     style="background-size: 100% 450px; background-repeat: no-repeat;">
+       <!-- BREADCRUMB -->
+    <nav aria-label="breadcrumb" class="pt-5">
+      <ul class="container-custom breadcrumb flex items-center text-sm">
+        <li class="inline-flex items-center"><a href="#">Link</a></li>
+        <li class="current-page inline-flex items-center">
+          <a href="#">Link</a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- MAIN SECTION STARTS -->
+    <section class="pb-8">
+      <div class="container-custom flex flex-col md:flex-row gap-5">
+        <!-- Left Side -->
+        <div class="left-side">
+          <div class="flex justify-between items-center">
+            <h3 class="font-bold text-2xl">Building Premit</h3>
+            <button
+              class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block]"
+            >
+              Request Premit
+            </button>
+          </div>
+
+          <div class="tags mt-3 flex gap-2 flex-wrap">
+            <span
+              class="inline-block mr-1 px-2 py-0.5 rounded-[4px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9] text-sm font-semibold"
+              >Ministry</span
+            >
+            <span
+              class="inline-block mr-1 px-2 py-0.5 rounded-[4px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A] text-sm font-semibold"
+              >Life experience</span
+            >
+            <span
+              class="inline-block mr-1 px-2 py-0.5 rounded-[4px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37] text-sm font-semibold"
+              >Related platform</span
+            >
+          </div>
+
+          <p class="my-3.5">
+            Service description example To buy a plot to build your house, this
+            requires documenting the sale and purchase process in the notarial
+            offices or notary services to register the property in your name.
+          </p>
+          <div class="flex gap-6 items-center flex-wrap">
+            <a href="#" class="inline-flex gap-2 text-[#1B8354]"
+              ><span>Service Level Agreement</span
+              ><img src="/icons/link-icon.svg" alt=""
+            /></a>
+            <a href="#" class="inline-flex gap-2 text-[#1B8354]"
+              ><span>Related Links</span><img src="/icons/link-icon.svg" alt=""
+            /></a>
+          </div>
+
+          <!-- TABS -->
+          <div class="bg-white mt-12">
+            <div class="flex mb-4 gap-8">
+              <button
+                onclick="showTab('steps')"
+                class="tab-button py-2 focus:outline-none text-[#384250] relative"
+                id="tab-steps"
+              >
+                Steps
+              </button>
+              <button
+                onclick="showTab('eligibility')"
+                class="tab-button py-2 focus:outline-none text-[#384250] relative"
+                id="tab-eligibility"
+              >
+                Eligibility
+              </button>
+              <button
+                onclick="showTab('info')"
+                class="tab-button py-2 focus:outline-none text-[#384250] relative"
+                id="tab-info"
+              >
+                Required Information
+              </button>
+            </div>
+
+            <div id="steps" class="tab-content active">
+              <div class="video">
+                <img src="/images/Video.svg" alt="" />
+              </div>
+              <ol class="list-decimal space-y-2 text-[#1B8354] ml-3.5 mt-4">
+                <li>
+                  Log in to the National Single Sign-on portal via the Balady
+                  platform.
+                </li>
+                <li>
+                  Select Construction License Services, then Service
+                  Construction.
+                </li>
+                <li>License Services, then the required municipality.</li>
+                <li>
+                  Select the engineering office, then enter the number and year
+                  of issuance of the building service, and attach a copy of the
+                  deed.
+                </li>
+                <li>
+                  Submit the request to the selected engineering office, then
+                  complete the information and attachments in the engineering
+                  office and send it to the municipality.
+                </li>
+                <li>
+                  Verify the information of the request, attachments and
+                  approvals by the municipality.
+                </li>
+                <li>
+                  Approve the request and issue a SADAD payment. Pay the fees
+                  and print the license.
+                </li>
+              </ol>
+            </div>
+
+            <div id="eligibility" class="tab-content">
+              <p class="text-gray-800">
+                Eligibility information goes here. Describe the criteria for
+                eligibility.
+              </p>
+            </div>
+
+            <div id="info" class="tab-content">
+              <p class="text-gray-800">
+                Required information details go here. List what is needed for
+                the service.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side -->
+        <div
+          class="right-side self-start mt-[-1rem] bg-white border border-[--border-primary-color] rounded-[--border-radius] w-full md:w-[60%] p-5"
+        >
+          <div class="right-side_top border-b-2 border-[#D2D6DB] pb-5">
+            <div class="flex items-start gap-1 mb-3.5">
+              <img src="/icons/user_services.svg" alt="" class="mt-1.5 w-5" />
+              <div>
+                <p class="font-bold text-">
+                  Citizens,GCC countries nationalities,investors and foreigners
+                </p>
+                <p>Target audience</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-1 mb-3.5">
+              <img src="/icons/clock_services.svg" alt="" class="mt-1.5 w-5" />
+              <div>
+                <p class="font-bold">5.0 days(s)</p>
+                <p>Service duration</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-1 mb-3.5">
+              <img
+                src="/icons/webmobile_services.svg"
+                alt=""
+                class="mt-1.5 w-5"
+              />
+              <div>
+                <p class="font-bold">Web and mobile app</p>
+                <p>Service channels</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-1 mb-3.5">
+              <img src="/icons/free_services.svg" alt="" class="mt-1.5 w-5" />
+              <div>
+                <p class="font-bold">Free</p>
+                <p>Service cost</p>
+              </div>
+            </div>
+
+            <div>
+              <p class="mb-2 text-[1.1rem]">
+                <strong>Payment Channels</strong>
+              </p>
+              <img src="/icons/stcPay.svg" alt="" class="inline-flex" />
+              <img src="/icons/mada.svg" alt="" class="inline-flex" />
+            </div>
+          </div>
+
+          <div class="right-side_middle border-b-2 border-[#D2D6DB] py-5">
+            <p class="text-[1.1rem]">
+              <strong>Frequently Asked Questions</strong>
+            </p>
+            <a href="" class="text-[#1B8354]"
+              >Ministry-FAQ's page
+              <span
+                ><img
+                  src="/icons/targetLink_services.svg"
+                  alt=""
+                  class="inline-flex w-4" /></span
+            ></a>
+
+            <div class="flex items-start my-3 gap-1">
+              <img src="/icons/phone_services.svg" alt="" class="mt-1.5 w-5" />
+              <div>
+                <p class="font-bold">Phone</p>
+                <a href="#" class="text-[#1B8354]"
+                  >920034222
+                  <span
+                    ><img
+                      src="/icons/targetLink_services.svg"
+                      alt=""
+                      class="inline-flex w-4" /></span
+                ></a>
+              </div>
+            </div>
+
+            <div class="flex items-start my-3 gap-1">
+              <img src="/icons/email_services.svg" alt="" class="mt-1.5 w-5" />
+              <div>
+                <p class="font-bold">Email</p>
+                <a href="#" class="text-[#1B8354]"
+                  >help@company.sa
+                  <span
+                    ><img
+                      src="/icons/targetLink_services.svg"
+                      alt=""
+                      class="inline-flex w-4" /></span
+                ></a>
+              </div>
+            </div>
+
+            <button
+              class="font-semibold bg-[#F9FAFB] rounded-[--button-border-radius] py-[--button-padding-block] px-[--button-padding-inline]"
+            >
+              Download user manual
+            </button>
+          </div>
+
+          <div class="right-side_bottom mt-5">
+            <p class="text-[1.1rem] mb-2">
+              <strong>Related application</strong>
+            </p>
+            <a href="" class="inline-flex mr-1"
+              ><img src="/icons/Store download button.svg" alt=""
+            /></a>
+            <a href="" class="inline-flex"
+              ><img src="/icons/google play button.svg" alt=""
+            /></a>
+            <a href=""
+              ><img src="/icons/huawei-appgallery-seeklogo 1.svg" alt=""
+            /></a>
+          </div>
+        </div>
+      </div>
+    </section>
+</div>
+
+
+    <!-- SERVICES SECTION STARTS -->
+    <section class="py-10 bg-[#F9FAFB]">
+      <div class="container-custom">
+        <div
+          class="flex items-center justify-between"
+        >
+        <h2 class="font-bold text-2xl">Services</h2>
+        <a href="#"><button
+        class="text-[--button-secondary-text-color] border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm mt-5 sm:mt-0"
+      >
+        Secondary
+      </button>
+    </a>
+    </div>
+           <p class="text-sm pt-5 w-full sm:w-[70%]">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
+              reprehenderit ipsam velit tempore modi quam impedit natus ex cumque
+              illo.
+            </p>
+        
+          </div>
+
+      <div class="swiper service-slider mt-5 pb-10 w-full">
+        <div class="swiper-wrapper mb-10 h-auto">
+          <!-- Card 1 -->
+          <div
+            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          >
+            <div class="card p-4">
+              <div class="card-icon w-10 mb-4">
+                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+              </div>
+              <h3 class="card-title font-semibold mb-2">Card Title</h3>
+              <p class="card-content text-sm mb-4">
+                Card content placeholder text goes here
+              </p>
+              <div class="tags text-xs font-semibold mb-4">
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</span
+                >
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</span
+                >
+                <span
+                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</span
+                >
+              </div>
+              <div class="">
+                <button
+                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+                >
+                  Action
+                </button>
+                <button
+                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+                >
+                  Action
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 2 -->
+          <div
+            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          >
+            <div class="card p-4">
+              <div class="card-icon w-10 mb-4">
+                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+              </div>
+              <h3 class="card-title font-semibold mb-2">Card Title</h3>
+              <p class="card-content text-sm mb-4">
+                Card content placeholder text goes here
+              </p>
+              <div class="tags text-xs font-semibold mb-4">
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</span
+                >
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</span
+                >
+                <span
+                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</span
+                >
+              </div>
+              <div class="">
+                <button
+                class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+              >
+                Action
+              </button>
+              <button
+                class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+              >
+                Action
+              </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 3 -->
+          <div
+            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          >
+            <div class="card p-4">
+              <div class="card-icon w-10 mb-4">
+                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+              </div>
+              <h3 class="card-title font-semibold mb-2">Card Title</h3>
+              <p class="card-content text-sm mb-4">
+                Card content placeholder text goes here
+              </p>
+              <div class="tags text-xs font-semibold mb-4">
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</span
+                >
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</span
+                >
+                <span
+                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</span
+                >
+              </div>
+              <div class="">
+                <button
+                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+                >
+                  Action
+                </button>
+                <button
+                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+                >
+                  Action
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 4 -->
+          <div
+            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          >
+            <div class="card p-4">
+              <div class="card-icon w-10 mb-4">
+                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+              </div>
+              <h3 class="card-title font-semibold mb-2">Card Title</h3>
+              <p class="card-content text-sm mb-4">
+                Card content placeholder text goes here
+              </p>
+              <div class="tags text-xs font-semibold mb-4">
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</span
+                >
+                <span
+                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</span
+                >
+                <span
+                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</span
+                >
+              </div>
+              <div class="">
+                <button
+                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+                >
+                  Action
+                </button>
+                <button
+                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+                >
+                  Action
+                </button>
+              </div>
+            </div>
+          </div>
+          <!-- Card 5 -->
+          <div
+          class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+        >
+          <div class="card p-4">
+            <div class="card-icon w-10 mb-4">
+              <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+            </div>
+            <h3 class="card-title font-semibold mb-2">Card Title</h3>
+            <p class="card-content text-sm mb-4">
+              Card content placeholder text goes here
+            </p>
+            <div class="tags text-xs font-semibold mb-4">
+              <span
+                class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
+                >Tag 1</span
+              >
+              <span
+                class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
+                >Tag 2</span
+              >
+              <span
+                class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
+                >Tag 3</span
+              >
+            </div>
+            <div class="">
+              <button
+                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+                >
+                  Action
+                </button>
+                <button
+                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+                >
+                  Action
+                </button>
+            </div>
+          </div>
+        </div>
+        </div>
+
+        <!-- Pagination & Navigation -->
+        <div class="flex items-center px-5 md:px-14">
+ <!--Custom Pagination -->
+ <div class="custom-swiper-pagination"></div>
+       
+     <!-- Custom navigation -->
+   <div class="container flex gap-5 justify-end items-center">
+<div class="custom-button custom-prev"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="48" height="48" rx="24" fill="#F9FAFB"/>
+ <path d="M27 32.67C26.81 32.67 26.62 32.6 26.47 32.45L19.95 25.93C18.89 24.87 18.89 23.13 19.95 22.07L26.47 15.55C26.76 15.26 27.24 15.26 27.53 15.55C27.82 15.84 27.82 16.32 27.53 16.61L21.01 23.13C20.53 23.61 20.53 24.39 21.01 24.87L27.53 31.39C27.82 31.68 27.82 32.16 27.53 32.45C27.38 32.59 27.19 32.67 27 32.67Z" fill="black"/>
+ </svg>
+ </div>
+<div class="custom-button custom-next"><svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+ <rect width="48" height="48" rx="24" fill="#1B8354"/>
+ <path d="M20.9101 32.67C20.7201 32.67 20.5301 32.6 20.3801 32.45C20.0901 32.16 20.0901 31.68 20.3801 31.39L26.9001 24.87C27.3801 24.39 27.3801 23.61 26.9001 23.13L20.3801 16.61C20.0901 16.32 20.0901 15.84 20.3801 15.55C20.6701 15.26 21.1501 15.26 21.4401 15.55L27.9601 22.07C28.4701 22.58 28.7601 23.27 28.7601 24C28.7601 24.73 28.4801 25.42 27.9601 25.93L21.4401 32.45C21.2901 32.59 21.1001 32.67 20.9101 32.67Z" fill="white"/>
+ </svg>
+ </div>
+</div>
+
+</div>
+   
+      </div>
+    </section>
+    <!-- SERVICES SECTION ENDS -->
+
+
+
+    <!-- COMMENTS & SUGGESTIONS SECTION -->
+    <section class="py-8">
+      <div class="container-custom">
+        <div
+          class="border border-[--border-primary-color] rounded-[--border-radius] p-3"
+        >
+          <img src="/icons/tick-bg.svg" alt="" class="mb-3.5 w-10" />
+          <p class="text-[1.1rem]"><strong>Comments & Suggestions</strong></p>
+          <p class="mt-2 mb-5">
+            For any inquiry or feedback on Government Services, please fill the
+            required information.
+          </p>
+          <button
+            class="bg-[--button-primary-color] text-[--button-text-color] py-[--button-padding-block] px-[--button-padding-inline] rounded-[--button-border-radius]"
+          >
+            Contact us
+          </button>
+        </div>
+      </div>
+    </section>
+    
+
+    <!-- FEEDBACK SECTION -->
+     <section class="py-4 border-t-2 border-[--primary-color]">
+      <div class="container-custom flex flex-col gap-2.5 sm:flex-row sm:gap-0 sm:items-center flex-wrap">
+        <p class="mr-5 order-1 sm:order-1">Was this page useful?</p>
+        <div class="order-3 sm:order2 space-x-2 flex-initial sm:flex-1">
+          <button class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color]">Yes</button>
+          <button class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color]">No</button>
+        </div>
+        <p class="text-sm order-2 sm:order-3">60% of users said Yes from 2843 Feedbacks</p>
+      
+      </div>
+     </section>
+
+
+     <!-- FOOTER SECTION STARTS -->
+    <footer class="bg-[#074D31] text-white py-10">
+      <div class="container-custom mb-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+        <!-- Overview -->
+        <div class="footer-section">
+          <h3 class="font-semibold relative pb-2 mb-2">Overview</h3>
+          <ul class="text-sm flex flex-col gap-1.5">
+            <li><a href="#">About [name of the portal]</a></li>
+            <li><a href="#">Privacy and terms of use</a></li>
+            <li><a href="#">How to use [name of the portal]</a></li>
+            <li><a href="#">News and events</a></li>
+            <li><a href="#">Service level agreement statistics</a></li>
+          </ul>
+        </div>
+    
+        <!-- Important Links -->
+        <div class="footer-section">
+          <h3 class="font-semibold relative pb-2 mb-2">Important Links</h3>
+          <ul class="text-sm flex flex-col gap-1.5">
+            <li><a href="#">National service portal</a></li>
+            <li><a href="#">Open government data</a></li>
+            <li><a href="#">National strategy for data &amp; Artificial intelligence</a></li>
+            <li><a href="#">Open data portal</a></li>
+            <li><a href="#">E-Participation portal</a></li>
+          </ul>
+        </div>
+    
+        <!-- Contact & Support -->
+        <div class="footer-section">
+          <h3 class="font-semibold relative pb-2 mb-2">Contact & Support</h3>
+          <ul class="text-sm flex flex-col gap-1.5">
+            <li><a href="#">Customer hub</a></li>
+            <li><a href="#">Contact us</a></li>
+            <li><a href="#">Engage with Us</a></li>
+            <li><a href="#">Submit complaint</a></li>
+            <li><a href="#">Report corruption</a></li>
+          </ul>
+        </div>
+    
+        <!-- Social Media & Accessibility Tools -->
+        <div class="footer-section flex flex-row flex-wrap sm:flex-col justify-between mt-5 sm:mt-0">
+          <div>
+            <h3 class="font-semibold relative pb-2 mb-2">Social Media</h3>
+            <div class="social-icons inline-flex gap-3">
+              <a href="#" class="icon"><img src="/icons/new-twitter.svg" alt=""></a>
+              <a href="#" class="icon"><img src="/icons/linkedin-02.svg" alt=""></a>
+              <a href="#" class="icon"><img src="/icons/instagram.svg" alt=""></a>
+            </div>
+            </div>
+            <div>
+            <h3 class="font-semibold relative pb-2 mb-2">Accessibility Tools</h3>
+            <div class="accessibility-icons inline-flex gap-3">
+              <a href="#" class="icon"><img src="/icons/sign-language-c.svg" alt=""></a>
+              <a href="#" class="icon"><img src="/icons/search-add.svg" alt=""></a>
+              <a href="#" class="icon"><img src="/icons/view.svg" alt=""></a>
+            </div>
+          </div>
+          </div> 
+        </div>
+    
+    
+      <div class="container-custom text-sm flex-wrap sm:flex-nowrap flex justify-between items-center mt-2">
+        <div class="">
+          <div class="links text-sm mb-6">
+          <a href="#" class="underline">Sitemap</a>
+          <a href="#" class="underline">RSS</a>
+          <a href="#" class="underline">Mobile App</a>
+        </div>
+          <p class="font-semibold">All Right Reserved For Digital Government Authority © 2024</p>
+        </div> 
+      
+      <div class="footer-logos inline-flex gap-3 mt-8 sm:mt-0">
+        <a class="logo-box"><img src="/images/Logo Placeholder.svg" alt="Platform Logo"></a>
+        <a class="logo-box"><img src="/images/Registerd on DGA.svg" alt="Registered Logo"></a>
+      </div>
+    </div>
+  </footer>
+ <!-- FOOTER SECTION ENDS -->
+     
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="main.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+
+
+        // Swiper for services action
+        var serviceSwiper = new Swiper(".service-slider", {
+          loop: true,
+          spaceBetween: 20,
+          centeredSlides: false,
+          navigation: {
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+          },
+          pagination: {
+            el: ".custom-swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+              return `<span class="${className} custom-pagination-bullet"></span>`
+            },
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1.2,
+              spaceBetween: 5,
+            },
+            640: {
+              slidesPerView: 2.2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3.5,
+              spaceBetween: 15,
+            },
+            1024: {
+              slidesPerView: 4.5,
+              spaceBetween: 15,
+            },
+          },
+        })
+
+
+
+        // Swiper for articles section
+        var articlesSwiper = new Swiper(".articles-slider", {
+          loop: true,
+          slidesPerView: 3,
+          spaceBetween: 20,
+          centeredSlides: false,
+         navigation: {
+            nextEl: ".custom-next",
+            prevEl: ".custom-prev",
+          },
+          pagination: {
+            el: ".custom-swiper-pagination",
+            clickable: true,
+            renderBullet: function (index, className) {
+              return `<span class="${className} custom-pagination-bullet"></span>`
+            },
+          },
+          breakpoints: {
+            0: {
+              slidesPerView: 1,
+              spaceBetween: 5,
+            },
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 10,
+            },
+            768: {
+              slidesPerView: 3,
+              spaceBetween: 15,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 20,
+            },
+          },
+        })
+        
+      })
+    </script>
+  </body>
+</html>
