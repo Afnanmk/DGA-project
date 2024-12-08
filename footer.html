@@ -3,81 +3,108 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+
+    <style>
+    .footer-section .footer_section_heading:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 1px; /* Adjust thickness as needed */
+    background-color: #fff;
+    opacity: 0.5;
+}
+  
+@media only screen and (max-width: 640px) {
+    footer > .container-custom {
+        width: 90% !important;
+    }
+}
+
+    </style>
 </head>
 <body>
-    <footer class="bg-[#074D31] text-white py-10">
-        <div class="container-custom mb-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    <footer class="bg-[#074D31] text-white pt-10 pb-6 flex flex-col gap-12">
+        <div class="container-custom  pt-4 pb-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
           <!-- Overview -->
           <div class="footer-section">
-            <h3 class="font-semibold relative pb-2 mb-2">Overview</h3>
-            <ul class="text-sm flex flex-col gap-1.5">
-              <li><a href="#">About [name of the portal]</a></li>
-              <li><a href="#">Privacy and terms of use</a></li>
-              <li><a href="#">How to use [name of the portal]</a></li>
-              <li><a href="#">News and events</a></li>
-              <li><a href="#">Service level agreement statistics</a></li>
+            <p class="footer_section_heading font-medium relative pb-2 mb-2">Overview</p>
+            <ul class="text-sm flex flex-col gap-2">
+              <li><a href="#" class="hover:underline">About [name of the portal]</a></li>
+              <li><a href="#" class="hover:underline">Privacy and terms of use</a></li>
+              <li><a href="#" class="hover:underline">How to use [name of the portal]</a></li>
+              <li><a href="#" class="hover:underline">News and events</a></li>
+              <li><a href="#" class="hover:underline">Service level agreement statistics</a></li>
             </ul>
           </div>
       
           <!-- Important Links -->
           <div class="footer-section">
-            <h3 class="font-semibold relative pb-2 mb-2">Important Links</h3>
-            <ul class="text-sm flex flex-col gap-1.5">
-              <li><a href="#">National service portal</a></li>
-              <li><a href="#">Open government data</a></li>
-              <li><a href="#">National strategy for data &amp; Artificial intelligence</a></li>
-              <li><a href="#">Open data portal</a></li>
-              <li><a href="#">E-Participation portal</a></li>
+            <p class="footer_section_heading font-medium relative pb-2 mb-2">Important Links</p>
+            <ul class="text-sm flex flex-col gap-2">
+              <li><a href="#" class="hover:underline">National service portal</a></li>
+              <li><a href="#" class="hover:underline">Open government data</a></li>
+              <li><a href="#" class="hover:underline">National strategy for data &amp; Artificial intelligence</a></li>
+              <li><a href="#" class="hover:underline">Open data portal</a></li>
+              <li><a href="#" class="hover:underline">E-Participation portal</a></li>
             </ul>
           </div>
       
           <!-- Contact & Support -->
           <div class="footer-section">
-            <h3 class="font-semibold relative pb-2 mb-2">Contact & Support</h3>
-            <ul class="text-sm flex flex-col gap-1.5">
-              <li><a href="#">Customer hub</a></li>
-              <li><a href="#">Contact us</a></li>
-              <li><a href="#">Engage with Us</a></li>
-              <li><a href="#">Submit complaint</a></li>
-              <li><a href="#">Report corruption</a></li>
+            <p class="footer_section_heading font-medium relative pb-2 mb-2">Contact & Support</p>
+            <ul class="text-sm flex flex-col gap-2">
+              <li><a href="#" class="hover:underline">Customer hub</a></li>
+              <li><a href="#" class="hover:underline">Contact us</a></li>
+              <li><a href="#" class="hover:underline">Engage with Us</a></li>
+              <li><a href="#" class="hover:underline">Submit complaint</a></li>
+              <li><a href="#" class="hover:underline">Report corruption</a></li>
             </ul>
           </div>
       
           <!-- Social Media & Accessibility Tools -->
-          <div class="footer-section flex flex-row flex-wrap sm:flex-col justify-between mt-5 sm:mt-0">
-            <div>
-              <h3 class="font-semibold relative pb-2 mb-2">Social Media</h3>
-              <div class="social-icons inline-flex gap-3">
-                <a href="#" class="icon"><img src="/icons/x-bg.svg" alt=""></a>
-                <a href="#" class="icon"><img src="/icons/linkedin-bg.svg" alt=""></a>
-                <a href="#" class="icon"><img src="/icons/instagram-bg.svg" alt=""></a>
+          <div class="footer-section flex flex-row flex-wrap sm:flex-col justify-between mt-5 sm:mt-0 gap-8">
+            <div class="space-y-2">
+              <p class="footer_section_heading font-medium relative pb-2">Social Media</p>
+              <div class="social-icons inline-flex gap-2">
+                <a href="#" class="icon hover:bg-[rgba(255,255,255,0.2)] active:bg-[rgba(255,255,255,0.4)] rounded-[4px]"><img src="/icons/x-bg.svg" alt=""></a>
+                <a href="#" class="icon hover:bg-[rgba(255,255,255,0.2)] active:bg-[rgba(255,255,255,0.4)] rounded-[4px]"><img src="/icons/linkedin-bg.svg" alt=""></a>
+                <a href="#" class="icon hover:bg-[rgba(255,255,255,0.2)] active:bg-[rgba(255,255,255,0.4)] rounded-[4px]"><img src="/icons/instagram-bg.svg" alt=""></a>
               </div>
               </div>
-              <div>
-              <h3 class="font-semibold relative pb-2 mb-2">Accessibility Tools</h3>
-              <div class="accessibility-icons inline-flex gap-3">
-                <a href="#" class="icon"><img src="/icons/hand-bg.svg" alt=""></a>
-                <a href="#" class="icon"><img src="/icons/zoom-in-bg.svg" alt=""></a>
-                <a href="#" class="icon"><img src="/icons/eye-bg.svg" alt=""></a>
+              <div class="space-y-2">
+              <p class="footer_section_heading font-medium relative pb-2">Accessibility Tools</p>
+              <div class="accessibility-icons inline-flex gap-2">
+                <a href="#" class="icon hover:bg-[rgba(255,255,255,0.2)] active:bg-[rgba(255,255,255,0.4)] rounded-[4px]"><img src="/icons/hand-bg.svg" alt=""></a>
+                <a href="#" class="icon hover:bg-[rgba(255,255,255,0.2)] active:bg-[rgba(255,255,255,0.4)] rounded-[4px]"><img src="/icons/zoom-in-bg.svg" alt=""></a>
+                <a href="#" class="icon hover:bg-[rgba(255,255,255,0.2)] active:bg-[rgba(255,255,255,0.4)] rounded-[4px]"><img src="/icons/eye-bg.svg" alt=""></a>
               </div>
             </div>
             </div> 
           </div>
       
       
-        <div class="container-custom text-sm flex-wrap sm:flex-nowrap flex justify-between items-center mt-2">
-          <div class="">
-            <div class="links text-sm mb-6">
+        <div class="container-custom text-sm flex-wrap sm:flex-nowrap flex justify-between items-center py-4">
+          <div class="space-y-10">
+            <div class="links text-sm space-x-4">
             <a href="#" class="underline">Sitemap</a>
             <a href="#" class="underline">RSS</a>
             <a href="#" class="underline">Mobile App</a>
           </div>
-            <p class="font-semibold">All Right Reserved For Digital Government Authority © 2024</p>
+          <div>
+            <p class="font-semibold text-sm mb-2">All Right Reserved For Digital Government Authority © 2024</p>
+            <p class="text-sm mb-4">Developed and Maintained by [insert name of the entity]</p>
+            <p class="text-sm">Last Modified date 04/12/2020</p>
+          </div>
           </div> 
         
-        <div class="footer-logos inline-flex gap-3 mt-8 sm:mt-0">
-          <a class="logo-box"><img src="/images/Logo Placeholder.svg" alt="Platform Logo"></a>
-          <a class="logo-box"><img src="/images/Registerd on DGA.svg" alt="Registered Logo"></a>
+        <div class="footer-logos inline-flex gap-4 mt-8 sm:mt-0">
+          <a href="#" class="logo-box"><img src="/images/Logo Placeholder.svg" alt="Platform Logo"></a>
+          <a href="#" class="logo-box"><img src="/images/Registerd on DGA.svg" alt="Registered Logo"></a>
         </div>
       </div>
     </footer>

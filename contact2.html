@@ -6,7 +6,6 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="main.css" />
-
     <style>
       
         :root {
@@ -38,12 +37,13 @@
         /********** Reusable Input focus styles **********/
         .input-wrapper {
           position: relative;
+          overflow: hidden;
         }
         .animated-line {
           position: absolute;
           bottom: 0;
           left: 50%;
-          width: 99.7%;
+          width: 100%;
           height: 2px;
           background-color: #161616;
           border-bottom-left-radius: 4px;
@@ -58,133 +58,180 @@
         .input-field:focus + .animated-line {
           transform: translateX(-50%) scaleX(1);
         }
+
+
+
+
     
         /********** Category input Styles ***********/
-        .select-menu {
-          width: 100%;
-          position: relative;
-          border: 1px solid transparent;
-          border-radius: 4px;
+        .select2-container {
+          
         }
-        .select-btn {
-          display: flex;
-          background: #f3f4f6;
-          color: #6c737f;
-          font-weight: 400;
-          border-radius: 4px;
-          align-items: center;
-          cursor: pointer;
-          justify-content: space-between;
-          padding-block: 0.4rem;
-          padding-inline: 1rem;
-          font-size: 0.875rem;
+        
+        .select2-container--default .select2-selection--single {
+          background-color: #F3F4F6; /* Matches your input background */
+          border-radius: 4px; /* Matches rounded corners */
+          padding-inline:1rem !important;
           height: 40px;
-        }
-        .select-btn:focus,
-        .select-menu:focus {
-          outline: none;
-        }
-        .select-btn:focus + .animated-line {
-          transform: translateX(-50%) scaleX(1);
-        }
-        .select-btn img {
-          transition: 0.3s;
-        }
-        .select-menu[aria-expanded="true"] .select-btn img {
-          transform: rotate(-180deg);
-        }
-        .options {
-          position: absolute;
-          width: 100%;
-          margin-top: 1px;
-          border-radius: 4px;
-          border: 1px solid #d2d6db;
-          background: #fff;
-          display: none;
-          z-index: 100;
-          padding: 8px;
-          -webkit-box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.3);
-          -moz-box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.3);
-          box-shadow: 0px 8px 8px -4px rgba(16, 24, 40, 0.13);
-        }
-        .select-menu[aria-expanded="true"] .options {
-          display: block;
-        }
-        .option {
           display: flex;
           align-items: center;
-          height: 37px;
+          font-size: .875rem;
+          line-height: 1.25rem;
+          font-weight: 400;
+          border: 1px solid transparent;
+          color: #6C737F;
+        }
+        .select2-container--default .select2-selection--single:hover {
+          
+        }
+        .select2-container .select2-selection--single .select2-selection__rendered {
+          padding: 0;
+        }
+        #country-code + .select2-container .select2-selection--single .select2-selection__rendered  {
+          color: #161616;
+        }
+        #country-code + .select2-container--default .select2-selection--single {
+          border-top-right-radius: 0;
+          border-bottom-right-radius: 0;
+        }
+        .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
           border-radius: 4px;
+        }
+        .select2-container--default .select2-selection--single .select2-selection__arrow {
+          
+        }
+        .select2-container--default .select2-selection--single .select2-selection__rendered {
+          color: #6C737F;
+        }
+        /* Placeholder Text Styling */
+        .select2-container--default .select2-selection--single .select2-selection__placeholder {
+          color: #6C737F; /* Gray placeholder text */
+        }
+        
+        
+        /* Dropdown Menu Styling */
+        .select2-dropdown.custom-dropdown {
+          border: 1px solid #D2D6DB; /* Matches dropdown border */
+          margin-top: 8px;
+          border-radius: 4px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+          padding: 8px;
+          background-color: #ffffff;
+        }
+        
+        .select2-results__option {
+          padding: 8px !important;
+          font-size: 14px;
+          color: #374151; /* Text color */
           cursor: pointer;
-          background: #fff;
-          padding-inline: 8px;
+          border-radius: 4px;
         }
-        .option:hover,
-        .option.focused {
-          background: #f3f4f6;
-          outline: none;
+        
+        .select2-results__option--hover,
+        .select2-results__option--highlighted {
+          background-color: #F3F4F6 !important; /* Hover background */
+          color: #1f2937 !important; /* Text color on hover */
         }
-    
-        .option .option-text {
-          font-size: 0.875rem;
+        
+        /* Dropdown Open Arrow Rotation */
+        .select2-container--default.select2-container--open .select2-selection--single {
+          border-radius: 4px;
         }
-        .select-menu:hover {
-          border-color: #161616;
+        
+        /* Custom arrow styling */
+        .custom-arrow {
+          position: absolute;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          transition: transform 0.3s ease-in-out;
+          pointer-events: none; /* Ensure it doesn’t block clicks */
         }
-    
+        
+        /* Rotate on dropdown open */
+        .custom-arrow.rotate {
+          transform: translateY(-50%) rotate(180deg);
+        }
+        
+        /* Position adjustment for the Select2 container */
+        .select2-container--default .select2-selection--single {
+          position: relative;
+          padding-right: 40px; /* Add space for custom arrow */
+        }
+        
+        .select2-selection__arrow {
+          display: none !important; /* Hide the default Select2 arrow */
+        }
+            
+
+
     /********* File Input Styles  ***********/
         /* Hide the default file input */
-        input[type="file"].hidden {
-                display: none;
-            }
-    
-            /* Style for the custom label (button) */
-            .file-label {
-                display: flex;
-                align-items: center;
-                width: fit-content;
-                padding: 0px 12px;
-                font-weight: 600;
-                font-size: .9rem;
-                height: 32px;
-                border: 1px solid #D2D6DB;
-                border-radius: 4px;
-                color: #161616;
-                cursor: pointer;
-                text-align: center;
-                position: relative;
-            }
-    
-            /* Hover effect */
-            .file-label:hover {
-                border-color: #E5E7EB;
-                background-color: #F3F4F6;
-            }
-    
-            /* Close button style */
-            .close-btn {
-                display: none;
-                position: absolute;
-                top: 50%;
-                right: 10px;
-                transform: translateY(-50%);
-                padding: 0.3rem 0.5rem;
-                border: none;
-                cursor: pointer;
-                transition: background-color 0.3s ease;
-            }
-    
-            .close-btn:hover {
-                background-color: #e60000;
-            }
-    
-            /* Show close button when a file is selected */
-            .file-label.file-selected .close-btn {
-                display: inline-block;
-            }
+input[type="file"].hidden {
+  display: none;
+}
+
+.file-input-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.file-label {
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  padding-inline:.75rem;
+  height: 32px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: 1px solid #d2d6db;
+  border-radius: 4px;
+  color: #161616;
+  cursor: pointer;
+  position: relative;
+  background-color: #f9fafb;
+}
+
+.file-label:hover {
+  border-color: #e5e7eb;
+  background-color: #f3f4f6;
+}
+
+.file-text {
+  
+}
+
+.progress-container {
+  display: flex;
+  align-items: center;
+}
+
+.progress-circle {
+  width: 20px;
+  height: 20px;
+  border: 2px solid transparent;
+  border-top-color: #161616;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.close-btn {
+  cursor: pointer;
+  margin-left: auto;
+  background: none;
+  border: none;
+  display: none;
+}
+
+
+
        
-    
-    
         /* Link hover styles */
         .right_side_links:hover {
           color: #54c08a;
@@ -299,8 +346,8 @@
                   >
                     <select
                       id="country-code"
-                      name="country_code"
-                      class="block rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm focus:outline-none"
+                      name="country-code"
+                      class="block rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] sm:text-sm focus:outline-none"
                     >
                       <option value="+966" selected>+966</option>
                       <option value="+1">+1</option>
@@ -339,51 +386,12 @@
                   <label for="category" class="block text-sm font-semibold mb-2">
                     Category
                   </label>
-                  <div
-                    class="select-menu mt-2"
-                    role="combobox"
-                    aria-expanded="false"
-                    aria-labelledby="select-label"
-                    aria-haspopup="listbox"
-                    tabindex="0"
-                  >
-                    <div id="select-label" class="select-btn" tabindex="0">
-                      <span class="sBtn-text">Select Category</span>
-                      <img
-                        src="/icons/arrow-down-01.svg"
-                        alt="arrow-down"
-                        aria-hidden="true"
-                      />
-                      <div class="animated-line"></div>
-                    </div>
-                    
-                    <ul class="options" role="listbox">
-                      <li
-                        class="option"
-                        role="option"
-                        tabindex="-1"
-                        id="option-1"
-                      >
-                        <span class="option-text">Suggestion</span>
-                      </li>
-                      <li
-                        class="option"
-                        role="option"
-                        tabindex="-1"
-                        id="option-2"
-                      >
-                        <span class="option-text">Complaint</span>
-                      </li>
-                      <li
-                        class="option"
-                        role="option"
-                        tabindex="-1"
-                        id="option-2"
-                      >
-                        <span class="option-text">Inquiry</span>
-                      </li>
-                    </ul>
-                  </div>
+                  <select id="category" class="select2-category" name="category">     
+                    <option value="" selected disabled>Select Category</option>
+                    <option value="suggestion">Suggestion</option>
+                    <option value="complaint">Complaint</option>
+                    <option value="inquiry">Inquiry</option>
+                  </select>
                  
                 </div>
 
@@ -420,7 +428,7 @@
 
                       <span class="file-text">Browse Files</span>
                     </div>
-                      <button type="button" class="close-btn" id="close-btn">
+                      <button type="button" class="close-btn p-1 rounded-[4px]" id="close-btn">
                         <svg
                           width="10"
                           height="10"
@@ -648,177 +656,168 @@
       </section>
     </div>
 
+
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     
     <script>
-      const selectMenu = document.querySelector(".select-menu"),
-        selectBtn = selectMenu.querySelector(".select-btn"),
-        options = selectMenu.querySelectorAll(".option"),
-        sBtnText = selectMenu.querySelector(".sBtn-text")
+      
+      $(document).ready(function () {
+        $('#category').select2({
+          width:"100%",
+          placeholder: "Select Category",
+          minimumResultsForSearch: Infinity, // Hides the search box
+          dropdownCssClass: "custom-dropdown", // Add a class for custom styling
+          allowClear: false, // Allow clear functionality if needed
+          templateResult: formatOption, // Use custom template
+          templateSelection: formatOption, // Custom selection display
+        });
+        
+        
+  // Toggle rotation of the SVG arrow for #category
+  $('#category').on('select2:open', function () {
+    $(this).next('.select2-container').find('.custom-arrow').addClass('rotate');
+  });
 
-      let currentFocusIndex = -1 // Track focused option index
+  $('#category').on('select2:close', function () {
+    $(this).next('.select2-container').find('.custom-arrow').removeClass('rotate');
+  });
 
-      // Toggle dropdown on button click
-      selectBtn.addEventListener("click", () => {
-        const expanded = selectMenu.getAttribute("aria-expanded") === "true"
-        selectMenu.classList.toggle("active")
-        selectMenu.setAttribute("aria-expanded", !expanded)
-        if (!expanded) currentFocusIndex = -1 // Reset focus index when opening
-      })
+  // Add SVG to the Select2 container
+  let $categoryArrow = $(
+    `<span class="custom-arrow" style="right:15px">
+      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.5031 1.1294C1.60467 1.26388 1.90793 1.66534 2.08853 1.89676C2.45026 2.36027 2.94452 2.97618 3.47769 3.59026C4.01356 4.20744 4.57648 4.80852 5.07658 5.25039C5.32734 5.47195 5.54762 5.64031 5.72939 5.74989C5.90035 5.85296 6.00134 5.87439 6.00134 5.87439C6.00134 5.87439 6.09936 5.85295 6.27031 5.7499C6.45209 5.64032 6.67237 5.47196 6.92313 5.25039C7.42322 4.80852 7.98615 4.20744 8.52201 3.59025C9.05518 2.97616 9.54944 2.36025 9.91117 1.89673C10.0918 1.66531 10.3946 1.26442 10.4962 1.12994C10.7009 0.852004 11.0925 0.792058 11.3705 0.996751C11.6484 1.20145 11.7078 1.59269 11.5031 1.87063L11.5015 1.87273C11.395 2.01376 11.0809 2.42963 10.8966 2.66577C10.5267 3.13975 10.018 3.77384 9.46589 4.40976C8.91646 5.04257 8.31173 5.69149 7.7508 6.18712C7.47105 6.4343 7.18747 6.65656 6.91567 6.82042C6.66102 6.97393 6.33861 7.125 5.99985 7.125C5.66109 7.125 5.33868 6.97393 5.08404 6.82041C4.81223 6.65656 4.52866 6.4343 4.24891 6.18712C3.68798 5.69149 3.08325 5.04258 2.53382 4.40977C1.98169 3.77386 1.473 3.13978 1.1031 2.6658C0.918709 2.42953 0.60464 2.01371 0.4983 1.87292L0.4969 1.87107C0.292204 1.59313 0.351284 1.20149 0.629218 0.996793C0.907143 0.792105 1.2984 0.851493 1.5031 1.1294Z" fill="#161616"/>
+      </svg>
+    </span>`
+  );
+  $('#category').next('.select2-container').find('.select2-selection').append($categoryArrow);
 
-      // Add click event to each option
-      options.forEach((option, index) => {
-        option.addEventListener("click", () => {
-          const selectedOption = option.querySelector(".option-text").innerText
-          sBtnText.innerText = selectedOption
 
-          selectMenu.classList.remove("active")
-          selectMenu.setAttribute("aria-expanded", "false")
-        })
 
-        // Assign unique IDs for accessibility
-        option.id = `option-${index}`
-      })
+        console.log($('#category').data('select2') ? "Select2 applied" : "Select2 not applied");
+      });
 
-      // Keyboard navigation
-      selectMenu.addEventListener("keydown", (e) => {
-        const expanded = selectMenu.getAttribute("aria-expanded") === "true"
+    
 
-        if (e.key === "ArrowDown") {
-          e.preventDefault()
-          if (!expanded) {
-            selectMenu.classList.add("active")
-            selectMenu.setAttribute("aria-expanded", "true")
-          }
-          currentFocusIndex = (currentFocusIndex + 1) % options.length
-          focusOption(currentFocusIndex)
-        } else if (e.key === "ArrowUp") {
-          e.preventDefault()
-          if (!expanded) {
-            selectMenu.classList.add("active")
-            selectMenu.setAttribute("aria-expanded", "true")
-          }
-          currentFocusIndex =
-            (currentFocusIndex - 1 + options.length) % options.length
-          focusOption(currentFocusIndex)
-        } else if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault()
-          if (expanded) {
-            if (currentFocusIndex >= 0 && currentFocusIndex < options.length) {
-              selectOption(currentFocusIndex) // Handle selection
-            }
-          } else {
-            selectMenu.classList.add("active")
-            selectMenu.setAttribute("aria-expanded", "true")
-          }
-        } else if (e.key === "Escape") {
-          e.preventDefault()
-          selectMenu.classList.remove("active")
-          selectMenu.setAttribute("aria-expanded", "false")
-        }
-      })
 
-      // Close dropdown on outside click
-      document.addEventListener("click", (e) => {
-        if (!selectMenu.contains(e.target)) {
-          selectMenu.classList.remove("active")
-          selectMenu.setAttribute("aria-expanded", "false")
-        }
-      })
 
-      // Focus an option
-      function focusOption(index) {
-        options.forEach((option, i) => {
-          option.classList.toggle("focused", i === index)
-          if (i === index) {
-            selectMenu.setAttribute("aria-activedescendant", option.id)
-            option.focus()
-          }
-        })
-      }
 
-      // Select an option
-      function selectOption(index) {
-        const selectedOption =
-          options[index].querySelector(".option-text").innerText
-        sBtnText.innerText = selectedOption
-        selectMenu.classList.remove("active")
-        selectMenu.setAttribute("aria-expanded", "false")
-        currentFocusIndex = -1 // Reset focus index after selection
-      }
+      ///// Country code selectbox functionality
+      $(document).ready(function () {
+        $('#country-code').select2({
+          width: "96px",
+          minimumResultsForSearch: Infinity, // Hides the search box
+          dropdownCssClass: "custom-dropdown", // Add a class for custom styling
+          allowClear: false, // Allow clear functionality if needed
+          templateResult: formatOption, // Use custom template
+          templateSelection: formatOption, // Custom selection display
+        });
+        
+        
+  // Toggle rotation of the SVG arrow for #country-code
+  $('#country-code').on('select2:open', function () {
+    $(this).next('.select2-container').find('.custom-arrow').addClass('rotate');
+  });
+
+  $('#country-code').on('select2:close', function () {
+    $(this).next('.select2-container').find('.custom-arrow').removeClass('rotate');
+  });
+
+  // Add SVG to the Select2 container
+  let $countryCodeArrow = $(
+    `<span class="custom-arrow" style="right:1px">
+      <svg width="12" height="8" viewBox="0 0 12 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.5031 1.1294C1.60467 1.26388 1.90793 1.66534 2.08853 1.89676C2.45026 2.36027 2.94452 2.97618 3.47769 3.59026C4.01356 4.20744 4.57648 4.80852 5.07658 5.25039C5.32734 5.47195 5.54762 5.64031 5.72939 5.74989C5.90035 5.85296 6.00134 5.87439 6.00134 5.87439C6.00134 5.87439 6.09936 5.85295 6.27031 5.7499C6.45209 5.64032 6.67237 5.47196 6.92313 5.25039C7.42322 4.80852 7.98615 4.20744 8.52201 3.59025C9.05518 2.97616 9.54944 2.36025 9.91117 1.89673C10.0918 1.66531 10.3946 1.26442 10.4962 1.12994C10.7009 0.852004 11.0925 0.792058 11.3705 0.996751C11.6484 1.20145 11.7078 1.59269 11.5031 1.87063L11.5015 1.87273C11.395 2.01376 11.0809 2.42963 10.8966 2.66577C10.5267 3.13975 10.018 3.77384 9.46589 4.40976C8.91646 5.04257 8.31173 5.69149 7.7508 6.18712C7.47105 6.4343 7.18747 6.65656 6.91567 6.82042C6.66102 6.97393 6.33861 7.125 5.99985 7.125C5.66109 7.125 5.33868 6.97393 5.08404 6.82041C4.81223 6.65656 4.52866 6.4343 4.24891 6.18712C3.68798 5.69149 3.08325 5.04258 2.53382 4.40977C1.98169 3.77386 1.473 3.13978 1.1031 2.6658C0.918709 2.42953 0.60464 2.01371 0.4983 1.87292L0.4969 1.87107C0.292204 1.59313 0.351284 1.20149 0.629218 0.996793C0.907143 0.792105 1.2984 0.851493 1.5031 1.1294Z" fill="#161616"/>
+      </svg>
+    </span>`
+  );
+  $('#country-code').next('.select2-container').find('.select2-selection').append($countryCodeArrow);
+
+
+
+        console.log($('#country-code').data('select2') ? "Select2 applied" : "Select2 not applied");
+      });
+
+      // Custom template function
+function formatOption(option) {
+    return option.text; // Adjust if specific customization needed
+  }
+
+
 
 
 
 
       // File input
       
-        const fileInput = document.getElementById('file-upload');
-        const fileLabel = document.getElementById('file-label');
-        const closeButton = document.getElementById('close-btn');
-        const fileText = fileLabel.querySelector('.file-text'); 
-        const progressCircle = document.getElementById("progress-circle");
-        const tickIcon = document.getElementById("tick-icon");
-
-
-        // Handle file selection
-        fileInput.addEventListener('change', function (event) {
-            const fileName = event.target.files[0]?.name || '';
-
-            if (fileName) {
-                fileLabel.querySelector('.close-btn').style.display = 'inline-block';
-                fileText.textContent = fileName; // Update only the text, keeping the close button
-                fileLabel.classList.add('file-selected');
-                progressCircle.classList.remove("hidden");
-                fileLabel.style.width = '100%';
-                fileLabel.style.backgroundColor = '#F3F4F6';
-                fileLabel.style.height = '36px';
-                fileText.style.marginLeft = '8px'
-                fileInput.disabled = true; 
-                fileInput.style.pointerEvents = 'none';
-
-                setTimeout(() => {
-                  // Simulate upload completion
-                  progressCircle.classList.add("hidden");
-                  tickIcon.classList.remove("hidden");
-                }, 1000);
-
-            } else {
-                resetFileInput();
-            }
-        });
-
-        // Handle close button click
-        closeButton.addEventListener('click', function (event) {
-            event.preventDefault(); // Prevent form submission if inside a form
-            resetFileInput();
-        });
-
-        // Prevent interaction with the file input when it's disabled
-fileInput.addEventListener('click', function (event) {
-  if (fileInput.disabled) {
-      event.preventDefault();
-  }
-});
-
-        // Reset the file input
-        function resetFileInput() {
-            fileInput.value = ''; // Clear the file input
-            fileText.textContent = 'Browse Files'; // Reset the label text
-            fileLabel.querySelector('.close-btn').style.display = 'none';
-            fileLabel.style.width = 'fit-content'
-            fileLabel.style.height = '32px'
-            fileLabel.classList.remove('file-selected');
-            fileLabel.style.backgroundColor = ''
+      const fileInput = document.getElementById("file-upload");
+      const fileLabel = document.getElementById("file-label");
+      const closeButton = document.getElementById("close-btn");
+      const fileText = fileLabel.querySelector(".file-text");
+      const progressCircle = document.getElementById("progress-circle");
+      const tickIcon = document.getElementById("tick-icon");
+      
+      // Handle file selection
+      fileInput.addEventListener("change", function (event) {
+        const fileName = event.target.files[0]?.name || "";
+      
+        if (fileName) {
+          fileLabel.querySelector(".close-btn").style.display = "inline-block";
+          closeButton.setAttribute("aria-hidden", "false");
+          fileText.textContent = fileName;
+          fileLabel.classList.add("file-selected");
+          progressCircle.classList.remove("hidden");
+          fileLabel.style.width = "100%";
+          fileLabel.style.backgroundColor = "#F3F4F6";
+          fileLabel.style.height = "36px";
+          fileText.style.marginLeft = "8px";
+          fileInput.disabled = true;
+          fileInput.style.pointerEvents = "none";
+      
+          setTimeout(() => {
+            // Simulate upload completion
             progressCircle.classList.add("hidden");
-            tickIcon.classList.add("hidden");
-            fileText.style.marginLeft = ''
-
-    // Enable the file input again
-    fileInput.disabled = false;
-    fileInput.style.pointerEvents = 'auto'
-            
+            tickIcon.classList.remove("hidden");
+          }, 1000);
+        } else {
+          resetFileInput();
         }
+      });
+      
+      // Handle keyboard interaction
+      fileLabel.addEventListener("keydown", function (event) {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          fileInput.click();
+        }
+      });
+      
+      // Handle close button click
+      closeButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        closeButton.setAttribute("aria-hidden", "true");
+        resetFileInput();
+      });
+      
+      // Reset the file input
+      function resetFileInput() {
+        fileInput.value = "";
+        fileText.textContent = "Browse Files";
+        fileLabel.querySelector(".close-btn").style.display = "none";
+        fileLabel.style.width = "fit-content";
+        fileLabel.style.height = "32px";
+        fileLabel.classList.remove("file-selected");
+        fileLabel.style.backgroundColor = "";
+        progressCircle.classList.add("hidden");
+        tickIcon.classList.add("hidden");
+        fileText.style.marginLeft = "";
+      
+        fileInput.disabled = false;
+        fileInput.style.pointerEvents = "auto";
+      }
+      
     </script>
     
   </body>

@@ -2,14 +2,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services</title>
-      <!-- Link Swiper's CSS -->
-      <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
-    <link rel="stylesheet" href="main.css" />
+    <title>Form</title>
+   
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css" />
 </head>
 
 
@@ -31,33 +27,36 @@
       <div class="w-full md:w-2/3 order-2 md:order-1">
 
         <!-- Title and Description -->
-        <h1 class="text-2xl font-semibold mb-4">Text Fields</h1>
-        <p class="text-sm mb-8">
+        <h2 class="">Text Fields</h2>
+        <p class="mb-8">
           When using forms, the standard form fields used are text fields which are typically used for short text input.
           Statuses of the form field are default, active, focused, error, hint, and disabled.
         </p>
-
+        
+        <!-- Required Info -->
+         <p class="text-[#B42318] text-sm">Required Information</p>
         
          <!-- Form -->
         <form action="#" method="POST" enctype="multipart/form-data" class="space-y-6 bg-white mt-8">
-         
-          <div class="grid gird-cols-1 sm:grid-cols-2 gap-6">
+          
+          <!-- Form Step 1 -->
+          <div class="form-step form-step-active gird-cols-1 sm:grid-cols-2 gap-6">
            <!-- Mandatory and Optional Text Inputs -->
            <div>
-             <label class="block text-sm font-medium mb-1">
-               Mandatory Text Input <span class="text-red-500">*</span>
+             <label class="block text-sm font-semibold mb-1">
+               <span class="text-[#B42318]">*</span> Mandatory Text Input
              </label>
              <input type="text" class="w-full  border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm placeholder:text-[#6C737F]" placeholder="Entered text">
            </div>
            <div>
-             <label class="block text-sm font-medium mb-1">Optional Text Input</label>
+             <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
              <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm placeholder:text-[#6C737F]" placeholder="Entered text">
            </div>
    
            <!-- Inputs with Icons -->
            <div>
-             <label class="block text-sm font-medium mb-1">
-               Mandatory Text Input <span class="text-red-500">*</span>
+             <label class="block text-sm font-semibold mb-1">
+               <span class="text-[#B42318]">*</span> Mandatory Text Input
              </label>
              <div class="flex items-center border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -68,7 +67,7 @@
              </div>
            </div>
            <div>
-             <label class="block text-sm font-medium mb-1">Optional Text Input</label>
+             <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
              <div class="flex items-center border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M9.16663 1.04163C4.67931 1.04163 1.04163 4.67931 1.04163 9.16663C1.04163 13.6539 4.67931 17.2916 9.16663 17.2916C11.1853 17.2916 13.032 16.5554 14.453 15.3369L17.8914 18.7752C18.1354 19.0193 18.5312 19.0193 18.7752 18.7752C19.0193 18.5312 19.0193 18.1354 18.7752 17.8914L15.3369 14.453C16.5554 13.032 17.2916 11.1853 17.2916 9.16663C17.2916 4.67931 13.6539 1.04163 9.16663 1.04163ZM2.29163 9.16663C2.29163 5.36967 5.36967 2.29163 9.16663 2.29163C12.9636 2.29163 16.0416 5.36967 16.0416 9.16663C16.0416 12.9636 12.9636 16.0416 9.16663 16.0416C5.36967 16.0416 2.29163 12.9636 2.29163 9.16663Z" fill="#161616"/>
@@ -80,8 +79,8 @@
    
            <!-- Inputs with Prefix -->
            <div>
-             <label class="block text-sm font-medium mb-1">
-               Mandatory Text Input <span class="text-red-500">*</span>
+             <label class="block text-sm font-semibold mb-1">
+               <span class="text-[#B42318]">*</span> Mandatory Text Input
              </label>
              <div class="flex items-center">
                <span class="border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Prefix</span>
@@ -89,7 +88,7 @@
              </div>
            </div>
            <div>
-             <label class="block text-sm font-medium mb-1">Optional Text Input</label>
+             <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
              <div class="flex items-center">
               <span class="border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Prefix</span>
               <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
@@ -99,8 +98,8 @@
 
               <!-- Inputs with suffix -->
               <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">
-                  Mandatory Text Input <span class="text-red-500">*</span>
+                <label class="block text-sm font-semibold text-gray-700 mb-1">
+                  <span class="text-[#B42318]">*</span> Mandatory Text Input
                 </label>
                 <div class="flex items-center">
                   <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
@@ -108,7 +107,7 @@
                 </div>
               </div>
               <div>
-                <label class="block text-sm font-medium mb-1">Optional Text Input</label>
+                <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
                 <div class="flex items-center">
                   <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
                   <span class="border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Suffix</span>
@@ -117,8 +116,8 @@
 
            <!-- Inputs with help -->
            <div>
-             <label class="block text-sm font-medium mb-1">
-               Mandatory Text Input <span class="text-red-500">*</span>
+             <label class="block text-sm font-semibold mb-1">
+               <span class="text-[#B42318]">*</span> Mandatory Text Input
              </label>
              <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
              <div class="inline-flex items-center gap-1.5 mt-2">
@@ -128,7 +127,7 @@
             
            </div>
            <div>
-             <label class="block text-sm font-medium mb-1">Optional Text Input</label>
+             <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
              <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
              <div class="inline-flex items-center gap-1.5 mt-2">
               <img src="/icons/help-circle.svg" alt="">
@@ -140,8 +139,8 @@
 
            <!-- Error States -->
            <div>
-            <label class="block text-sm font-medium  mb-1">
-              Mandatory Text Input <span class="text-red-500">*</span>
+            <label class="block text-sm font-semibold  mb-1">
+              <span class="text-[#B42318]">*</span> Mandatory Text Input
             </label>
             <input type="text" class="w-full border border-[#B42318] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
             <div class="inline-flex items-center gap-1.5 mt-2">
@@ -151,7 +150,7 @@
            
           </div>
           <div>
-            <label class="block text-sm font-medium mb-1">Optional Text Input</label>
+            <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
             <input type="text" class="w-full border border-[#B42318] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
             <div class="inline-flex items-center gap-1.5 mt-2">
              <img src="/icons/help-circle-error.svg" alt="">
@@ -161,68 +160,362 @@
    
            <!-- Disabled States -->
            <div>
-             <label class="block text-sm font-medium text-gray-400 mb-1">
-               Mandatory Text Input <span class="text-red-500">*</span>
+             <label class="block text-sm font-semibold text-gray-400 mb-1">
+               <span class="text-[#B42318]">*</span> Mandatory Text Input
              </label>
              <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm" disabled placeholder="Entered text">
            </div>
            <div>
-             <label class="block text-sm font-medium text-gray-400 mb-1">Optional Text Input</label>
+             <label class="block text-sm font-semibold text-gray-400 mb-1">Optional Text Input</label>
              <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm" disabled placeholder="Entered text">
            </div>
 
 
             <!-- Form Buttons -->
          <div class="flex gap-3">
-          <button
-                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
-                >
-                  Back
-                </button>
-                <button
-                class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+          
+                <button type="button"
+                class="btn-primary btn-next"
               >
                 Next
               </button>
+             
          </div>
          </div>
+
+        <!-- Form Step 2 -->
+        <div class="form-step bg-gray-100 gird-cols-1 sm:grid-cols-2 gap-6">
+          <!-- Mandatory and Optional Text Inputs -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              <span class="text-[#B42318]">*</span> Mandatory Text Input
+            </label>
+            <input type="text" class="w-full  border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm placeholder:text-[#6C737F]" placeholder="Entered text">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+            <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm placeholder:text-[#6C737F]" placeholder="Entered text">
+          </div>
+  
+          <!-- Inputs with Icons -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              <span class="text-[#B42318]">*</span> Mandatory Text Input
+            </label>
+            <div class="flex items-center border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]">
+             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path fill-rule="evenodd" clip-rule="evenodd" d="M9.16663 1.04163C4.67931 1.04163 1.04163 4.67931 1.04163 9.16663C1.04163 13.6539 4.67931 17.2916 9.16663 17.2916C11.1853 17.2916 13.032 16.5554 14.453 15.3369L17.8914 18.7752C18.1354 19.0193 18.5312 19.0193 18.7752 18.7752C19.0193 18.5312 19.0193 18.1354 18.7752 17.8914L15.3369 14.453C16.5554 13.032 17.2916 11.1853 17.2916 9.16663C17.2916 4.67931 13.6539 1.04163 9.16663 1.04163ZM2.29163 9.16663C2.29163 5.36967 5.36967 2.29163 9.16663 2.29163C12.9636 2.29163 16.0416 5.36967 16.0416 9.16663C16.0416 12.9636 12.9636 16.0416 9.16663 16.0416C5.36967 16.0416 2.29163 12.9636 2.29163 9.16663Z" fill="#161616"/>
+               </svg>
+               
+              <input type="text"  class="w-full focus:outline-none text-sm pl-2" placeholder="Entered text">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+            <div class="flex items-center border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]">
+             <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+               <path fill-rule="evenodd" clip-rule="evenodd" d="M9.16663 1.04163C4.67931 1.04163 1.04163 4.67931 1.04163 9.16663C1.04163 13.6539 4.67931 17.2916 9.16663 17.2916C11.1853 17.2916 13.032 16.5554 14.453 15.3369L17.8914 18.7752C18.1354 19.0193 18.5312 19.0193 18.7752 18.7752C19.0193 18.5312 19.0193 18.1354 18.7752 17.8914L15.3369 14.453C16.5554 13.032 17.2916 11.1853 17.2916 9.16663C17.2916 4.67931 13.6539 1.04163 9.16663 1.04163ZM2.29163 9.16663C2.29163 5.36967 5.36967 2.29163 9.16663 2.29163C12.9636 2.29163 16.0416 5.36967 16.0416 9.16663C16.0416 12.9636 12.9636 16.0416 9.16663 16.0416C5.36967 16.0416 2.29163 12.9636 2.29163 9.16663Z" fill="#161616"/>
+               </svg>
+               
+             <input type="text"  class="w-full focus:outline-none text-sm pl-2" placeholder="Entered text">
+           </div>
+          </div>
+  
+          <!-- Inputs with Prefix -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              <span class="text-[#B42318]">*</span> Mandatory Text Input
+            </label>
+            <div class="flex items-center">
+              <span class="border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Prefix</span>
+              <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
+            </div>
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+            <div class="flex items-center">
+             <span class="border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Prefix</span>
+             <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
+           </div>
+          </div>
+
+
+             <!-- Inputs with suffix -->
+             <div>
+               <label class="block text-sm font-semibold text-gray-700 mb-1">
+                 <span class="text-[#B42318]">*</span> Mandatory Text Input
+               </label>
+               <div class="flex items-center">
+                 <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
+                 <span class="border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Suffix</span>
+               </div>
+             </div>
+             <div>
+               <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+               <div class="flex items-center">
+                 <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
+                 <span class="border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Suffix</span>
+               </div>
+             </div>
+
+          <!-- Inputs with help -->
+          <div>
+            <label class="block text-sm font-semibold mb-1">
+              <span class="text-[#B42318]">*</span> Mandatory Text Input
+            </label>
+            <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
+            <div class="inline-flex items-center gap-1.5 mt-2">
+             <img src="/icons/help-circle.svg" alt="">
+             <p class="text-xs text-[#384250]">Help Text</p>
+            </div>
+           
+          </div>
+          <div>
+            <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+            <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
+            <div class="inline-flex items-center gap-1.5 mt-2">
+             <img src="/icons/help-circle.svg" alt="">
+             <p class="text-xs text-[#384250]">Help Text</p>
+            </div>
+          </div>
+
+
+
+          <!-- Error States -->
+          <div>
+           <label class="block text-sm font-semibold  mb-1">
+             <span class="text-[#B42318]">*</span> Mandatory Text Input
+           </label>
+           <input type="text" class="w-full border border-[#B42318] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
+           <div class="inline-flex items-center gap-1.5 mt-2">
+            <img src="/icons/help-circle-error.svg" alt="">
+            <p class="text-xs text-[#B42318]">Help Text</p>
+           </div>
+          
+         </div>
+         <div>
+           <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+           <input type="text" class="w-full border border-[#B42318] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
+           <div class="inline-flex items-center gap-1.5 mt-2">
+            <img src="/icons/help-circle-error.svg" alt="">
+            <p class="text-xs text-[#B42318]">Help Text</p>
+           </div>
+         </div>
+  
+          <!-- Disabled States -->
+          <div>
+            <label class="block text-sm font-semibold text-gray-400 mb-1">
+              <span class="text-[#B42318]">*</span> Mandatory Text Input
+            </label>
+            <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm" disabled placeholder="Entered text">
+          </div>
+          <div>
+            <label class="block text-sm font-semibold text-gray-400 mb-1">Optional Text Input</label>
+            <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm" disabled placeholder="Entered text">
+          </div>
+
+
+           <!-- Form Buttons -->
+        <div class="flex gap-3">
+         <button type="button"
+                 class="btn-secondary-outline btn-prev"
+               >
+                 Back
+               </button>
+               <button type="button"
+               class="btn-primary btn-next"
+             >
+               Next
+             </button>
+            
+        </div>
+        </div>
+
+        <!-- Form Step 3 -->
+        <div class="form-step bg-lime-50 gird-cols-1 sm:grid-cols-2 gap-6">
+  <!-- Mandatory and Optional Text Inputs -->
+  <div>
+    <label class="block text-sm font-semibold mb-1">
+      <span class="text-[#B42318]">*</span> Mandatory Text Input
+    </label>
+    <input type="text" class="w-full  border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm placeholder:text-[#6C737F]" placeholder="Entered text">
+  </div>
+  <div>
+    <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+    <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm placeholder:text-[#6C737F]" placeholder="Entered text">
+  </div>
+
+  <!-- Inputs with Icons -->
+  <div>
+    <label class="block text-sm font-semibold mb-1">
+      <span class="text-[#B42318]">*</span> Mandatory Text Input
+    </label>
+    <div class="flex items-center border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]">
+     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path fill-rule="evenodd" clip-rule="evenodd" d="M9.16663 1.04163C4.67931 1.04163 1.04163 4.67931 1.04163 9.16663C1.04163 13.6539 4.67931 17.2916 9.16663 17.2916C11.1853 17.2916 13.032 16.5554 14.453 15.3369L17.8914 18.7752C18.1354 19.0193 18.5312 19.0193 18.7752 18.7752C19.0193 18.5312 19.0193 18.1354 18.7752 17.8914L15.3369 14.453C16.5554 13.032 17.2916 11.1853 17.2916 9.16663C17.2916 4.67931 13.6539 1.04163 9.16663 1.04163ZM2.29163 9.16663C2.29163 5.36967 5.36967 2.29163 9.16663 2.29163C12.9636 2.29163 16.0416 5.36967 16.0416 9.16663C16.0416 12.9636 12.9636 16.0416 9.16663 16.0416C5.36967 16.0416 2.29163 12.9636 2.29163 9.16663Z" fill="#161616"/>
+       </svg>
+       
+      <input type="text"  class="w-full focus:outline-none text-sm pl-2" placeholder="Entered text">
+    </div>
+  </div>
+  <div>
+    <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+    <div class="flex items-center border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]">
+     <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+       <path fill-rule="evenodd" clip-rule="evenodd" d="M9.16663 1.04163C4.67931 1.04163 1.04163 4.67931 1.04163 9.16663C1.04163 13.6539 4.67931 17.2916 9.16663 17.2916C11.1853 17.2916 13.032 16.5554 14.453 15.3369L17.8914 18.7752C18.1354 19.0193 18.5312 19.0193 18.7752 18.7752C19.0193 18.5312 19.0193 18.1354 18.7752 17.8914L15.3369 14.453C16.5554 13.032 17.2916 11.1853 17.2916 9.16663C17.2916 4.67931 13.6539 1.04163 9.16663 1.04163ZM2.29163 9.16663C2.29163 5.36967 5.36967 2.29163 9.16663 2.29163C12.9636 2.29163 16.0416 5.36967 16.0416 9.16663C16.0416 12.9636 12.9636 16.0416 9.16663 16.0416C5.36967 16.0416 2.29163 12.9636 2.29163 9.16663Z" fill="#161616"/>
+       </svg>
+       
+     <input type="text"  class="w-full focus:outline-none text-sm pl-2" placeholder="Entered text">
+   </div>
+  </div>
+
+  <!-- Inputs with Prefix -->
+  <div>
+    <label class="block text-sm font-semibold mb-1">
+      <span class="text-[#B42318]">*</span> Mandatory Text Input
+    </label>
+    <div class="flex items-center">
+      <span class="border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Prefix</span>
+      <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
+    </div>
+  </div>
+  <div>
+    <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+    <div class="flex items-center">
+     <span class="border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Prefix</span>
+     <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
+   </div>
+  </div>
+
+
+     <!-- Inputs with suffix -->
+     <div>
+       <label class="block text-sm font-semibold text-gray-700 mb-1">
+         <span class="text-[#B42318]">*</span> Mandatory Text Input
+       </label>
+       <div class="flex items-center">
+         <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
+         <span class="border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Suffix</span>
+       </div>
+     </div>
+     <div>
+       <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+       <div class="flex items-center">
+         <input type="text" class="w-full focus:outline-none text-sm border border-[#9DA4AE] border-r-0 rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline]" placeholder="Entered text">
+         <span class="border border-[#9DA4AE] border-l-0 rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-gray-500 bg-[#F3F4F6] text-sm">Suffix</span>
+       </div>
+     </div>
+
+  <!-- Inputs with help -->
+  <div>
+    <label class="block text-sm font-semibold mb-1">
+      <span class="text-[#B42318]">*</span> Mandatory Text Input
+    </label>
+    <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
+    <div class="inline-flex items-center gap-1.5 mt-2">
+     <img src="/icons/help-circle.svg" alt="">
+     <p class="text-xs text-[#384250]">Help Text</p>
+    </div>
+   
+  </div>
+  <div>
+    <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+    <input type="text" class="w-full border border-[#9DA4AE] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
+    <div class="inline-flex items-center gap-1.5 mt-2">
+     <img src="/icons/help-circle.svg" alt="">
+     <p class="text-xs text-[#384250]">Help Text</p>
+    </div>
+  </div>
+
+
+
+  <!-- Error States -->
+  <div>
+   <label class="block text-sm font-semibold  mb-1">
+     <span class="text-[#B42318]">*</span> Mandatory Text Input
+   </label>
+   <input type="text" class="w-full border border-[#B42318] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
+   <div class="inline-flex items-center gap-1.5 mt-2">
+    <img src="/icons/help-circle-error.svg" alt="">
+    <p class="text-xs text-[#B42318]">Help Text</p>
+   </div>
+  
+ </div>
+ <div>
+   <label class="block text-sm font-semibold mb-1">Optional Text Input</label>
+   <input type="text" class="w-full border border-[#B42318] rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] text-sm" placeholder="Entered text">
+   <div class="inline-flex items-center gap-1.5 mt-2">
+    <img src="/icons/help-circle-error.svg" alt="">
+    <p class="text-xs text-[#B42318]">Help Text</p>
+   </div>
+ </div>
+
+  <!-- Disabled States -->
+  <div>
+    <label class="block text-sm font-semibold text-gray-400 mb-1">
+      <span class="text-[#B42318]">*</span> Mandatory Text Input
+    </label>
+    <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm" disabled placeholder="Entered text">
+  </div>
+  <div>
+    <label class="block text-sm font-semibold text-gray-400 mb-1">Optional Text Input</label>
+    <input type="text" class="w-full border border-gray-300 rounded-md px-3 py-2 text-sm" disabled placeholder="Entered text">
+  </div>
+
+
+   <!-- Form Buttons -->
+<div class="flex gap-3">
+ <button type="button"
+         class="btn-secondary-outline btn-prev"
+       >
+         Back
+       </button>
+       <button type="submit"
+       class="btn-primary btn-submit"
+     >
+       Submit
+     </button>
+    
+</div>
+        </div>
+
+
       </form>
     </div>
 
       <!-- Right Side: Step Indicator: Desktop -->
-      <div class="self-start bg-[#F9FAFB] rounded-[--border-radius] w-full md:w-1/3 order-1 md:order-2 p-6 -mt-9">
+      <div class="self-start h-[384px] max-h-[auto] bg-[#F9FAFB] rounded-[--border-radius] w-full md:w-1/3 order-1 md:order-2 p-10 -mt-9">
         <div class='wrapper hidden md:block'>
           <div class='steps' id='steps'>
+            <div class="progress" id="progress"></div>
+
             <div class='step'>
-              <div class='number completed'>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path fill-rule="evenodd" clip-rule="evenodd" d="M13.0119 3.9717C13.2117 4.16237 13.219 4.47886 13.0283 4.67861L6.02835 12.0119C5.93539 12.1093 5.8071 12.1651 5.67248 12.1667C5.53787 12.1682 5.40831 12.1155 5.31312 12.0203L2.97978 9.68693C2.78452 9.49167 2.78452 9.17508 2.97978 8.97982C3.17504 8.78456 3.49163 8.78456 3.68689 8.97982L5.65835 10.9513L12.305 3.98814C12.4957 3.78839 12.8122 3.78103 13.0119 3.9717Z" fill="#161616" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  
-              </div>
+              <div class='step-number'>1</div>
               <div class='info'>
                 <p class='title'>
                   Step one
                 </p>
-                <p class='text'>description for step 1</p>
+                <p class='text'>description for step 1.</p>
               </div>
             </div>
           
             <div class='step'>
-              <div class='number'>2</div>
+              <div class='step-number'>2</div>
               <div class='info'>
                 <p class='title'>Step Two</p>
-                <p class='text'>description for step 2</p>
+                <p class='text'>description for step 2.</p>
               </div>
             </div>
             
               <div class='step'>
-              <div class='number'>3</div>
+              <div class='step-number'>3</div>
               <div class='info'>
                 <p class='title'>Step Three</p>
-                <p class='text'>description for step 3</p>
+                <p class='text'>description for step 3.</p>
               </div>
             </div>
+
+
           </div>
           </div>
 
@@ -257,29 +550,117 @@
       </div>
       </div>
 
-
-
-     
-
   </section>
 
 
-   <!-- FEEDBACK SECTION -->
-   <section class="py-4 border-t-2 border-[--primary-color]">
-    <div class="container-custom flex flex-col gap-2.5 sm:flex-row sm:gap-0 sm:items-center flex-wrap">
-      <p class="mr-5 order-1 sm:order-1">Was this page useful?</p>
-      <div class="order-3 sm:order2 space-x-2 flex-initial sm:flex-1">
-        <button class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color]">Yes</button>
-        <button class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color]">No</button>
-      </div>
-      <p class="text-sm order-2 sm:order-3">60% of users said Yes from 2843 Feedbacks</p>
-    
-    </div>
-   </section>
 
 
-    
     <script>
+      const prevBtns = document.querySelectorAll(".btn-prev");
+const nextBtns = document.querySelectorAll(".btn-next");
+const progress = document.getElementById("progress");
+const formSteps = document.querySelectorAll(".form-step");
+const progressStepNumbers = document.querySelectorAll(".step-number");
+
+let formStepsNum = 0;
+
+// Set the first step indicator as 'current' when the page loads
+document.addEventListener("DOMContentLoaded", () => {
+  // Initially mark the first step as 'current'
+  progressStepNumbers[formStepsNum].classList.add("step-number-current");
+  progressStepNumbers[formStepsNum].classList.remove("step-number-completed", "step-number-upcoming");
+  updateFormSteps();
+  updateProgressBar();
+});
+
+nextBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formStepsNum++;
+    updateFormSteps();
+    updateProgressBar();
+  });
+});
+
+prevBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    formStepsNum--;
+    updateFormSteps();
+    updateProgressBar();
+  });
+});
+
+function updateFormSteps() {
+  // Remove 'form-step-active' class from all steps
+  formSteps.forEach((formStep) => {
+    formStep.classList.remove("form-step-active");
+  });
+
+  // Add 'form-step-active' class to the current step
+  formSteps[formStepsNum].classList.add("form-step-active");
+}
+
+function updateProgressBar() {
+  progressStepNumbers.forEach((stepNumber, index) => {
+    // Reset the classes for each step
+    stepNumber.classList.remove("step-number-current", "step-number-completed", "step-number-upcoming");
+
+    // If the step is the current step
+    if (index === formStepsNum) {
+      stepNumber.classList.add("step-number-current");
+    }
+    // If the step is completed
+    else if (index < formStepsNum) {
+      stepNumber.classList.add("step-number-completed");
+    }
+    // If the step is upcoming
+    else {
+      stepNumber.classList.add("step-number-upcoming");
+    }
+  });
+
+  // Ensure the last step indicator has the correct "current" class when it's the active step
+  if (formStepsNum === formSteps.length - 1) {
+    const lastStepIndicator = progressStepNumbers[formSteps.length - 1];
+    lastStepIndicator.classList.add("step-number-current");
+    lastStepIndicator.classList.remove("step-number-completed", "step-number-upcoming");
+  }
+}
+
+
+    
+
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       // Variables for the current step and total steps
       let currentStep = 1;
 const totalSteps = 4;

@@ -1,33 +1,322 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Services</title>
-      <!-- Link Swiper's CSS -->
-      <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
     <link rel="stylesheet" href="main.css" />
     <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body>
-    
-  <!-- FEEDBACK SECTION -->
-  <section class="py-4 border-t-2 border-[--primary-color]">
-    <div class="container-custom flex flex-col gap-2.5 sm:flex-row sm:gap-0 sm:items-center flex-wrap">
-      <p class="mr-5 order-1 sm:order-1">Was this page useful?</p>
-      <div class="order-3 sm:order2 space-x-2 flex-initial sm:flex-1">
-        <button class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color]">Yes</button>
-        <button class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color]">No</button>
-      </div>
-      <p class="text-sm order-2 sm:order-3">60% of users said Yes from 2843 Feedbacks</p>
-    
-    </div>
-   </section>
  
+ <style>
+  :root {
+    --text-default-color: #161616;
+    --primary-color: #1B8354;
+
+    --border-primary-color:#D2D6DB;
+    --border-radius: 12px;
+
+    --button-primary-color: #1B8354;
+    --button-primary-hover: #166A45;
+    --button-secondary-color: #D2D6DB;
+    --button-secondary-hover:#F3F4F6;
+    --button-secondary-border-hover: #E5E7EB;
+    --button-active-color: #104631;
+    --button-border-radius: 4px;
+    --button-padding-block: 0.5rem;
+    --button-padding-inline: 0.75rem;
+    --button-text-color: #ffffff;
+    --button-secondary-text-color:#161616;
+
+    --contact-form-bg: #F3F4F6;
+    --contact-form-text: #6C737F;
+    --form-input-radius: 4px;
+    --form-padding-block: 0.5rem;
+    --form-padding-inline:0.5rem;
+}
+
+  /* Custom checkbox styles */
+input[type="checkbox"] {
+    appearance: none;
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid #6C737F;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  input[type="checkbox"]:checked {
+    background-color: #1B8354;
+    border: none;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    content: url("/icons/checked-icon.svg");
+  }
+
+/* Custom radio button styles */
+input[type="radio"] {
+    appearance: none;
+    border-radius: 50%;
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid #6C737F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  input[type="radio"]:checked {
+      border-color: #1B8354;
+  }
+  input[type="radio"]:checked::before {
+      content: "";
+      width: 13px;
+      height: 13px;
+      background-color: #1B8354;
+      border-radius: 50%;
+  }
+
+ </style>
+ </head>
+
+  <body>
+    <!-- FEEDBACK SECTION -->
+    <section id="feedback-section" class="py-4 border-t-2 border-[--primary-color]">
+    
+     <!-- Feedback Questions -->
+     <div id="question-bar" class="container-custom flex flex-col gap-2.5 sm:flex-row sm:gap-0 sm:items-center flex-wrap">
+      <p id="question-text" class="mr-5 order-2 sm:order-1">Was this page useful?</p>
+      <div id="yes-no-buttons" class="order-3 sm:order2 space-x-2 flex-initial sm:flex-1">
+        <button id="yes-button" class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color] hover:bg-[--button-primary-hover] text-sm">Yes</button>
+        <button id="no-button" class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color] hover:bg-[--button-primary-hover] text-sm">No</button>
+      </div>
+      <p id="survey" class="text-sm order-2 sm:order-3">60% of users said Yes from 2843 Feedbacks</p>
+      <button id="close-button" class="hidden items-center justify-end sm:justify-normal gap-1 order-1 sm:order-3 font-semibold hover:bg-[--button-secondary-hover] py-[--button-padding-block] px-[--button-padding-inline] rounded-[--button-border-radius]">Close <img src="/icons/close-btn.svg" alt="" class="w-4 -mb-1"></button>
+    </div>
+
+
+      <!-- Dynamic Content -->
+      <div id="feedback-options" class="container-custom hidden pt-5">
+        <div class="flex flex-col md:flex-row md:justify-between">
+        <div>
+          <!-- Questions for yes button -->
+        <div id="yes-options" class="hidden space-y-3">
+          <p class="font-bold">
+            Please tell us why <span class="text-xs text-[#6C737F] font-normal"
+              >(you can select multiple options)</span
+            >
+          </p>
+          <div class="space-y-3">
+            <label class="flex items-center font-semibold w-fit">
+              <input type="checkbox" class="mr-3 shrink-0" /> Content is relevant
+            </label>
+            <label class="flex items-center font-semibold w-fit">
+              <input type="checkbox" class="mr-3 shrink-0" /> It was well written
+            </label>
+            <label class="flex items-center font-semibold w-fit">
+              <input type="checkbox" class="mr-3 shrink-0" /> The layout made it easy to
+              read
+            </label>
+            <label class="flex items-center font-semibold w-fit">
+              <input type="checkbox" class="mr-3 shrink-0" /> Something else
+            </label>
+          </div>
+        </div>
+        <!-- Questions for no button -->
+        <div id="no-options" class="hidden space-y-3">
+          <p class="font-bold">
+            Please tell us why <span class="text-xs text-[#6C737F] font-normal"
+              >(you can select multiple options)</span
+            >
+          </p>
+          <div class="space-y-3">
+            <label class="flex items-center font-semibold w-fit">
+              <input type="checkbox" class="mr-3 shrink-0" />Content is not relevant
+            </label>
+            <label class="flex items-center font-semibold w-fit">
+              <input type="checkbox" class="mr-3 shrink-0" /> Content is not accurate
+            </label>
+            <label class="flex items-center font-semibold w-fit">
+              <input type="checkbox" class="mr-3 shrink-0" /> Content is too long
+            </label>
+            <label class="flex items-center font-semibold w-fit">
+              <input type="checkbox" class="mr-3 shrink-0" /> Something else
+            </label>
+          </div>
+        </div>
+      
+      </div>
+        <!-- Feedback Text Area -->
+        <div class="w-full md:w-1/2 mt-5 md:mt-0">
+          <label class="block text-sm mb-2">Feedback</label>
+          <div class="input-wrapper">
+          <textarea
+            class="input-field w-full border border-[#9DA4AE] rounded-[4px] py-2 px-4 placeholder:text-[--text-default-color] hover:border-[#161616] focus:outline-none"
+            rows="3"
+            placeholder="Enter your feedback here"
+          ></textarea>
+          <div class="animated-line"></div>
+        </div>
+        </div>
+      </div>
+        <!-- Gender selection area -->
+        <div class="flex  flex-col sm:flex-row sm:items-center flex-wrap gap-5 mt-6">
+          <p class="font-bold">I'm</p>
+          <div class="inline-flex items-center space-x-3">
+            <input type="radio" id="male" name="gender" value="male" class="shrink-0"/>
+            <label for="male" class="font-semibold">Male</label><br />
+          </div>
+          <div class="inline-flex items-center space-x-3">
+            <input type="radio" id="female" name="gender" value="female" class="shrink-0"/>
+            <label for="female" class="font-semibold">Female</label><br />
+          </div>
+          <div class="inline-flex items-center space-x-3">
+            <input
+              type="radio"
+              id="other"
+              name="gender"
+              value="other"
+              class="shrink-0"
+            />
+            <label for="other" class="font-semibold">I prefer not to say</label>
+          </div>
+        </div>
+        <!-- Submit Button -->
+         <div class="mt-7 sm:space-y-0 space-y-7 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+          <p>For more information you may review <a href="#" class="text-[#1B8354] underline">e-participation statements</a> and <a href="#" class="text-[#1B8354] underline">rules of engagement</a></p>
+          <button
+          id="submit-button"
+          class="text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm ml-0 sm:ml-4 w-fit"
+        >
+          Submit
+        </button>
+         </div>
+      </div>
+      <!-- Confirmation Message -->
+      <div id="confirmation-message" class="hidden flex flex-col gap-3 sm:gap-0 container-custom sm:justify-between sm:items-center ">
+        <div class="inline-flex items-center gap-5">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M1.75 11C1.75 16.1086 5.89137 20.25 11 20.25C16.1086 20.25 20.25 16.1086 20.25 11C20.25 10.0319 20.1015 9.0999 19.8267 8.22474C19.7025 7.82956 19.9223 7.40858 20.3175 7.28446C20.7126 7.16034 21.1336 7.38008 21.2577 7.77526C21.5778 8.79419 21.75 9.87769 21.75 11C21.75 16.9371 16.9371 21.75 11 21.75C5.06294 21.75 0.25 16.9371 0.25 11C0.25 5.06294 5.06294 0.25 11 0.25C12.1223 0.25 13.2058 0.422239 14.2247 0.742266C14.6199 0.866385 14.8397 1.28736 14.7155 1.68254C14.5914 2.07772 14.1704 2.29746 13.7753 2.17334C12.9001 1.89847 11.9681 1.75 11 1.75C5.89137 1.75 1.75 5.89137 1.75 11Z" fill="#1B8354"/>
+        <path d="M20.5577 2.50174C20.8348 2.19386 20.8099 1.71964 20.502 1.44254C20.1941 1.16544 19.7199 1.1904 19.4428 1.49828L10.9714 10.9107L8.03033 7.96968C7.73744 7.67678 7.26256 7.67678 6.96967 7.96968C6.67678 8.26257 6.67678 8.73744 6.96967 9.03034L10.4697 12.5303C10.6152 12.6758 10.814 12.7552 11.0197 12.7497C11.2254 12.7443 11.4198 12.6547 11.5575 12.5017L20.5577 2.50174Z" fill="#1B8354"/>
+        </svg>
+        <p>Your feedback has been submitted!</p>
+      </div>
+      <p id="confirmation-survey" class="text-sm">60% of users said Yes from 2843 Feedbacks</p>
+
+      </div>
+    </section>
+
+
+
+      <!-- Mega Menu -->
+  <div
+  class="hidden mega-menu absolute left-0 top-[72px] w-screen bg-white shadow-md z-10"
+>
+  <div class="container-custom grid grid-cols-4 gap-6 py-8">
+    <div class="menu-column">
+      <h4 class="font-semibold mb-3 px-4 text-[#1B8354]">Group Label</h4>
+      <ul class="space-y-1">
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+      </ul>
+    </div>
+    <div class="menu-column">
+      <h4 class="font-semibold mb-3 px-4 text-[#1B8354]">Group Label</h4>
+      <ul class="space-y-1">
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+      </ul>
+    </div>
+    <div class="menu-column">
+      <h4 class="font-semibold mb-3 px-4 text-[#1B8354]">Group Label</h4>
+      <ul class="space-y-1">
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+      </ul>
+    </div>
+    <div class="menu-column">
+      <h4 class="font-semibold mb-3 px-4 text-[#1B8354]">Group Label</h4>
+      <ul class="space-y-1">
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+        <a href="#" class="block hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]">Menu Item Label</a>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+    <script>
+      // Get elements
+      const yesButton = document.getElementById("yes-button")
+      const noButton = document.getElementById("no-button")
+      const feedbackOptions = document.getElementById("feedback-options")
+      const yesOptions = document.getElementById("yes-options")
+      const noOptions = document.getElementById("no-options")
+      const closeButton = document.getElementById("close-button")
+      const submitButton = document.getElementById("submit-button")
+      const confirmationMessage = document.getElementById(
+        "confirmation-message"
+      )
+      const feedbackSection = document.getElementById("feedback-section")
+      const questionText = document.getElementById("question-text")
+      const yesNoButtons = document.getElementById("yes-no-buttons")
+      const surveyText = document.getElementById("survey")
+      const confirmSurveyText = document.getElementById("corfirmation-survey")
+      const questionBar = document.getElementById("question-bar")
+      
+
+
+      // Show options based on selection
+      yesButton.addEventListener("click", () => {
+        feedbackOptions.classList.remove("hidden")
+        yesOptions.classList.remove("hidden")
+        noOptions.classList.add("hidden")
+        confirmationMessage.classList.add("hidden")
+        surveyText.classList.add("hidden")
+        closeButton.classList.remove("hidden")
+        closeButton.classList.add("inline-flex")
+
+      })
+
+      noButton.addEventListener("click", () => {
+        feedbackOptions.classList.remove("hidden")
+        noOptions.classList.remove("hidden")
+        yesOptions.classList.add("hidden")
+        confirmationMessage.classList.add("hidden")
+        surveyText.classList.add("hidden")
+        closeButton.classList.remove("hidden")
+        closeButton.classList.add("inline-flex")
+       
+      })
+
+      // Close the feedback section
+      closeButton.addEventListener("click", () => {
+        feedbackOptions.classList.add("hidden")
+        closeButton.classList.add("hidden")
+        surveyText.classList.remove("hidden")
+      })
+
+      // Submit feedback
+      submitButton.addEventListener("click", () => {
+        feedbackOptions.classList.add("hidden")
+        questionBar.classList.add("hidden")
+        confirmationMessage.classList.remove("hidden")
+        confirmationMessage.classList.add('sm:flex-row')
+      })
+    </script>
 
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="main.js"></script>
-</body>
+  </body>
 </html>

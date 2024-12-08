@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap');
+
+
 :root {
     --text-default-color: #161616;
     --primary-color: #1B8354;
@@ -6,13 +9,16 @@
     --border-radius: 12px;
 
     --button-primary-color: #1B8354;
+    --button-primary-text-color: #ffffff;
     --button-primary-hover: #166A45;
+    --button-secondary-outline-color: #D2D6DB;
     --button-secondary-color: #D2D6DB;
     --button-secondary-hover:#F3F4F6;
     --button-secondary-border-hover: #E5E7EB;
+    --button-active-color: #104631;
     --button-border-radius: 4px;
     --button-padding-block: 0.5rem;
-    --button-padding-inline: 0.75rem;
+    --button-padding-inline: 1rem;
     --button-text-color: #ffffff;
     --button-secondary-text-color:#161616;
 
@@ -25,9 +31,84 @@
 
 body {
     color: var(--text-default-color);
+    font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+h1 {
+    font-size: 3.75rem !important;
+    font-weight: 600 !important;
+    line-height: 4.5rem !important;
+    letter-spacing: -2% !important;
+}
+h2 {
+    font-size: 1.875rem !important;
+    font-weight: 700 !important;
+    line-height: 2.375rem !important;
+    letter-spacing: 0% !important;
+}
+h3 {
+    font-size: 1.125rem !important;
+    font-weight: 700 !important;
+    line-height: 1.75rem !important;
+    letter-spacing: 0% !important;
+}
+li {
+    text-decoration: none;
+    list-style: none;
+}
+.container-custom {
+    width: 90%;
+    max-width: 80rem;
+    margin:0 auto;
 }
 
 
+/*********** BUTTON COMPONENT STYLES  ***********/
+/* Style: primary */
+.btn-primary {
+     height: 40px;
+     padding-inline: 1rem;
+     border-radius: 4px;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     background-color: var(--button-primary-color);
+     color: var(--button-primary-text-color);
+     font-weight: 500;
+     font-size: 1rem;
+     line-height: 1.5rem;
+}
+.btn-primary:hover {
+    background-color: #166A45;
+}
+.btn-primary:active {
+    background-color: #104631;
+}
+
+/* Style: secondary-outline */
+.btn-secondary-outline{
+    height: 40px;
+    padding-inline: 1rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    font-size: 1rem;
+    line-height: 1.5rem;
+    border: 1px solid var(--button-secondary-outline-color);
+    color: var(--text-default-color);
+}
+.btn-secondary-outline:hover {
+    background-color: #F3F4F6;
+}
+.btn-secondary-outline:active {
+    background-color: #E5E7EB;
+}
+
+
+
+
+/************ BREADCRUMB STYLES STARTS ************/
 .breadcrumb li::after {
     content: '';
     display: inline-block;
@@ -40,11 +121,6 @@ body {
     margin-right: 5px;
     
 }
-.container-custom {
-    width: 90% !important;
-    max-width: 80rem !important;
-    margin:0 auto !important;
-}
 
 .breadcrumb li:last-child::after {
     content: ''; /* Remove the arrow for the last item */
@@ -55,40 +131,13 @@ body {
     pointer-events: none;
     text-decoration: none;
 }
+/************ BREADCUMB STYLES ENDS ************/
 
 
 
 
-@media only screen and (max-width: 650px) {
-    .container-custom {
-     width: 95% !important;
-    }
-   }
-li {
-    text-decoration: none;
-    list-style: none;
-}
-.nav-menu a {
-    position: relative;
-}
-.nav-right button {
-    position: relative;
-}
-.nav-menu a:hover::after, .nav-right button:hover::after  {
-    position: absolute;
-    content: '';
-    background-color: gray;
-    width: 100%;
-    height: 4px;
-    bottom: 0;
-    left: 0;
-    border-radius: 3px;
-}
 
-
-.btn {
-    background-color: #1B8354;
-}
+/************ HERO SECTION STYLES STARTS ************/
 .hero-slider .swiper-pagination-bullet {
     background-color: #E5E7EB;
     opacity: 0.5;
@@ -101,6 +150,21 @@ li {
    width: 13px;
    height: 13px;
 }
+
+@media only screen and (max-width:640px) {
+    .hero_slider_heading {
+       font-size: 3rem !important;
+       line-height: 2.75rem !important;
+    }
+    .hero_slider_description {
+
+    }
+}
+/************ HERO SECTION STYLES ENDS ************/
+
+
+
+
 .light-green {
     background-color: #F3FCF6;
 }
@@ -127,11 +191,7 @@ li {
     background-color: #fff;
     opacity: 0.5;
 }
-.search-bar-icon {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
+
 .tab-content {
     display: none;
 }
@@ -161,79 +221,83 @@ li {
 /******* Form page: Step Indicator Desktop styling *******/
 
  .steps {
-	 max-width: 300px;
-	 margin: 0 auto;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
- .step {
+.steps::after {
+    content: "";
+    position: absolute;
+    width: 2px;
+    background-color: #D2D6DB;
+    left: 15px;
+    top: 0px; /* Start from the center of the first step */
+    bottom: 32px; /*Stop at the center of the last step */
+}
+
+ .step{
 	 display: flex;
-	 position: relative;
+     gap: 8px;
+     position: relative;
+     z-index: 1;
 }
- .step:after {
-	 content: "";
-	 position: absolute;
-     left: .8rem;
-	 top: 29px;
-	 height: 73%;
-	 width: 2px;
-	 background-color: #1B8354;
+
+.step:not(:last-child) {
+    flex: 1;
+    
 }
- .step .info {
-	 /* margin: 8px 0 20px; */
-     padding-bottom: 4rem;
+.step-number {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid #D2D6DB;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #D2D6DB;
+    background-color: #F9FAFB;
+    z-index: 2;
+    flex-shrink: 0;
+    font-weight: 500;
 }
+
+.step-number-current {
+    border-color: #1B8354;
+    color: #1B8354;
+}
+.step-number-completed {
+    background-color: #1B8354;
+    border-color: #1B8354;
+    color: #ffffff;
+}
+.step-number-upcoming {
+    background-color: #F9FAFB;
+    border-color: #D2D6DB;
+    color: #D2D6DB;
+}
+
  .step .title {
-	 font-size: 16px;
-	 font-weight: 600;
-	 /* margin: 0 0 8px; */
-     margin-bottom: .2rem;
+	 font-size: 1rem;
+     line-height: 1.5rem;
+     color: #1F2A37;
+     margin-bottom: .25rem;
 }
  .step .text {
-	 font-size: 12px;
-	 margin: 0;
+	 font-size: .875rem;
+    line-height: 1.25rem;
+    color: #384250;
+}
+.form-step {
+    display: none;
+}
+.form-step-active {
+    display: grid;
+}
 
-}
-.step:last-child .number{
-    color: #D2D6DB;
-    border: 2px solid #D2D6DB;
-}
-.step:last-child::after {
-    height: 0;
-    background-color: #D2D6DB;
-}
-.step:last-child .info {
-    padding-bottom: 0;
-}
-.step:nth-child(2)::after {
-    background-color: #D2D6DB;
-} 
 
- .number {
-	 width: 29px;
-	 height: 29px;
-	 background-color: transparent;
-	 border-radius: 50%;
-	 border: 2px solid #1B8354;
-	 flex-shrink: 0;
-	 display: flex;
-	 justify-content: center;
-	 align-items: center;
-	 font-size: 15px;
-	 font-weight: 600;
-	 margin-right: 14px;
-     color: #1B8354;
-}
- .number.completed {
-	 background-color: #1B8354;
-}
- .number svg {
-	 width: 16px;
-	 height: 16px;
-	 object-fit: contain;
-}
- .number svg path {
-	 fill: white;
-}
- 
+
+
 
 /******* Form page: Step Indicator Mobile styling *******/
 
@@ -246,6 +310,91 @@ li {
   }
 
 
+/******* Reusable Checkbox and Radio input styles  *******/
+
+/* Custom checkbox styles */
+input[type="checkbox"] {
+    appearance: none;
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid #6C737F;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  input[type="checkbox"]:checked {
+    background-color: #1B8354;
+    border: none;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    content: url("/icons/checked-icon.svg");
+
+  }
+
+
+/* Custom radio button styles */
+input[type="radio"] {
+    appearance: none;
+    border-radius: 50%;
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid #6C737F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  input[type="radio"]:checked {
+      border-color: #1B8354;
+      
+  }
+  input[type="radio"]:checked::before {
+      content: "";
+      width: 13px;
+      height: 13px;
+      background-color: #1B8354;
+      border-radius: 50%;
+  }
+
+
+/********** Reusable Input focus styles **********/
+.input-wrapper {
+    position: relative;
+    
+}
+.animated-line {
+    position: absolute;
+    bottom: 0.03rem;
+    left: 50%;
+    width: 99.9%;
+    height: 2px;
+    background-color: #161616;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: 0.3s ease-in-out;
+}
+.input-field {
+    outline: none;
+}
+.input-field:focus + .animated-line {
+    transform: translateX(-50%) scaleX(1);
+}
+.input-field:focus {
+    
+
+}
+
+
+
+
+
 
 /******** Responsive design  *********/
   
@@ -255,19 +404,6 @@ li {
     }
 }
 
-@media only screen and (max-width:850px) {
-    .right-side {
-        position:initial !important;
-        width: 100% !important;
-        margin: 0 auto !important;
-    }
-    .tabs-width {
-        width: 100% !important;
-    }
-    .upper-section-width {
-        width: 100% !important;
-    }
-}
 
 
 

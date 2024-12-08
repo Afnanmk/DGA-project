@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="text-sans">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,179 +9,48 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-    <link rel="stylesheet" href="main.css"/>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="main.css"/>
+    <link href="./css/output.css" rel="stylesheet">
+    <style>
+     
+
+      :root {
+        --text-default-color: #161616;
+    --primary-color: #1B8354;
+
+    --border-primary-color:#D2D6DB;
+    --border-radius: 12px;
+
+    --button-primary-color: #1B8354;
+    --button-primary-hover: #166A45;
+    --button-secondary-color: #D2D6DB;
+    --button-secondary-hover:#F3F4F6;
+    --button-secondary-border-hover: #E5E7EB;
+    --button-active-color: #104631;
+    --button-border-radius: 4px;
+    --button-padding-block: 0.5rem;
+    --button-padding-inline: 0.75rem;
+    --button-text-color: #ffffff;
+    --button-secondary-text-color:#161616;
+
+    --contact-form-bg: #F3F4F6;
+    --contact-form-text: #6C737F;
+    --form-input-radius: 4px;
+    --form-padding-block: 0.5rem;
+    --form-padding-inline:0.5rem;
+}
+
+      li {
+          text-decoration: none;
+          list-style: none;
+      }
+ 
+    </style>
   </head>
   <body>
-    <nav
-      class="navbar border-b-2 flex flex-row-reverse md:flex-row justify-between items-center px-6 text-sm h-16"
-    >
-      <div class="nav-left flex-row font-semibold h-full">
-        <a href="home.html" class="logo mr-0 md:mr-4">
-          <img src="/images/Logo-header.svg" alt=""/>
-        </a>
-        <ul class="nav-menu hidden md:flex flex-row items-center">
-          <a href="home.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Home</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="services.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Services</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="feedback.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Feedback</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="form.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Form</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="contact.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Contact</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="help.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Help & Support</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-        </ul>
-      </div>
-      <div class="nav-right hidden md:flex flex-row items-center ml-3 h-full font-semibold">
-        
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3" id="search-btn">
-          <img
-            class="w-5"
-            src="/icons/search-Icon.svg"
-            alt=""
-          /><span class="ml-1">Search</span>
-        </button>
-      
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
-          <img
-            class="w-5"
-            src="/icons/translate-icon.svg"
-            alt=""
-          /><span class="ml-1">Arabic</span>
-        </button>
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
-          <img class="w-5" src="/icons/user.svg" alt="" /><span
-            class="ml-1"
-            >Login</span
-          >
-        </button>
-      </div>
-      <div class="hamburger block md:hidden" onClick="toggleMenu()">
-        <img src="/icons/hamburger-menu-svgrepo-com.svg" alt="" class="w-6" />
-      </div>
-    </nav>
-
-    <!-- SEARCH BAR -->
-    <div class="absolute bg-white border w-full left-0 z-30 rounded-b-xl hidden overflow-hidden" id="search-bar">
-      <div class="container-custom">
-        <button class="float-right mt-5" id="close-btn"><img src="/icons/multiplication-sign.svg" alt=""></button>
-        
-         <div class="input relative flex items-center gap-3 pt-14">
-        <div class="relative flex-1">
-          <span class="search-bar-icon left-2"><img src="/icons/search-input.svg" alt=""></span>
-          <button class="search-bar-icon right-2"><img src="/icons/mic-01.svg" alt=""></button>
-          <input type="text" placeholder="Search" class="w-full px-3 pl-8 py-2 rounded-sm border border-gray-400 outline-none">
-          
-        </div>
-        <button class="btn text-white rounded-sm px-3 py-2">Search</button>
-      </div>
-
-      <div class="suggestions py-7">
-        <p class="text-[#1B8354] font-semibold mb-3">Suggestions for you</p>
-        <div class="inline-flex gap-2">
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Training</span>
-          </a>
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Services</span>
-          </a>
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Articles</span>
-          </a>
-        </div>
-      </div>
-      </div>
-    </div>
-
-
-    <!-- MOBILE NAV -->
-    <div
-      class="bg-gray-100 absolute w-full left-0 z-30 md:hidden overflow-hidden transition-all ease-in-out duration-500" id="mobile-nav"
-    >
-    <ul class="px-6 pt-4">
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="home.html" class="flex items-center justify-between"
-          ><span>Home</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="services.html" class="flex items-center justify-between"
-          ><span>Services</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="feedback.html" class="flex items-center justify-between"
-          ><span>Feedback</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="form.html" class="flex items-center justify-between"
-          ><span>Form</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="contact.html" class="flex items-center justify-between"
-          ><span>Contact</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="">
-        <a href="help.html" class="flex items-center justify-between"
-          ><span>Help & Support</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-    </ul>
-      <div class="px-6 py-7 flex flex-col gap-4">
-        <button class="inline-flex items-center">
-          <img class="w-5" src="/icons/translate-you-svgrepo-com.svg" alt="" /><span
-            class="ml-1"
-            >Arabic</span
-          >
-        </button>
-        <button class="inline-flex items-center">
-          <img class="w-5" src="/icons/user-svgrepo-com.svg" alt="" /><span
-            class="ml-1"
-            >Login</span
-          >
-        </button>
-      </div>
-    </div>
-
+    
+   
     <!-- HERO SECTION STARTS -->
 
     <section class="swiper hero-slider w-full h-[90vh] relative">
@@ -194,8 +63,8 @@
             class="overlay absolute top-0 left-0 w-full h-full bg-[rgba(16,33,21,0.8)] z-[1]"
           ></div>
           <div class="container-custom hero-text text-white z-[2] relative">
-            <h1 class="font-bold text-3xl sm:text-5xl">Hero Section 1</h1>
-            <p class="w-full md:w-[50%] my-7">
+            <h1 class="hero_slider_heading">Hero Section 1</h1>
+            <p class="hero_slider_description w-full lg:w-[50%] my-7 text-xl leading-[1.875rem]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
               doloribus, officiis adipisci quasi recusandae veritatis
               repellendus nostrum facilis eos odio placeat dolor perspiciatis
@@ -220,8 +89,8 @@
           "
         >
           <div class="container-custom hero-text text-white z-[2] relative">
-            <h1 class="font-bold text-3xl sm:text-5xl">Hero Section 2</h1>
-            <p class="w-full md:w-[50%] my-7">
+            <h1 class="hero_slider_heading">Hero Section 2</h1>
+            <p class="hero_slider_description w-full lg:w-[50%] my-7 text-xl leading-[1.875rem]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Iste
               doloribus, officiis adipisci quasi recusandae veritatis
               repellendus nostrum facilis eos odio placeat dolor perspiciatis
@@ -240,8 +109,8 @@
         >
           <div class="container-custom hero-text text-black z-[2] relative flex items-center justify-between">
             <div>
-            <h1 class="font-bold text-3xl sm:text-5xl">Hero Section 3</h1>
-            <p class="w-full my-7">
+            <h1 class="hero_slider_heading">Hero Section 3</h1>
+            <p class="hero_slider_description w-full my-7 text-xl leading-[1.875rem]">
               Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illo qui
               ab nobis obcaecati consectetur nesciunt nulla rem natus vitae
               unde? Sapiente consectetur ipsum repellendus veritatis numquam
@@ -269,7 +138,7 @@
       <div
         class="flex items-center justify-between"
       >
-      <h2 class="font-bold text-2xl">About Us</h2>
+      <h2 class="">About Us</h2>
       <a href="#"><button
       class="text-[--button-secondary-text-color] border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm mt-5 sm:mt-0"
     >
@@ -277,7 +146,7 @@
     </button>
   </a>
   </div>
-         <p class="text-sm pt-5 w-full sm:w-[70%]">
+         <p class="pt-5 w-full sm:w-[70%]">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
             reprehenderit ipsam velit tempore modi quam impedit natus ex cumque
             illo.
@@ -294,33 +163,33 @@
           <div class="icon-wrapper w-12">
             <img src="/icons/people-icon.svg" alt="" class="" />
           </div>
-          <h3
-            class="text-[#074D31] font-semibold text-3xl sm:text-4xl pt-4 pb-3"
+          <p
+            class="text-[#074D31] text-5xl leading-[-2%] pt-4 pb-3"
           >
             1.5M
-          </h3>
+          </p>
           <p>Person</p>
         </div>
         <div class="flex flex-col items-center">
           <div class="icon-wrapper w-12">
             <img src="/icons/plus-icon.svg" alt="" class="" />
           </div>
-          <h3
-            class="text-[#074D31] font-semibold text-3xl sm:text-4xl pt-4 pb-3"
+          <p
+            class="text-[#074D31] text-5xl leading-[-2%] pt-4 pb-3"
           >
             1.5M
-          </h3>
+          </p>
           <p>Person</p>
         </div>
         <div class="flex flex-col items-center">
           <div class="icon-wrapper w-12">
             <img src="/icons/star-icon.svg" alt="" class="" />
           </div>
-          <h3
-            class="text-[#074D31] font-semibold text-3xl sm:text-4xl pt-4 pb-3"
+          <p
+            class="text-[#074D31] text-5xl leading-[-2%] pt-4 pb-3"
           >
             1.5M
-          </h3>
+          </p>
           <p>Person</p>
         </div>
         <div class="flex flex-col items-center">
@@ -331,11 +200,11 @@
               class=""
             />
           </div>
-          <h3
-            class="text-[#074D31] font-semibold text-3xl sm:text-4xl pt-4 pb-3"
+          <p
+            class="text-[#074D31] text-5xl leading-[-2%] pt-4 pb-3"
           >
             1.5M
-          </h3>
+          </p>
           <p>Person</p>
         </div>
       </div>
@@ -349,7 +218,7 @@
         <div
           class="flex items-center justify-between"
         >
-        <h2 class="font-bold text-2xl">Services</h2>
+        <h2 class="">Services</h2>
         <a href="#"><button
         class="text-[--button-secondary-text-color] border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm mt-5 sm:mt-0"
       >
@@ -357,7 +226,7 @@
       </button>
     </a>
     </div>
-           <p class="text-sm pt-5 w-full sm:w-[70%]">
+           <p class="pt-5 w-full sm:w-[70%]">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
               reprehenderit ipsam velit tempore modi quam impedit natus ex cumque
               illo.
@@ -365,34 +234,39 @@
         
           </div>
 
+          
+     <!-- UPDATE: Card height issue has been fixed -->
       <div class="swiper service-slider mt-5 pb-10 w-full">
-        <div class="swiper-wrapper mb-10 h-auto">
+        <div class="swiper-wrapper mb-10">
           <!-- Card 1 -->
           <div
-            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+            class="swiper-slide h-auto border border-[--border-primary-color] rounded-[--border-radius] bg-white"
           >
-            <div class="card p-4">
+            <div class="card flex flex-col justify-between h-full p-4">
+              <div class="flex-1">
               <div class="card-icon w-10 mb-4">
                 <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
               </div>
-              <h3 class="card-title font-semibold mb-2">Card Title</h3>
-              <p class="card-content text-sm mb-4">
-                Card content placeholder text goes here
+              <h3 class="card-title mb-2">Card Title</h3>
+              <p class="card-content mb-4">
+                Card content placeholder text goes here.
               </p>
-              <div class="tags text-xs font-semibold mb-4">
-                <span
-                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
-                  >Tag 1</span
-                >
-                <span
-                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
-                  >Tag 2</span
-                >
-                <span
-                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
-                  >Tag 3</span
-                >
+            </div>
+              <div class="tags text-xs leading-[1.124rem] font-medium mb-4 flex items-center gap-2">
+                <div
+                  class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#ABEFC6] bg-[#ECFDF3] text-[#085D3A]"
+                  >Tag 1</div>
+                
+                <div
+                  class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#B2DDFF] bg-[#EFF8FF] text-[#1849A9]"
+                  >Tag 2</div>
+                
+                <div
+                  class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#E5E7EB] bg-[#F9FAFB] text-[#1F2A37]"
+                  >Tag 3</div>
+                
               </div>
+           
               <div class="">
                 <button
                   class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
@@ -409,32 +283,36 @@
           </div>
           <!-- Card 2 -->
           <div
-            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
-          >
-            <div class="card p-4">
-              <div class="card-icon w-10 mb-4">
-                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
-              </div>
-              <h3 class="card-title font-semibold mb-2">Card Title</h3>
-              <p class="card-content text-sm mb-4">
-                Card content placeholder text goes here
-              </p>
-              <div class="tags text-xs font-semibold mb-4">
-                <span
-                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
-                  >Tag 1</span
-                >
-                <span
-                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
-                  >Tag 2</span
-                >
-                <span
-                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
-                  >Tag 3</span
-                >
-              </div>
-              <div class="">
-                <button
+          class="swiper-slide h-auto border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+        >
+          <div class="card flex flex-col justify-between h-full p-4">
+            <div class="flex-1">
+            <div class="card-icon w-10 mb-4">
+              <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+            </div>
+            <h3 class="card-title mb-2">Card Title</h3>
+            <p class="card-content mb-4">
+              Card content placeholder text goes here.Card content placeholder text goes here.
+
+            </p>
+          </div>
+          <div class="tags text-xs leading-[1.124rem] font-medium mb-4 flex items-center gap-2">
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#ABEFC6] bg-[#ECFDF3] text-[#085D3A]"
+              >Tag 1</div>
+            
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#B2DDFF] bg-[#EFF8FF] text-[#1849A9]"
+              >Tag 2</div>
+            
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#E5E7EB] bg-[#F9FAFB] text-[#1F2A37]"
+              >Tag 3</div>
+            
+          </div>
+         
+            <div class="">
+              <button
                 class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
               >
                 Action
@@ -444,35 +322,38 @@
               >
                 Action
               </button>
-              </div>
             </div>
           </div>
+        </div>
           <!-- Card 3 -->
           <div
-            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+            class="swiper-slide h-auto border border-[--border-primary-color] rounded-[--border-radius] bg-white"
           >
-            <div class="card p-4">
+            <div class="card flex flex-col justify-between h-full p-4">
+              <div class="flex-1">
               <div class="card-icon w-10 mb-4">
                 <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
               </div>
-              <h3 class="card-title font-semibold mb-2">Card Title</h3>
-              <p class="card-content text-sm mb-4">
-                Card content placeholder text goes here
+              <h3 class="card-title mb-2">Card Title</h3>
+              <p class="card-content mb-4">
+                Card content placeholder text goes here.
               </p>
-              <div class="tags text-xs font-semibold mb-4">
-                <span
-                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
-                  >Tag 1</span
-                >
-                <span
-                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
-                  >Tag 2</span
-                >
-                <span
-                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
-                  >Tag 3</span
-                >
-              </div>
+            </div>
+            <div class="tags text-xs leading-[1.124rem] font-medium mb-4 flex items-center gap-2">
+              <div
+                class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#ABEFC6] bg-[#ECFDF3] text-[#085D3A]"
+                >Tag 1</div>
+              
+              <div
+                class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#B2DDFF] bg-[#EFF8FF] text-[#1849A9]"
+                >Tag 2</div>
+              
+              <div
+                class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#E5E7EB] bg-[#F9FAFB] text-[#1F2A37]"
+                >Tag 3</div>
+              
+            </div>
+           
               <div class="">
                 <button
                   class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
@@ -489,81 +370,86 @@
           </div>
           <!-- Card 4 -->
           <div
-            class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
-          >
-            <div class="card p-4">
-              <div class="card-icon w-10 mb-4">
-                <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
-              </div>
-              <h3 class="card-title font-semibold mb-2">Card Title</h3>
-              <p class="card-content text-sm mb-4">
-                Card content placeholder text goes here
-              </p>
-              <div class="tags text-xs font-semibold mb-4">
-                <span
-                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
-                  >Tag 1</span
-                >
-                <span
-                  class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
-                  >Tag 2</span
-                >
-                <span
-                  class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
-                  >Tag 3</span
-                >
-              </div>
-              <div class="">
-                <button
-                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
-                >
-                  Action
-                </button>
-                <button
-                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
-                >
-                  Action
-                </button>
-              </div>
-            </div>
-          </div>
-          <!-- Card 5 -->
-          <div
-          class="swiper-slide border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+          class="swiper-slide h-auto border border-[--border-primary-color] rounded-[--border-radius] bg-white"
         >
-          <div class="card p-4">
+          <div class="card flex flex-col justify-between h-full p-4">
+            <div class="flex-1">
             <div class="card-icon w-10 mb-4">
               <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
             </div>
-            <h3 class="card-title font-semibold mb-2">Card Title</h3>
-            <p class="card-content text-sm mb-4">
-              Card content placeholder text goes here
+            <h3 class="card-title mb-2">Card Title</h3>
+            <p class="card-content mb-4">
+              Card content placeholder text goes here.
             </p>
-            <div class="tags text-xs font-semibold mb-4">
-              <span
-                class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#ABEFC6] border-solid bg-[#ECFDF3] text-[#085D3A]"
-                >Tag 1</span
-              >
-              <span
-                class="tag inline-block mr-1 px-1.5 py-0.5 rounded-[3px] border border-[#B2DDFF] border-solid bg-[#EFF8FF] text-[#1849A9]"
-                >Tag 2</span
-              >
-              <span
-                class="tag inline-block px-1.5 py-0.5 rounded-[3px] border border-[#E5E7EB] border-solid bg-[#F9FAFB] text-[#1F2A37]"
-                >Tag 3</span
-              >
-            </div>
+          </div>
+          <div class="tags text-xs leading-[1.124rem] font-medium mb-4 flex items-center gap-2">
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#ABEFC6] bg-[#ECFDF3] text-[#085D3A]"
+              >Tag 1</div>
+            
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#B2DDFF] bg-[#EFF8FF] text-[#1849A9]"
+              >Tag 2</div>
+            
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#E5E7EB] bg-[#F9FAFB] text-[#1F2A37]"
+              >Tag 3</div>
+            
+          </div>
+         
             <div class="">
               <button
-                  class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
-                >
-                  Action
-                </button>
-                <button
-                  class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
-                >
-                  Action
-                </button>
+                class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+              >
+                Action
+              </button>
+              <button
+                class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+              >
+                Action
+              </button>
+            </div>
+          </div>
+        </div>
+          <!-- Card 5 -->
+          <div
+          class="swiper-slide h-auto border border-[--border-primary-color] rounded-[--border-radius] bg-white"
+        >
+          <div class="card flex flex-col justify-between h-full p-4">
+            <div class="flex-1">
+            <div class="card-icon w-10 mb-4">
+              <img src="/icons/tick-bg.svg" alt="Icon" class="w-full" />
+            </div>
+            <h3 class="card-title mb-2">Card Title</h3>
+            <p class="card-content mb-4">
+              Card content placeholder text goes here.
+            </p>
+          </div>
+          <div class="tags text-xs leading-[1.124rem] font-medium mb-4 flex items-center gap-2">
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#ABEFC6] bg-[#ECFDF3] text-[#085D3A]"
+              >Tag 1</div>
+            
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#B2DDFF] bg-[#EFF8FF] text-[#1849A9]"
+              >Tag 2</div>
+            
+            <div
+              class="tag px-2 h-[24px] flex items-center justify-center rounded-[4px] border border-[#E5E7EB] bg-[#F9FAFB] text-[#1F2A37]"
+              >Tag 3</div>
+          </div>
+         
+            <div class="">
+              <button
+                class="action-btn mr-2 text-black border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm"
+              >
+                Action
+              </button>
+              <button
+                class="action-btn text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm"
+              >
+                Action
+              </button>
             </div>
           </div>
         </div>
@@ -595,15 +481,16 @@
     </section>
     <!-- SERVICES SECTION ENDS -->
 
+
     
-    <!-- ARTICLES SECTION STARTS-->
-    <section class="py-10">
+    <!-- ARTICLES SECTION STARTS  -->
+    <article class="py-10">
       <div class="container-custom">
         
           <div
             class="flex items-center justify-between"
           >
-          <h2 class="font-bold text-2xl">Articles & News</h2>
+          <h2 class="">Articles & News</h2>
           <a href="#"><button
           class="text-[--button-secondary-text-color] border border-[--button-secondary-color] hover:bg-[--button-secondary-hover] hover:border-[--button-secondary-border-hover] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] text-sm mt-5 sm:mt-0"
         >
@@ -611,111 +498,101 @@
         </button>
       </a>
       </div>
-             <p class="text-sm pt-5 w-full sm:w-[70%]">
+             <p class="pt-5 w-full sm:w-[70%]">
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab
                 reprehenderit ipsam velit tempore modi quam impedit natus ex cumque
                 illo.
               </p>
           
-           
+
+        <!-- UPDATE: Card height issue has been fixed -->
         <div class="swiper articles-slider mt-7">
           <div class="swiper-wrapper mb-10">
-            <div class="swiper-slide">
+            <div class="swiper-slide h-auto border border-[--border-primary-color] rounded-[--border-radius] bg-white">
               <div
-                class="border border-[--border-primary-color] rounded-[--border-radius] bg-white overflow-hidden shadow-sm"
+                class="p-4 flex flex-col justify-between h-full overflow-hidden shadow-sm"
               >
+              <div class="flex-1">
                 <img
                   src="/images/flag-image.svg"
                   alt="Card Image"
-                  class="w-full h-48 object-cover p-4 rounded-xl"
+                  class="w-full h-48 object-cover rounded-md"
                 />
-                <div class="p-4">
-                  <h3 class="font-semibold mb-2 text-lg">
+             
+                <div class="mt-4">
+                  <h3 class="mb-2">
                     The Title of the News Card in two Lines
                   </h3>
-                  <p class="text-sm text-gray-600 mb-4">
+                  <p class="mb-4">
                     Here you can include a brief description of the headline in
                     four lines. Here you can include a brief description of the
                     headline in four lines.
                   </p>
+                  </div>
+                </div>
                   <a href="#"><button class="text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm">
                     Read More
                   </button></a>
-                </div>
+                
               </div>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide h-auto border border-[--border-primary-color] rounded-[--border-radius] bg-white">
               <div
-                class="border border-[--border-primary-color] rounded-[--border-radius] bg-white overflow-hidden shadow-sm"
+                class="p-4 flex flex-col justify-between h-full overflow-hidden shadow-sm"
               >
+              <div class="flex-1">
                 <img
                   src="/images/flag-image.svg"
                   alt="Card Image"
-                  class="w-full h-48 object-cover p-4 rounded-xl"
+                  class="w-full h-48 object-cover rounded-md"
                 />
-                <div class="p-4">
-                  <h3 class="font-semibold mb-2 text-lg">
+             
+                <div class="mt-4">
+                  <h3 class="mb-2">
                     The Title of the News Card in two Lines
                   </h3>
-                  <p class="text-sm text-gray-600 mb-4">
+                  <p class="mb-4">
                     Here you can include a brief description of the headline in
                     four lines. Here you can include a brief description of the
                     headline in four lines.
                   </p>
+                  </div>
+                </div>
                   <a href="#"><button class="text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm">
                     Read More
                   </button></a>
-                </div>
+                
               </div>
             </div>
-            <div class="swiper-slide">
+            <div class="swiper-slide h-auto border border-[--border-primary-color] rounded-[--border-radius] bg-white">
               <div
-                class="border border-[--border-primary-color] rounded-[--border-radius] bg-white overflow-hidden shadow-sm"
+                class="p-4 flex flex-col justify-between h-full overflow-hidden shadow-sm"
               >
+              <div class="flex-1">
                 <img
                   src="/images/flag-image.svg"
                   alt="Card Image"
-                  class="w-full h-48 object-cover p-4 rounded-xl"
+                  class="w-full h-48 object-cover rounded-md"
                 />
-                <div class="p-4">
-                  <h3 class="font-semibold mb-2 text-lg">
+             
+                <div class="mt-4">
+                  <h3 class="mb-2">
                     The Title of the News Card in two Lines
                   </h3>
-                  <p class="text-sm text-gray-600 mb-4">
+                  <p class="mb-4">
                     Here you can include a brief description of the headline in
                     four lines. Here you can include a brief description of the
                     headline in four lines.
                   </p>
+                  </div>
+                </div>
                   <a href="#"><button class="text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm">
                     Read More
                   </button></a>
-                </div>
+                
               </div>
             </div>
-            <div class="swiper-slide">
-              <div
-                class="border border-gray-300 rounded-xl bg-white overflow-hidden shadow-sm"
-              >
-                <img
-                  src="/images/card-img-figma.jpg"
-                  alt="Card Image"
-                  class="w-full h-48 object-cover p-4 rounded-xl"
-                />
-                <div class="p-4">
-                  <h3 class="font-semibold mb-2 text-lg">
-                    The Title of the News Card in two Lines
-                  </h3>
-                  <p class="text-sm text-gray-600 mb-4">
-                    Here you can include a brief description of the headline in
-                    four lines. Here you can include a brief description of the
-                    headline in four lines.
-                  </p>
-                  <button class="btn text-white px-4 py-2 rounded">
-                    Read More
-                  </button>
-                </div>
-              </div>
-            </div>
+          
           </div>
               <!-- Pagination & Navigation -->
         <div class="flex items-center px-5 md:hidden">
@@ -739,7 +616,7 @@
          </div>
         </div>
       </div>
-    </section>
+    </article>
 
 
     <!-- PARTNER SECTION STARTS -->
@@ -994,5 +871,6 @@
         
       })
     </script>
+
   </body>
 </html>

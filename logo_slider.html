@@ -1,0 +1,164 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="main.css" />
+
+  <style>
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+    }
+    body {
+      min-height: 100vh;
+      line-height: 1.5;
+      display: flex;
+      align-items: stretch;
+      font-family: system-ui, sans-serif;
+      padding: 0 1rem;
+    }
+    
+    img,
+    picture {
+      max-width: 100%;
+      display: block;
+    }
+    
+    .u-wrapper {
+      max-width: 1440px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 100%;
+    }
+    
+    .c-carousel {
+      overflow-x: hidden;
+      position: relative;
+      width: 100%;
+    }
+    
+    .c-carousel__wrapper.swiper {
+      margin: 0 48px;
+      position: static;
+    }
+    
+    .c-carousel__inner-wrapper.swiper-wrapper {
+      display: flex;
+      align-items: center;
+    }
+    
+    .c-carousel img {
+      margin: 0 auto;
+    }
+    
+    .c-carousel__controls {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .c-carousel__button--next,
+    .c-carousel__button--prev {
+      cursor: pointer;
+    }
+    
+    .c-carousel__button--prev.swiper-button-disabled,
+    .c-carousel__button--next.swiper-button-disabled {
+      opacity: 0.35;
+      cursor: auto;
+      pointer-events: none;
+    }
+    
+    .c-carousel__item.swiper-slide {
+      max-width: 300px;
+      width: auto;
+      flex-shrink: 0;
+    }
+    
+    
+  </style>
+</head>
+<body>
+    
+     <!-- PARTNER SECTION STARTS -->
+     <div class="u-wrapper">
+        <div class="c-carousel">
+          <div class="c-carousel__wrapper swiper">
+            <div class="c-carousel__inner-wrapper swiper-wrapper">
+              <div class="c-carousel__item swiper-slide"><img src="https://img.logoipsum.com/331.svg" alt=""></div>
+              <div class="c-carousel__item swiper-slide"><img src="https://img.logoipsum.com/257.svg" alt=""></div>
+              <div class="c-carousel__item swiper-slide"><img src="https://img.logoipsum.com/289.svg" alt=""></div>
+             
+             
+            </div>
+          </div>
+          <div class="c-carousel__controls" style="--swiper-navigation-color: pink;">
+            <div class="c-carousel__button--prev"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 8 8 12 12 16"></polyline>
+                <line x1="16" y1="12" x2="8" y2="12"></line>
+              </svg></div>
+            <div class="c-carousel__button--next"><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="css-i6dzq1">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polyline points="12 16 16 12 12 8"></polyline>
+                <line x1="8" y1="12" x2="16" y2="12"></line>
+              </svg></div>
+          </div>
+        </div>
+        
+        
+        
+        <div class="c-credits">
+          <div class="c-credits__wrapper">
+            <p>Logos by <a href="https://logoipsum.com/" target="_blank">Logoipsum</a>. Icons by <a href="https://feathericons.com/" target="_blank">Feather</a>.</p>
+          </div>
+        </div>
+      </div>
+      
+
+      <!-- PARTNER SECTION ENDS -->
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+       // Following imports only used with bundlers!
+// import Swiper from "swiper";
+// import { Navigation, A11y } from 'swiper/modules';
+// import 'swiper/css';
+
+const swiper = new Swiper('.swiper', {
+    // modules: [Navigation, A11y],
+    direction: 'horizontal',
+    loop: false,
+    navigation: {
+      nextEl: '.c-carousel__button--next',
+      prevEl: '.c-carousel__button--prev',
+    },
+    slidesPerView: 'auto',
+    spaceBetween: 48,
+    a11y: {
+      prevSlideMessage: 'Previous slide',
+      nextSlideMessage: 'Next slide',
+    },
+  });
+  
+          
+    </script>
+</body>
+</html>

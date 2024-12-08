@@ -1,177 +1,841 @@
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    <nav
-      class="navbar border-b-2 flex flex-row-reverse md:flex-row justify-between items-center px-6 text-sm h-16"
-    >
-      <div class="nav-left flex-row font-semibold h-full">
-        <a href="home.html" class="logo mr-0 md:mr-4">
-          <img src="/images/Logo-header.svg" alt=""/>
-        </a>
-        <ul class="nav-menu hidden md:flex flex-row items-center">
-          <a href="home.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Home</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+      :root {
+    --text-default-color: #161616;
+    --primary-color: #1B8354;
+
+    --border-primary-color:#D2D6DB;
+    --border-radius: 12px;
+
+    --button-primary-color: #1B8354;
+    --button-primary-hover: #166A45;
+    --button-secondary-color: #D2D6DB;
+    --button-secondary-hover:#F3F4F6;
+    --button-secondary-border-hover: #E5E7EB;
+    --button-active-color: #104631;
+    --button-border-radius: 4px;
+    --button-padding-block: 0.5rem;
+    --button-padding-inline: 0.75rem;
+    --button-text-color: #ffffff;
+    --button-secondary-text-color:#161616;
+
+    --contact-form-bg: #F3F4F6;
+    --contact-form-text: #6C737F;
+    --form-input-radius: 4px;
+    --form-padding-block: 0.5rem;
+    --form-padding-inline:0.5rem;
+      }
+      
+      li {
+        text-decoration: none;
+        list-style: none;
+      }
+
+      .search-bar-icon {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+      .nav-menu-link {
+        position: relative;
+      }
+      .nav-right button {
+        position: relative;
+      }
+      .nav-menu-link img {
+        transition: 0.5s;
+      }
+      .nav-menu-link:hover img {
+        transform: rotate(180deg);
+      }
+      .nav-menu-link:hover::after,
+      .nav-right button:hover::after {
+        position: absolute;
+        content: "";
+        background-color: #9da4ae;
+        width: 87%;
+        height: 6px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 3px;
+      }
+      .nav-menu-link:active::after,
+      .nav-right button:active::after {
+        background-color: #1f2a37;
+      }
+      .nav-menu-link.selected,
+      .nav-right button.selected {
+        background-color: #1b8354;
+        color: #ffffff;
+        border-radius: 4px;
+      }
+      .nav-menu-link.selected:hover {
+        background-color: #1b8354;
+        color: #ffffff;
+      }
+      .nav-menu-link.selected::after,
+      .nav-right button.selected::after {
+        position: absolute;
+        content: "";
+        width: 87%;
+        height: 6px;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 3px;
+        background-color: #54c08a;
+      }
+      .nav-menu-link.selected img,
+      .nav-right button.selected img {
+        filter: brightness(0) invert(1); /* Turns icon white */
+      }
+
+      /* Show mega-menu when hovering over menu item */
+      .services_menu_item:hover ~ .mega-menu {
+        display: block;
+      }
+
+      /* This is Mobile menu custom CSS for the ::after pseudo-element */
+
+      .mobile-menu-link.activated {
+        color: #1b8354;
+        position: relative;
+      }
+      .mobile-menu-link.activated::after {
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        width: 6px;
+        height: 24px;
+        border-radius: 9999px;
+        background-color: #1b8354; /* Selected state color */
+      }
+
+      .mobile-sub-menu-link::before {
+        content: "";
+        display: block;
+        left: 0;
+        position: absolute;
+        width: 6px;
+        height: 24px;
+        border-radius: 9999px;
+        background-color: transparent;
+      }
+      .mobile-sub-menu-link:hover::before {
+        background-color: #9da4ae;
+      }
+      .mobile-sub-menu-link:active::before {
+        background-color: #1f2a37;
+      }
+
+      /********** Reusable Input focus styles **********/
+.input-wrapper {
+    position: relative;
+    
+}
+.animated-line-search-bar {
+    position: absolute;
+    bottom: 0.03rem;
+    left: 50%;
+    width: 99.9%;
+    height: 2px;
+    background-color: #161616;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    transition: 0.3s ease-in-out;
+}
+
+.input-field {
+    outline: none;
+}
+.input-field:focus + .animated-line-search-bar {
+    transform: translateX(-50%) scaleX(1);
+}
+    </style>
+  </head>
+
+  <body class="">
+    <header>
+      <!-------------- SECOND NAV HEADER --------------->
+      <nav
+        class="flex items-center justify-between flex-wrap bg-[#F3F4F6] min-h-[40px] max-h-[auto] px-8 text-base text-[#384250] border border-b-[#D2D6DB]"
+      >
+        <!-- Left Icons -->
+        <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-1">
+            <img src="/icons/cloudy.svg" alt="Icon 1" class="w-5 h-5" />
+            <p>Cloudy</p>
+          </div>
+
+          <div class="flex items-center space-x-1">
+            <img src="/icons/date.svg" alt="Icon 1" class="w-5 h-5" />
+            <p>3-sep-2024</p>
+          </div>
+
+          <div class="flex items-center space-x-1">
+            <img src="/icons/time.svg" alt="Icon 1" class="w-5 h-5" />
+            <p>2:30 PM</p>
+          </div>
+
+          <div class="flex items-center space-x-1">
+            <img src="/icons/location-nav.svg" alt="Icon 1" class="w-5 h-5" />
+            <p>Al-Riyadh</p>
+          </div>
+        </div>
+
+        <!-- Right Icons -->
+        <div class="flex items-center space-x-1">
+          <button
+            class="right-icon-btn cursor-pointer p-2 rounded-[4px] active:bg-[#E5E7EB]"
+            tab-index="0"
+          >
+            <img
+              src="/icons/mic-01.svg"
+              alt="Icon 4"
+              class="w-[18px] h-[18px]"
+            />
+          </button>
+          <button
+            class="right-icon-btn cursor-pointer p-2 rounded-[4px] active:bg-[#E5E7EB]"
+            tab-index="0"
+          >
+            <img
+              src="/icons/zoom-in.svg"
+              alt="Icon 5"
+              class="w-[18px] h-[18px]"
+            />
+          </button>
+          <button
+            class="right-icon-btn cursor-pointer p-2 rounded-[4px] active:bg-[#E5E7EB]"
+            tab-index="0"
+          >
+            <img
+              src="/icons/zoom-out.svg"
+              alt="Icon 5"
+              class="w-[18px] h-[18px]"
+            />
+          </button>
+          <button
+            class="right-icon-btn cursor-pointer p-2 rounded-[4px] active:bg-[#E5E7EB]"
+            tab-index="0"
+          >
+            <img
+              src="/icons/eye-header.svg"
+              alt="Icon 5"
+              class="w-[18px] h-[18px]"
+            />
+          </button>
+        </div>
+      </nav>
+
+      <!--------------- NAV HEADER -------------->
+      <nav
+        class="navbar relative border-b-2 flex flex-row-reverse lg:flex-row justify-between items-center px-8 text-base h-[72px]"
+      >
+       <!-- UPDATE: updated font-semibold to font-medium -->
+        <div
+          class="nav-left flex-initial lg:flex-1 flex-row font-medium h-full"
+        >
+          <a href="home.html" class="logo mr-0 md:mr-4 w-[9.625rem] h-full">
+            <img src="/images/Logo-header.svg" alt="" class="h-full" />
           </a>
-          <a href="services.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Services</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="feedback.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Feedback</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="form.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Form</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="contact.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Contact</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="help.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Help & Support</span
-              ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-            /></li>
-          </a>
+          <ul class="nav-menu hidden lg:flex lg:flex-row lg:items-center">
+            <li>
+              <a
+                href="#"
+                class="nav-menu-link inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-2"
+                data-icon="/icons/arrow-down-01.svg"
+                data-selected-icon="/icons/arrow-down-01-white.svg"
+              >
+                <div class="inline-flex items-center space-x-1">
+                  <span>Home</span
+                  ><img
+                    src="/icons/arrow-down-01.svg"
+                    alt=""
+                    class="w-5"
+                  />
+                </div>
+              </a>
+            </li>
+
+            <li class="group">
+              <a
+                href="#"
+                class="services_menu_item nav-menu-link inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-2"
+                data-icon="/icons/arrow-down-01.svg"
+                data-selected-icon="/icons/arrow-down-01-white.svg"
+              >
+                <div class="inline-flex items-center space-x-1">
+                  <span>Services</span
+                  ><img
+                    src="/icons/arrow-down-01.svg"
+                    alt=""
+                    class="w-5"
+                  />
+                </div>
+              </a>
+
+              <!-- Mega Menu -->
+              <div
+                class="mega-menu hidden absolute left-0 top-[72px] w-screen bg-white shadow-[0_4px_6px_-2px_rgba(0,0,0,0.3)] z-10 group-hover:block"
+              >
+                <div class="container-custom grid grid-cols-4 gap-6 py-8">
+                  <div class="menu-column">
+                    <h4 class="font-bold mb-3 px-4 text-[#1B8354]">
+                      Group Label
+                    </h4>
+                    <ul class="space-y-1">
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                    </ul>
+                  </div>
+                  <div class="menu-column">
+                    <h4 class="font-bold mb-3 px-4 text-[#1B8354]">
+                      Group Label
+                    </h4>
+                    <ul class="space-y-1">
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                    </ul>
+                  </div>
+                  <div class="menu-column">
+                    <h4 class="font-bold mb-3 px-4 text-[#1B8354]">
+                      Group Label
+                    </h4>
+                    <ul class="space-y-1">
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                    </ul>
+                  </div>
+                  <div class="menu-column">
+                    <h4 class="font-bold mb-3 px-4 text-[#1B8354]">
+                      Group Label
+                    </h4>
+                    <ul class="space-y-1">
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                      <a
+                        href="#"
+                        class="block font-medium hover:underline hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-none border-2 border-transparent focus-visible:border-[#161616] focus:underline px-4 py-2 rounded-[8px]"
+                        >Menu Item Label</a
+                      >
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                class="nav-menu-link inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-2"
+                data-icon="/icons/arrow-down-01.svg"
+                data-selected-icon="/icons/arrow-down-01-white.svg"
+              >
+                <div class="inline-flex items-center space-x-1">
+                  <span>Feedback</span
+                  ><img
+                    src="/icons/arrow-down-01.svg"
+                    alt=""
+                    class="w-5"
+                  />
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                class="nav-menu-link inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-2"
+                data-icon="/icons/arrow-down-01.svg"
+                data-selected-icon="/icons/arrow-down-01-white.svg"
+              >
+                <div class="inline-flex items-center space-x-1">
+                  <span>Form</span
+                  ><img
+                    src="/icons/arrow-down-01.svg"
+                    alt=""
+                    class="w-5"
+                  />
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                class="nav-menu-link inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-2"
+                data-icon="/icons/arrow-down-01.svg"
+                data-selected-icon="/icons/arrow-down-01-white.svg"
+              >
+                <div class="inline-flex items-center space-x-1">
+                  <span>Contact</span
+                  ><img
+                    src="/icons/arrow-down-01.svg"
+                    alt=""
+                    class="w-5"
+                  />
+                </div>
+              </a>
+            </li>
+
+            <li>
+              <a
+                href="#"
+                class="nav-menu-link inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-2"
+                data-icon="/icons/arrow-down-01.svg"
+                data-selected-icon="/icons/arrow-down-01-white.svg"
+              >
+                <div class="inline-flex items-center space-x-1">
+                  <span>Help & Support</span
+                  ><img
+                    src="/icons/arrow-down-01.svg"
+                    alt=""
+                    class="w-5"
+                    data-icon="/icons/arrow-down-01.svg"
+                    data-selected-icon="/icons/arrow-down-01-white.svg"
+                  />
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+        
+
+        <!-- UPDATE: updated font-semibold to font-medium -->
+        <div
+          class="nav-right hidden lg:flex flex-row items-center ml-3 h-full font-medium"
+        >
+          <button
+            class="inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-3"
+            id="search-btn"
+            data-icon="/icons/arrow-down-01.svg"
+            data-selected-icon="/icons/arrow-down-01-white.svg"
+          >
+            <img class="w-5" src="/icons/search-Icon.svg" alt="" /><span
+              class="ml-1"
+              >Search</span
+            >
+          </button>
+
+          <button
+            class="inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-3"
+            data-icon="/icons/arrow-down-01.svg"
+            data-selected-icon="/icons/arrow-down-01-white.svg"
+          >
+            <img class="w-5" src="/icons/translate-icon.svg" alt="" /><span
+              class="ml-1"
+              >Arabic</span
+            >
+          </button>
+          <button
+            class="inline-flex items-center rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB] focus:outline-[#161616] h-full px-3"
+            data-icon="/icons/arrow-down-01.svg"
+            data-selected-icon="/icons/arrow-down-01-white.svg"
+          >
+            <img class="w-5" src="/icons/user.svg" alt="" /><span class="ml-1"
+              >Login</span
+            >
+          </button>
+        </div>
+
+        <button id="hamburger-btn" class="hamburger block lg:hidden">
+          <img src="/icons/menu-01.svg" alt="" class="w-6" />
+        </button>
+      </nav>
+
+      <!-- SEARCH BAR -->
+      <div
+        class="absolute bg-white border w-full left-0 z-30 rounded-b-[4px] hidden overflow-hidden text-base"
+        id="search-bar"
+      >
+        <div class="container-custom">
+          <button class="flex items-center justify-self-end justify-center mt-5 hover:bg-[#F3F4F6] active:bg-[#E5E7EB] rounded-[4px] w-8 h-8" id="close-btn">
+            <img src="/icons/multiplication-sign.svg" alt="" />
+          </button>
+
+          <div class="input relative flex items-center gap-3 py-10">
+            <div class="relative flex-1 input-wrapper">
+              <span class="search-bar-icon left-2"
+                ><img src="/icons/search-input.svg" alt=""
+              /></span>
+              <button class="search-bar-icon right-4">
+                <img src="/icons/mic-01.svg" alt="" />
+              </button>
+              <input
+                type="text"
+                placeholder="Search"
+                class="input-field w-full px-3 pl-8 py-2 pr-4 rounded-[4px] border border-[#9DA4AE] hover:border-[#384250] outline-none"
+              />
+              <div class="animated_line-search-bar"></div>
+            </div>
+            <button
+              class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] active:bg-[--button-active-color]"
+            >
+              Search
+            </button>
+          </div>
+
+          <div class="suggestions py-7">
+
+            <!--  UPDATE: added font-size to the p tag (text-lg) -->
+            <p class="text-[#1B8354] font-semibold mb-3 text-lg">Suggestions for you</p>
+            
+
+            <!-- UPDATE: removed text-sm from span -->
+            <div class="inline-flex gap-2">
+              <a
+                href="#"
+                class="inline-flex gap-1 items-center bg-[#F3F4F6]  rounded-[4px] h-8 px-3 hover:bg-[#E5E7EB] active:bg-[#D2D6DB]"
+              >
+                <img src="/icons/plus.svg" alt="" class="w-[13px] h-[13px]"/>
+                <span class="font-medium">Training</span>
+              </a>
+              <a
+                href="#"
+                class="inline-flex gap-1 items-center bg-[#F3F4F6]  rounded-[4px] h-8 px-3 hover:bg-[#E5E7EB] active:bg-[#D2D6DB]"
+              >
+                <img src="/icons/plus.svg" alt="" />
+                <span class="font-medium">Services</span>
+              </a>
+              <a
+                href="#"
+                class="inline-flex gap-1 items-center bg-[#F3F4F6]  rounded-[4px] h-8 px-3 hover:bg-[#E5E7EB] active:bg-[#D2D6DB]"
+              >
+                <img src="/icons/plus.svg" alt="" />
+                <span class="font-medium">Articles</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MOBILE NAV -->
+      <div
+        class="shadow-[0_4px_4px_0px_rgba(0,0,0,0.25)] bg-white fixed w-[256px] h-screen top-0 left-[-300px] z-30 lg:hidden overflow-hidden transition-all ease-in-out duration-500"
+        id="mobile-nav"
+      >
+        <header class="bg-[#F9FAFB] h-[72px] flex items-center justify-between px-8">
+          <a href="#"><img src="/icons/logo-mobile.svg" alt="" /></a>
+          <button id="mobile-nav-close" class=""><img src="/icons/Button-Close.svg" alt=""></button>
+        </header>
+
+        <ul class="mobile-menu px-4 pt-4 pb-20">
+          <li>
+            <a
+              href="#"
+              id="toggle-menu"
+              class="mobile-menu-link font-semibold text-sm flex items-center justify-between px-4 py-2 rounded-[4px] hover:bg-[#F3F4F6] relative hover:after:content-[''] hover:after:block hover:after:h-6 hover:after:w-1.5 hover:after:bg-[#9DA4AE] hover:after:rounded-full hover:after:absolute hover:after:left-0 active:after:bg-[#1F2A37] active:bg-[#E5E7EB]"
+            >
+              <div class="inline-flex items-center gap-2">
+                <img src="/icons/menu-icon-home.svg" alt="" /><span>Home</span>
+              </div>
+              <img src="/icons/arrow-down-01.svg" alt="" class="arrow-icon transition-transform duration-300 w-5" />
+            </a>
+            <!-- sub-menu -->
+            <ul class="mobile-sub-menu hidden" data-toggle="submenu">
+              <li>
+              <a
+                href="#"
+                class="mobile-sub-menu-link text-sm relative hover:bg-[] block py-2 pr-4 pl-5 ml-5 rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB]"
+                >Link 1</a
+              >
+              </li>
+
+              <li>
+              <a
+                href="#"
+                class="mobile-sub-menu-link text-sm relative hover:bg-[] block py-2 pr-4 pl-5 ml-5 rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB]"
+                >Link 2</a
+              >
+            </li>
+
+            <li>
+              <a
+                href="#"
+                class="mobile-sub-menu-link text-sm relative hover:bg-[] block py-2 pr-4 pl-5 ml-5 rounded-[4px] hover:bg-[#F3F4F6] active:bg-[#E5E7EB]"
+                >Link 3</a
+              >
+            </li>
+            </ul>
+          </li>
+
+          <!-- Separator -->
+          <hr
+            class="border-none bg-[#D2D6DB] my-2 h-[1px] w-[85%] mx-auto last:hidden"
+          />
+
+          <li>
+            <a
+              href="#"
+              class="mobile-menu-link font-semibold text-sm flex items-center justify-between px-4 py-2 rounded-[4px] hover:bg-[#F3F4F6] relative hover:after:content-[''] hover:after:block hover:after:h-6 hover:after:w-1.5 hover:after:bg-[#9DA4AE] hover:after:rounded-full hover:after:absolute hover:after:left-0 active:after:bg-[#1F2A37] active:bg-[#E5E7EB]"
+            >
+              <div class="inline-flex items-center gap-2">
+                <img src="/icons/menu-icon-home.svg" alt="" /><span
+                  >Services</span
+                >
+              </div>
+              <img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></a>
+          </li>
+
+          <!-- Separator -->
+          <hr
+            class="border-none bg-[#D2D6DB] my-2 h-[1px] w-[85%] mx-auto last:hidden"
+          />
+
+          <li>
+            <a
+              href="#"
+              class="mobile-menu-link font-semibold text-sm flex items-center justify-between px-4 py-2 rounded-[4px] hover:bg-[#F3F4F6] relative hover:after:content-[''] hover:after:block hover:after:h-6 hover:after:w-1.5 hover:after:bg-[#9DA4AE] hover:after:rounded-full hover:after:absolute hover:after:left-0 active:after:bg-[#1F2A37] active:bg-[#E5E7EB]"
+            >
+              <div class="inline-flex items-center gap-2">
+                <img src="/icons/menu-icon-home.svg" alt="" /><span
+                  >Feedback</span
+                >
+              </div>
+              <img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></a>
+          </li>
+
+          <!-- Separator -->
+          <hr
+            class="border-none bg-[#D2D6DB] my-2 h-[1px] w-[85%] mx-auto last:hidden"
+          />
+
+          <li>
+            <a
+              href="#"
+              class="mobile-menu-link font-semibold text-sm flex items-center justify-between px-4 py-2 rounded-[4px] hover:bg-[#F3F4F6] relative hover:after:content-[''] hover:after:block hover:after:h-6 hover:after:w-1.5 hover:after:bg-[#9DA4AE] hover:after:rounded-full hover:after:absolute hover:after:left-0 active:after:bg-[#1F2A37] active:bg-[#E5E7EB]"
+            >
+              <div class="inline-flex items-center gap-2">
+                <img src="/icons/menu-icon-home.svg" alt="" /><span>Form</span>
+              </div>
+              <img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></a>
+          </li>
+
+          <!-- Separator -->
+          <hr
+            class="border-none bg-[#D2D6DB] my-2 h-[1px] w-[85%] mx-auto last:hidden"
+          />
+
+          <li>
+            <a
+              href="#"
+              class="mobile-menu-link font-semibold text-sm flex items-center justify-between px-4 py-2 rounded-[4px] hover:bg-[#F3F4F6] relative hover:after:content-[''] hover:after:block hover:after:h-6 hover:after:w-1.5 hover:after:bg-[#9DA4AE] hover:after:rounded-full hover:after:absolute hover:after:left-0 active:after:bg-[#1F2A37] active:bg-[#E5E7EB]"
+            >
+              <div class="inline-flex items-center gap-2">
+                <img src="/icons/menu-icon-home.svg" alt="" /><span
+                  >Contact</span
+                >
+              </div>
+              <img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></a>
+          </li>
+
+          <!-- Separator -->
+          <hr
+            class="border-none bg-[#D2D6DB] my-2 h-[1px] w-[85%] mx-auto last:hidden"
+          />
+
+          <li>
+            <a
+              href="#"
+              class="mobile-menu-link font-semibold text-sm flex items-center justify-between px-4 py-2 rounded-[4px] hover:bg-[#F3F4F6] relative hover:after:content-[''] hover:after:block hover:after:h-6 hover:after:w-1.5 hover:after:bg-[#9DA4AE] hover:after:rounded-full hover:after:absolute hover:after:left-0 active:after:bg-[#1F2A37] active:bg-[#E5E7EB]"
+            >
+              <div class="inline-flex items-center gap-2">
+                <img src="/icons/menu-icon-home.svg" alt="" /><span
+                  >Help & Support</span
+                >
+              </div>
+              <img src="/icons/arrow-down-01.svg" alt="" class="w-5"
+            /></a>
+          </li>
+
+          <!-- Separator -->
+          <hr
+            class="border-none bg-[#D2D6DB] my-2 h-[1px] w-[85%] mx-auto last:hidden"
+          />
         </ul>
       </div>
-      <div class="nav-right hidden md:flex flex-row items-center ml-3 h-full font-semibold">
-        
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3" id="search-btn">
-          <img
-            class="w-5"
-            src="/icons/search-Icon.svg"
-            alt=""
-          /><span class="ml-1">Search</span>
-        </button>
+    </header>
+
+    <script>
+
+      ///////// Open Mobile Navbar ////////////
+     document.querySelector('#hamburger-btn').addEventListener("click", () => {
+       document.querySelector("#mobile-nav").classList.add("left-0")
+       document.querySelector("#mobile-nav").classList.remove("left-[-300px]")
+
+     })
+
+      ///////// Close Mobile Navbar ////////////
+      document.querySelector('#mobile-nav-close').addEventListener("click", () => {
+       document.querySelector("#mobile-nav").classList.add("left-[-300px]")
+       document.querySelector("#mobile-nav").classList.remove("left-0")
+      })
+
+
+      ////////////// toggle Search bar ////////////////
+      const searchBtn = document.getElementById("search-btn")
+      const searchBar = document.getElementById("search-bar")
+      const closeBtn = document.getElementById("close-btn")
+
+      searchBtn.addEventListener("click", () => {
+        searchBar.style.display = "block" // Show the search bar
+      })
+
+      closeBtn.addEventListener("click", () => {
+        searchBar.style.display = "none" // Hide the search bar
+      })
+
+
+
+      /////////////// Navbar menu items selected ///////////////
+      document.addEventListener("DOMContentLoaded", () => {
+        const allItems = document.querySelectorAll(
+          ".nav-menu-link , .nav-right button"
+        )
+
+        allItems.forEach((item) =>
+          item.addEventListener("click", () => {
+            // Remove 'selected' class and filter from all items
+            allItems.forEach((el) => {
+              el.classList.remove("selected")
+              const icon = el.querySelector("img")
+              if (icon) icon.style.filter = ""
+            })
+
+            // Add 'selected' class and filter to clicked item
+            item.classList.add("selected")
+            const icon = item.querySelector("img")
+            if (icon) icon.style.filter = "brightness(0) invert(1)"
+          })
+        )
+      })
       
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
-          <img
-            class="w-5"
-            src="/icons/translate-icon.svg"
-            alt=""
-          /><span class="ml-1">Arabic</span>
-        </button>
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
-          <img class="w-5" src="/icons/user.svg" alt="" /><span
-            class="ml-1"
-            >Login</span
-          >
-        </button>
-      </div>
-      <div class="hamburger block md:hidden" onClick="toggleMenu()">
-        <img src="/icons/hamburger-menu-svgrepo-com.svg" alt="" class="w-6" />
-      </div>
-    </nav>
 
-    <!-- SEARCH BAR -->
-    <div class="absolute bg-white border w-full left-0 z-30 rounded-b-xl hidden overflow-hidden" id="search-bar">
-      <div class="container-custom">
-        <button class="float-right mt-5" id="close-btn"><img src="/icons/multiplication-sign.svg" alt=""></button>
-        
-         <div class="input relative flex items-center gap-3 pt-14">
-        <div class="relative flex-1">
-          <span class="search-bar-icon left-2"><img src="/icons/search-input.svg" alt=""></span>
-          <button class="search-bar-icon right-2"><img src="/icons/mic-01.svg" alt=""></button>
-          <input type="text" placeholder="Search" class="w-full px-3 pl-8 py-2 rounded-sm border border-gray-400 outline-none">
-          
-        </div>
-        <button class="btn text-white rounded-sm px-3 py-2">Search</button>
-      </div>
+      //////////// Mobile navbar menu items selected /////////////
+      const links = document.querySelectorAll(".mobile-menu-link") // Select all menu links
 
-      <div class="suggestions py-7">
-        <p class="text-[#1B8354] font-semibold mb-3">Suggestions for you</p>
-        <div class="inline-flex gap-2">
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Training</span>
-          </a>
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Services</span>
-          </a>
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Articles</span>
-          </a>
-        </div>
-      </div>
-      </div>
-    </div>
+      links.forEach((link) => {
+        link.addEventListener("click", function () {
+          links.forEach((link) => link.classList.remove("activated")) // Remove 'selected' from all
+          this.classList.add("activated") // Add 'selected' to the clicked link
+        })
+      })
+
+     
+
+      ////////////// Select the toggle link and submenu ///////////////
+const toggleMenu = document.querySelector('#toggle-menu');
+const submenu = document.querySelector('[data-toggle="submenu"]');
+
+// Add click event listener to the menu link
+toggleMenu.addEventListener('click', (event) => {
+  event.preventDefault(); // Prevent default link behavior
+  
+  // Toggle the visibility of the submenu
+  submenu.classList.toggle('hidden'); // Tailwind's `hidden` class
+
+  document.querySelector(".arrow-icon").classList.toggle('rotate-180')
+});
 
 
-    <!-- MOBILE NAV -->
-    <div
-      class="bg-gray-100 absolute w-full left-0 z-30 md:hidden overflow-hidden transition-all ease-in-out duration-500" id="mobile-nav"
-    >
-    <ul class="px-6 pt-4">
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="home.html" class="flex items-center justify-between"
-          ><span>Home</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="services.html" class="flex items-center justify-between"
-          ><span>Services</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="feedback.html" class="flex items-center justify-between"
-          ><span>Feedback</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="form.html" class="flex items-center justify-between"
-          ><span>Form</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="contact.html" class="flex items-center justify-between"
-          ><span>Contact</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="">
-        <a href="help.html" class="flex items-center justify-between"
-          ><span>Help & Support</span
-          ><img src="/icons/arrow-down-01.svg" alt="" class="w-5"
-        /></a>
-      </li>
-    </ul>
-      <div class="px-6 py-7 flex flex-col gap-4">
-        <button class="inline-flex items-center">
-          <img class="w-5" src="/icons/translate-you-svgrepo-com.svg" alt="" /><span
-            class="ml-1"
-            >Arabic</span
-          >
-        </button>
-        <button class="inline-flex items-center">
-          <img class="w-5" src="/icons/user-svgrepo-com.svg" alt="" /><span
-            class="ml-1"
-            >Login</span
-          >
-        </button>
-      </div>
-    </div>
-</body>
+
+
+      /////////////// Second Navbar right icons selected ///////////////
+
+      document.querySelectorAll(".right-icon-btn").forEach((button) =>
+        button.addEventListener("click", () => {
+          // Remove the class from all buttons
+          document
+            .querySelectorAll(".right-icon-btn")
+            .forEach((btn) => btn.classList.remove("bg-[#E5E7EB]"))
+          // Add the class to the clicked button
+          button.classList.add("bg-[#E5E7EB]")
+        })
+      )
+    </script>
+  </body>
 </html>

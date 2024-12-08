@@ -12,176 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <nav
-      class="navbar border-b-2 flex flex-row-reverse md:flex-row justify-between items-center px-6 text-sm h-16"
-    >
-      <div class="nav-left flex-row font-semibold h-full">
-        <a href="home.html" class="logo mr-0 md:mr-4">
-          <img src="/images/Logo-header.svg" alt=""/>
-        </a>
-        <ul class="nav-menu hidden md:flex flex-row items-center">
-          <a href="home.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Home</span
-              ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="services.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Services</span
-              ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="feedback.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Feedback</span
-              ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="form.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Form</span
-              ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="contact.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Contact</span
-              ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-            /></li>
-          </a>
-          <a href="help.html" class="inline-flex items-center hover:bg-gray-200 h-full px-2">
-            <li class="inline-flex items-center"
-              ><span>Help & Support</span
-              ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-            /></li>
-          </a>
-        </ul>
-      </div>
-      <div class="nav-right hidden md:flex flex-row items-center ml-3 h-full font-semibold">
-        
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3" id="search-btn">
-          <img
-            class="w-5"
-            src="/icons/search-Icon.svg"
-            alt=""
-          /><span class="ml-1">Search</span>
-        </button>
-      
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
-          <img
-            class="w-5"
-            src="/icons/translate-icon.svg"
-            alt=""
-          /><span class="ml-1">Arabic</span>
-        </button>
-        <button class="inline-flex items-center hover:bg-gray-200 h-full px-3">
-          <img class="w-5" src="/icons/user-svgrepo-com.svg" alt="" /><span
-            class="ml-1"
-            >Login</span
-          >
-        </button>
-      </div>
-      <div class="hamburger block md:hidden" onClick="toggleMenu()">
-        <img src="/icons/hamburger-menu-svgrepo-com.svg" alt="" class="w-6" />
-      </div>
-    </nav>
-
-    <!-- SEARCH BAR -->
-    <div class="absolute bg-white border w-full left-0 z-30 rounded-b-xl hidden overflow-hidden" id="search-bar">
-      <div class="container-custom">
-        <button class="float-right mt-5" id="close-btn"><img src="/icons/multiplication-sign.svg" alt=""></button>
-        
-         <div class="input relative flex items-center gap-3 pt-14">
-        <div class="relative flex-1">
-          <span class="search-bar-icon left-2"><img src="/icons/search-input.svg" alt=""></span>
-          <button class="search-bar-icon right-2"><img src="/icons/mic-01.svg" alt=""></button>
-          <input type="text" placeholder="Search" class="w-full px-3 pl-8 py-2 rounded-sm border border-gray-400 outline-none">
-          
-        </div>
-        <button class="btn text-white rounded-sm px-3 py-2">Search</button>
-      </div>
-
-      <div class="suggestions py-7">
-        <p class="text-[#1B8354] font-semibold mb-3">Suggestions for you</p>
-        <div class="inline-flex gap-2">
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Training</span>
-          </a>
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Services</span>
-          </a>
-          <a href="#" class="inline-flex gap-1 bg-[#F3F4F6] rounded-sm p-2">
-            <img src="/icons/plus.svg" alt="">
-            <span class="text-sm font-semibold">Articles</span>
-          </a>
-        </div>
-      </div>
-      </div>
-    </div>
-
-
-    <!-- MOBILE NAV -->
-    <div
-      class="bg-gray-100 absolute w-full left-0 z-30 md:hidden overflow-hidden transition-all ease-in-out duration-500" id="mobile-nav"
-    >
-    <ul class="px-6 pt-4">
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="home.html" class="flex items-center justify-between"
-          ><span>Home</span
-          ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="services.html" class="flex items-center justify-between"
-          ><span>Services</span
-          ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="feedback.html" class="flex items-center justify-between"
-          ><span>Feedback</span
-          ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="form.html" class="flex items-center justify-between"
-          ><span>Form</span
-          ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="pb-2 mb-2 border-b-2">
-        <a href="contact.html" class="flex items-center justify-between"
-          ><span>Contact</span
-          ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-        /></a>
-      </li>
-      <li class="">
-        <a href="help.html" class="flex items-center justify-between"
-          ><span>Help & Support</span
-          ><img src="/icons/arrow-down-svgrepo-com.svg" alt="" class="w-5"
-        /></a>
-      </li>
-    </ul>
-      <div class="px-6 py-7 flex flex-col gap-4">
-        <button class="inline-flex items-center">
-          <img class="w-5" src="/icons/translate-you-svgrepo-com.svg" alt="" /><span
-            class="ml-1"
-            >Arabic</span
-          >
-        </button>
-        <button class="inline-flex items-center">
-          <img class="w-5" src="/icons/user-svgrepo-com.svg" alt="" /><span
-            class="ml-1"
-            >Login</span
-          >
-        </button>
-      </div>
-    </div>
-    
-
+   
     <!-- BREADCRUMB -->
     <nav aria-label="breadcrumb" class="mt-5">
         <ul class="container-custom breadcrumb flex items-center text-sm">
@@ -193,17 +24,17 @@
     <!-- HELP & SUPPORT SECTION STARTS -->
      <section class="mt-5 mb-10">
         <div class="container-custom">
-            <h2 class="font-bold text-2xl">Help & Support</h2>
-            <p class="text-sm pt-5">We work continuously to make your experience through government services easier, see what support channel suits better your necessities.</p>
+            <h2 class="">Help & Support</h2>
+            <p class="pt-5">We work continuously to make your experience through government services easier, see what support channel suits better your necessities.</p>
             <div class="cards grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 mt-7">
 
                 <div class="card border border-[--border-primary-color] rounded-[--border-radius] p-4 flex flex-col content-between">
                     <div class="flex-1">
                     <div class="card-icon mb-6"><img src="/icons/Featured icon email.svg" alt=""></div>
-                    <h3 class="font-bold">Contact us</h3>
-                    <p class="text-sm mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
-                    <p class="text-sm mb-4 "><strong class="text-[#14573A]">Service availability:</strong> all week.</p>
-                    <p class="text-sm mb-6 "><strong class="text-[#14573A]">Response time:</strong> within 5 days.</p>
+                    <h3 class="">Contact us</h3>
+                    <p class="mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
+                    <p class="mb-4 "><strong class="text-[#14573A] font-semibold">Service availability:</strong> all week.</p>
+                    <p class="mb-6 "><strong class="text-[#14573A] font-semibold">Response time:</strong> within 5 days.</p>
                 </div>
                     <button class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] w-fit">Action</button>
                 </div>
@@ -211,8 +42,8 @@
                 <div class="card border border-[--border-primary-color] rounded-[--border-radius] p-4 flex flex-col content-between">
                     <div class="flex-1">
                     <div class="card-icon mb-6"><img src="/icons/Featured icon faq.svg" alt=""></div>
-                    <h3 class="font-bold">FAQs</h3>
-                    <p class="text-sm mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
+                    <h3 class="">FAQs</h3>
+                    <p class="mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
                     </div>
                     <button class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] w-fit">Action</button>
                 </div>
@@ -220,10 +51,10 @@
                 <div class="card border border-[--border-primary-color] rounded-[--border-radius] p-4 flex flex-col content-between">
                     <div class="flex-1">
                     <div class="card-icon mb-6"><img src="/icons/Featured icon email.svg" alt=""></div>
-                    <h3 class="font-bold">Contact us</h3>
-                    <p class="text-sm mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
-                    <p class="text-sm mb-4"><strong class="text-[#14573A]">Service availability:</strong> all week.</p>
-                    <p class="text-sm mb-6"><strong class="text-[#14573A]">Response time:</strong> within 5 days.</p>
+                    <h3 class="">Contact us</h3>
+                    <p class="mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
+                    <p class="mb-4"><strong class="text-[#14573A] font-semibold">Service availability:</strong> all week.</p>
+                    <p class="mb-6"><strong class="text-[#14573A] font-semibold">Response time:</strong> within 5 days.</p>
                 </div>
                     <button class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] w-fit">Action</button>
                 </div>
@@ -232,8 +63,8 @@
                 <div class="card border border-[--border-primary-color] rounded-[--border-radius] p-4 flex flex-col content-between">
                     <div class="flex-1">
                     <div class="card-icon mb-6"><img src="/icons/Featured icon faq.svg" alt=""></div>
-                    <h3 class="font-bold">FAQs</h3>
-                    <p class="text-sm mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
+                    <h3 class="">FAQs</h3>
+                    <p class="mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
                     </div>
                     <button class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] w-fit">Action</button>
                 </div>
@@ -242,10 +73,10 @@
                 <div class="card border border-[--border-primary-color] rounded-[--border-radius] p-4 flex flex-col content-between">
                     <div class="flex-1">
                     <div class="card-icon mb-6"><img src="/icons/Featured icon email.svg" alt=""></div>
-                    <h3 class="font-bold">Contact us</h3>
-                    <p class="text-sm mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
-                    <p class="text-sm mb-4"><strong class="text-[#14573A]">Service availability:</strong> all week.</p>
-                    <p class="text-sm mb-6"><strong class="text-[#14573A]">Response time:</strong> within 5 days.</p>
+                    <h3 class="">Contact us</h3>
+                    <p class="mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
+                    <p class="mb-4"><strong class="text-[#14573A] font-semibold">Service availability:</strong> all week.</p>
+                    <p class="mb-6"><strong class="text-[#14573A] font-semibold">Response time:</strong> within 5 days.</p>
                 </div>
                     <button class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] w-fit">Action</button>
                 </div>
@@ -254,8 +85,8 @@
                 <div class="card border border-[--border-primary-color] rounded-[--border-radius] p-4 flex flex-col content-between">
                     <div class="flex-1">
                     <div class="card-icon mb-6"><img src="/icons/Featured icon faq.svg" alt=""></div>
-                    <h3 class="font-bold">FAQs</h3>
-                    <p class="text-sm mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
+                    <h3 class="">FAQs</h3>
+                    <p class="mt-1.5 mb-4">Here you can include a description in four lines. Here you can include a description in four lines.</p>
                     </div>
                     <button class="bg-[--button-primary-color] text-[--button-text-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] w-fit">Action</button>
                 </div>

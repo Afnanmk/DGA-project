@@ -1,0 +1,186 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Services</title>
+    <link rel="stylesheet" href="main.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+ 
+ <style>
+  :root {
+    --text-default-color: #161616;
+    --primary-color: #1B8354;
+
+    --border-primary-color:#D2D6DB;
+    --border-radius: 12px;
+
+    --button-primary-color: #1B8354;
+    --button-primary-hover: #166A45;
+    --button-secondary-color: #D2D6DB;
+    --button-secondary-hover:#F3F4F6;
+    --button-secondary-border-hover: #E5E7EB;
+    --button-active-color: #104631;
+    --button-border-radius: 4px;
+    --button-padding-block: 0.5rem;
+    --button-padding-inline: 0.75rem;
+    --button-text-color: #ffffff;
+    --button-secondary-text-color:#161616;
+
+    --contact-form-bg: #F3F4F6;
+    --contact-form-text: #6C737F;
+    --form-input-radius: 4px;
+    --form-padding-block: 0.5rem;
+    --form-padding-inline:0.5rem;
+}
+
+  /* Custom checkbox styles */
+input[type="checkbox"] {
+    appearance: none;
+    width: 1.3rem;
+    height: 1.3rem;
+    border: 1px solid #6C737F;
+    border-radius: 2px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  input[type="checkbox"]:checked {
+    background-color: #1B8354;
+    border: none;
+  }
+  
+  input[type="checkbox"]:checked::before {
+    content: url("/icons/checked-icon.svg");
+  }
+
+/* Custom radio button styles */
+input[type="radio"] {
+    appearance: none;
+    border-radius: 50%;
+    width: 22px;
+    height:22px;
+    border: 1px solid #6C737F;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.2s, border-color 0.2s;
+  }
+  input[type="radio"]:checked {
+      border-color: #1B8354;
+  }
+  input[type="radio"]:checked::before {
+      content: "";
+      width: 14px;
+      height: 14px;
+      background-color: #1B8354;
+      border-radius: 50%;
+  }
+
+ </style>
+ </head>
+
+  <body>
+    <!-- FEEDBACK SECTION -->
+    <section id="feedback-section" class="py-4 border-t-2 border-[--primary-color]">
+    
+     <!-- Feedback Questions -->
+     <div id="question-bar" class="container-custom flex flex-col gap-2.5 sm:flex-row sm:gap-0 sm:items-center flex-wrap">
+      <p id="question-text" class="mr-5 order-2 sm:order-1">Was this page useful?</p>
+      <div id="yes-no-buttons" class="order-3 sm:order2 space-x-2 flex-initial sm:flex-1">
+        <button id="yes-button" class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color] hover:bg-[--button-primary-hover] text-sm">Yes</button>
+        <button id="no-button" class="bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-1 text-[--button-text-color] hover:bg-[--button-primary-hover] text-sm">No</button>
+      </div>
+      <p id="survey" class="text-sm order-2 sm:order-3">60% of users said Yes from 2843 Feedbacks</p>
+      <button id="close-button" class="hidden items-center justify-end sm:justify-normal gap-1 order-1 sm:order-3 font-semibold hover:bg-[--button-secondary-hover] py-[--button-padding-block] px-[--button-padding-inline] rounded-[--button-border-radius]">Close <img src="/icons/close-btn.svg" alt="" class="w-4 -mb-1"></button>
+    </div>
+
+
+      <!-- Form section -->
+      <form method="POST" action="https://dga-base.test/!/forms/feedback_positive"><input type="hidden" name="_token" value="he87E6MjwqDEIpZkVZgGtBrduj13llNOTuaHg3Np" autocomplete="off">  
+      <div id="feedback-options" class="container-custom pt-5">
+        <div class="flex flex-col md:flex-row md:justify-between">
+        <div>
+          <!-- Questions for yes button -->
+        <div id="yes-options" class="space-y-4">
+          <label class="font-bold">
+            Please tell us why <span class="text-xs text-[#6C737F] font-normal"
+              >(you can select multiple options)</span
+            >
+          </label>
+          <div class="space-y-4">
+            <input type="hidden" name="please_tell_us_why[]" />
+
+            <label class="flex items-center font-medium w-fit">
+              <input type="checkbox"  name="please_tell_us_why[]"
+              value="Content is relevant" class="mr-3 shrink-0" /> Content is relevant
+            </label>
+            <label class="flex items-center font-medium w-fit">
+              <input type="checkbox" name="please_tell_us_why[]"
+              value="It was well written" class="mr-3 shrink-0" /> It was well written
+            </label>
+            <label class="flex items-center font-medium w-fit">
+              <input type="checkbox"  name="please_tell_us_why[]"
+              value="The layout made it easy to read" class="mr-3 shrink-0" /> The layout made it easy to
+              read
+            </label>
+            <label class="flex items-center font-medium w-fit">
+              <input type="checkbox"  name="please_tell_us_why[]"
+              value="Something else" class="mr-3 shrink-0" /> Something else
+            </label>
+          </div>
+        </div>
+      </div>
+
+        <!-- Feedback Text Area -->
+        <div class="w-full md:w-1/2 mt-5 md:mt-0">
+          <label class="block text-sm mb-2">Feedback</label>
+          <div class="input-wrapper">
+          <textarea
+            class="input-field w-full border border-[#9DA4AE] rounded-[4px] py-2 px-4 placeholder:text-[--text-default-color] hover:border-[#161616] focus:outline-none min-h-[96px]" name="feedback"
+            rows=""
+            placeholder="Enter your feedback here"
+          ></textarea>
+          <div class="animated-line"></div>
+        </div>
+        </div>
+      </div>
+
+
+        <!-- Gender selection area -->
+        <div class="flex  flex-col sm:flex-row sm:items-center flex-wrap gap-4 mt-6">
+          <p class="font-semibold">I'm</p>
+         
+            <label class="font-medium inline-flex items-center gap-2">
+                <input type="radio" name="sex" value="Male" class="shrink-0" />Male
+                </label>
+        
+                <label class="font-medium inline-flex items-center gap-2">
+                    <input type="radio" name="sex" value="Female" class="shrink-0" />Female
+                    </label>
+
+         <label class="font-medium inline-flex items-center gap-2">
+                <input type="radio" name="sex" value="I prefer not to say" class="shrink-0" />I prefer not to say
+                </label>
+        </div>
+        <!-- Submit Button -->
+         <div class="mt-7 sm:space-y-0 space-y-7 flex flex-col sm:flex-row sm:items-center sm:justify-between">
+          <p>For more information you may review <a href="#" class="text-[#1B8354] underline">e-participation statements</a> and <a href="#" class="text-[#1B8354] underline">rules of engagement</a></p>
+          <button
+          id="submit-button"
+          class="text-[--button-text-color] bg-[--button-primary-color] rounded-[--button-border-radius] px-[--button-padding-inline] py-[--button-padding-block] hover:bg-[--button-primary-hover] text-sm ml-0 sm:ml-4 w-fit"
+        >
+          Submit
+        </button>
+         </div>
+      </div>
+      </form>
+      
+      
+    </section>
+ 
+    <script src="main.js"></script>
+  </body>
+</html>
