@@ -39,26 +39,35 @@
           position: relative;
           overflow: hidden;
         }
+
         .animated-line {
           position: absolute;
           bottom: 0;
-          left: 50%;
+          left: 0;
           width: 100%;
           height: 2px;
           background-color: #161616;
           border-bottom-left-radius: 4px;
           border-bottom-right-radius: 4px;
-          transform: translateX(-50%) scaleX(0);
+          transform: scaleX(0);
           transform-origin: center;
-          transition: 0.3s ease-in-out;
+          transition: transform 0.3s ease-in-out;
         }
         .input-field {
           outline: none;
+          width: 100%;
+          border-radius: 4px;
+          padding-left: 8px;
+          padding-right: 16px;
+          font-size: 1rem;
+          line-height: 1.5rem;
         }
         .input-field:focus + .animated-line {
-          transform: translateX(-50%) scaleX(1);
+          transform: scaleX(1);
         }
-
+        .input-field:not(textarea) {
+          height: 40px;
+        }
 
 
 
@@ -97,9 +106,7 @@
         .select2-container--default.select2-container--open.select2-container--below .select2-selection--single, .select2-container--default.select2-container--open.select2-container--below .select2-selection--multiple {
           border-radius: 4px;
         }
-        .select2-container--default .select2-selection--single .select2-selection__arrow {
-          
-        }
+        
         .select2-container--default .select2-selection--single .select2-selection__rendered {
           color: #6C737F;
         }
@@ -244,9 +251,7 @@ input[type="file"].hidden {
           content: url("/icons/link-icon-hovered.svg");
         }
     
-        .input-field:not(textarea) {
-          height: 40px;
-        }
+      
       </style>
   
  </head>
@@ -291,49 +296,55 @@ input[type="file"].hidden {
             >
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
                 <!-- First Name -->
-                <div class="input-wrapper">
+                <div class="">
                   <label for="first-name" class="block text-sm font-semibold mb-2">
                     <span class="text-[#B42318]">*</span> First Name
                   </label>
+                  <div class="input-wrapper">
                   <input
                     type="text"
                     id="first-name"
                     name="first_name"
                     placeholder="Type your first name"
                     required
-                    class="input-field mt-2 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm border border-transparent focus:bg-transparent focus:border-[#161616] hover:border-[#161616]"
+                    class="input-field block bg-[--contact-form-bg] placeholder:text-[--contact-form-text] border border-transparent focus:bg-transparent focus:border-[#161616]"
                   />
                   <div class="animated-line"></div>
                 </div>
+                </div>
                 <!-- Last Name -->
-                <div class="input-wrapper">
+                <div class="">
                   <label for="last-name" class="block text-sm font-semibold mb-2">
                     <span class="text-[#B42318]">*</span> Last Name
                   </label>
+                  <div class="input-wrapper">
                   <input
                     type="text"
                     id="last-name"
                     name="last_name"
                     placeholder="Type your last name"
                     required
-                    class="input-field mt-2 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm border border-transparent focus:bg-transparent focus:border-[#161616] hover:border-[#161616]"
+                    class="input-field block bg-[--contact-form-bg] placeholder:text-[--contact-form-text] border border-transparent focus:bg-transparent focus:border-[#161616]"
                   />
                   <div class="animated-line"></div>
                 </div>
+                </div>
                 <!-- Email -->
-                <div class="input-wrapper">
+                <div class="">
                   <label for="email" class="block text-sm font-semibold mb-2">
                     <span class="text-[#B42318]">*</span> Email
                   </label>
+                  <div class="input-wrapper">
                   <input
                     type="email"
                     id="email"
                     name="email"
                     placeholder="Type your email"
                     required
-                    class="input-field mt-2 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm border border-transparent focus:bg-transparent focus:border-[#161616] hover:border-[#161616]"
+                    class="input-field block bg-[--contact-form-bg] placeholder:text-[--contact-form-text] border border-transparent focus:bg-transparent focus:border-[#161616]"
                   />
                   <div class="animated-line"></div>
+                </div>
                 </div>
                 <!-- Phone -->
                 <div class="">
@@ -341,13 +352,13 @@ input[type="file"].hidden {
                     <span class="text-[#B42318]">*</span> Phone
                   </label>
                   <div
-                    class="input-wrapper flex mt-2 border rounded-[--form-input-radius] border-transparent hover:border-[#161616]"
+                    class="input-wrapper flex border rounded-[4px] border-transparent hover:border-[#161616]"
                     tabindex="0"
                   >
                     <select
                       id="country-code"
                       name="country-code"
-                      class="block rounded-l-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] sm:text-sm focus:outline-none"
+                      class="block"
                     >
                       <option value="+966" selected>+966</option>
                       <option value="+1">+1</option>
@@ -360,25 +371,27 @@ input[type="file"].hidden {
                       name="phone"
                       placeholder="00 000 0000"
                       required
-                      class="input-field block w-full rounded-r-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm border border-transparent focus:bg-transparent focus:border-[#161616] focus:border-l-0"
+                      class="input-field block bg-[--contact-form-bg] placeholder:text-[--contact-form-text] border-l-0 border-transparent focus:bg-transparent focus:border-[#161616] focus:border-l-0"
                     />
                     <div class="animated-line"></div>
                   </div>
                 </div>
 
                 <!-- Subject -->
-                <div class="input-wrapper">
+                <div class="">
                   <label for="subject" class="block text-sm font-semibold mb-2">
                     Subject
                   </label>
+                  <div class="input-wrapper">
                   <input
                     type="text"
                     id="subject"
                     name="subject"
                     placeholder="Type your subject"
-                    class="input-field mt-2 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm border border-transparent focus:bg-transparent focus:border-[#161616] hover:border-[#161616]"
+                    class="input-field block bg-[--contact-form-bg] placeholder:text-[--contact-form-text] border border-transparent focus:bg-transparent focus:border-[#161616]"
                   />
                   <div class="animated-line"></div>
+                </div>
                 </div>
 
                 <!-- Category -->
@@ -396,18 +409,20 @@ input[type="file"].hidden {
                 </div>
 
                 <!-- Message -->
-                <div class="input-wrapper">
+                <div class="">
                   <label for="message" class="block text-sm font-semibold mb-2">
                     How Can We Help?
                   </label>
+                  <div class="input-wrapper">
                   <textarea
                     id="message"
                     name="message"
                     placeholder="Placeholder text"
                     rows="4"
-                    class="input-field mt-2 block w-full rounded-[--form-input-radius] py-[--form-padding-block] px-[--form-padding-inline] bg-[--contact-form-bg] placeholder:text-[--contact-form-text] sm:text-sm max-h-24 border border-transparent focus:bg-transparent focus:border-[#161616] hover:border-[#161616]"
+                    class="input-field block px-4 py-3 bg-[--contact-form-bg] placeholder:text-[--contact-form-text] border border-transparent focus:bg-transparent focus:border-[#161616]"
                   ></textarea>
                   <div class="animated-line"></div>
+                </div>
                 </div>
 
                 <!-- File Upload -->
