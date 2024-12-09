@@ -758,6 +758,10 @@ function formatOption(option) {
       const progressCircle = document.getElementById("progress-circle");
       const tickIcon = document.getElementById("tick-icon");
       
+      // To prevent reopening the file dialog after reset
+let preventFileOpen = false;
+
+
       // Handle file selection
       fileInput.addEventListener("change", function (event) {
         const fileName = event.target.files[0]?.name || "";
@@ -785,25 +789,35 @@ function formatOption(option) {
         }
       });
       
-      // Handle keyboard interaction
+      // Handle keyboard interaction for file label
       fileLabel.addEventListener("keydown", function (event) {
-        if (event.key === "Enter" || event.key === " ") {
+        if ((event.key === "Enter" || event.key === " ") && !preventFileOpen) {
           event.preventDefault();
           fileInput.click();
         }
       });
       
+// Handle close button click
+closeButton.addEventListener("click", function (event) {
+  event.preventDefault();
+  resetFileInput(); 
+  fileLabel.focus(); // Set focus back to the label to avoid opening the file input
+});
+
+
      // Handle keyboard interaction for close button
 closeButton.addEventListener("keydown", function (event) {
   if (event.key === "Enter" || event.key === " ") {
     event.preventDefault();
     closeButton.setAttribute("aria-hidden", "true");
     resetFileInput();
+    fileLabel.focus(); // Set focus back to the label to avoid opening the file input
   }
 });
       
       // Reset the file input
       function resetFileInput() {
+        preventFileOpen = true; // Prevent immediate reopening of the file dialog
         fileInput.value = "";
         fileText.textContent = "Browse Files";
         fileLabel.querySelector(".close-btn").style.display = "none";
@@ -814,10 +828,18 @@ closeButton.addEventListener("keydown", function (event) {
         progressCircle.classList.add("hidden");
         tickIcon.classList.add("hidden");
         fileText.style.marginLeft = "";
+        closeButton.setAttribute("aria-hidden", "true"); // Make it inaccessible
       
         fileInput.disabled = false;
         fileInput.style.pointerEvents = "auto";
-      }
+
+
+        // Allow file dialog to open again after a short delay
+  setTimeout(() => {
+    preventFileOpen = false;
+  }, 200);
+}
+      
       
     </script>
     
