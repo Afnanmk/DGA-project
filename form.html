@@ -6,6 +6,10 @@
    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="main.css" />
+
+    <style>
+
+    </style>
 </head>
 
 
@@ -484,7 +488,7 @@
     </div>
 
       <!-- Right Side: Step Indicator: Desktop -->
-      <div class="self-start h-[384px] max-h-[auto] bg-[#F9FAFB] rounded-[--border-radius] w-full md:w-1/3 order-1 md:order-2 p-10 -mt-9">
+      <div class="self-start h-auto md:h-[384px] max-h-[auto] bg-[#F9FAFB] rounded-[--border-radius] w-full md:w-1/3 order-1 md:order-2 p-10 -mt-9">
         <div class='wrapper hidden md:block'>
           <div class='steps' id='steps'>
             <div class="progress" id="progress"></div>
@@ -521,33 +525,33 @@
 
 
 
-          
-      <!-- Step Indicator: Mobile -->
-      <div class="step-container flex items-center flex-wrap gap-2 md:hidden">
-        <div class="progress-circle relative w-[90px] h-[90px]">
-          <svg class="circle w-full h-full transform -rotate-90" viewBox="0 0 36 36">
-            <path
-              class="circle-bg fill-none stroke-[#E5E7EB] stroke-[2.5]"
-              d="M18 2.0845
-                a 15.9155 15.9155 0 1 1 0 31.831
-                a 15.9155 15.9155 0 1 1 0 -31.831"
-            />
-            <path
-              class="circle-progress"
-              d="M18 2.0845
-                a 15.9155 15.9155 0 1 1 0 31.831
-                a 15.9155 15.9155 0 1 1 0 -31.831"
-              style="stroke-dasharray: 0, 100"
-            />
-          </svg>
-          <div class="progress-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-base font-bold">1 of 4</div>
-        </div>
-        <div class="step-details">
-          <h3 class="text-lg font-bold">Step One</h3>
-          <p class="my-1 text-sm">this is step description</p>
-          <p class="next-step my-1 text-sm">Next: Step Two</p>
-        </div>
-      </div>
+      <!-- Right Side: Step Indicator: MOBILE -->
+<div class="md:hidden step-container flex items-center flex-wrap gap-2">
+  <div class="progress-circle relative w-[75px] h-[75px]">
+    <svg class="circle w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+      <path
+        class="circle-bg fill-none stroke-[#E5E7EB] stroke-[2.5]"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 1 1 0 31.831
+          a 15.9155 15.9155 0 1 1 0 -31.831"
+      />
+      <path
+        class="circle-progress"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 1 1 0 31.831
+          a 15.9155 15.9155 0 1 1 0 -31.831"
+        style="stroke-dasharray: 0, 100"
+      />
+    </svg>
+    <div class="progress-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-sm font-bold text-[#384250]">1 of 4</div>
+  </div>
+  <div class="step-details">
+    <h3 class="font-bold text-sm text-[#1F2A37]">Step One</h3>
+    <p class="my-1 text-xs text-[#384250]">this is step description</p>
+    <p class="next-step my-1 text-xs text-[#6C737F]">Next: Step Two</p>
+  </div>
+</div>
+
       </div>
 
   </section>
@@ -556,14 +560,29 @@
 
 
     <script>
- //*************** STEP INDICATOR DESKTOP ***************//
+ //*************** STEP INDICATOR  ***************//
 const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
-const progress = document.getElementById("progress");
 const formSteps = document.querySelectorAll(".form-step");
-const progressStepNumbers = document.querySelectorAll(".step-number");
 
+// Desktop Progressbar Elements
+const progressStepNumbers = document.querySelectorAll(".step-number");
+const progress = document.getElementById("progress");
+
+
+// Mobile Progressbar Elements
+const circleProgressPath = document.querySelector(".circle-progress");
+const progressText = document.querySelector(".progress-text");
+const stepDetails = document.querySelector(".step-details");
+const nextStepText = stepDetails.querySelector(".next-step");
+
+
+// Mapping for numbers to words
+const stepWords = ["Step One", "Step Two", "Step Three"];
+
+// Initialize current step
 let formStepsNum = 0;
+
 
 // Set the first step indicator as 'current' when the page loads
 document.addEventListener("DOMContentLoaded", () => {
@@ -572,6 +591,7 @@ document.addEventListener("DOMContentLoaded", () => {
   progressStepNumbers[formStepsNum].classList.remove("step-number-completed", "step-number-upcoming");
   updateFormSteps();
   updateProgressBar();
+  updateCircularProgressBar()
 });
 
 nextBtns.forEach((btn) => {
@@ -579,6 +599,7 @@ nextBtns.forEach((btn) => {
     formStepsNum++;
     updateFormSteps();
     updateProgressBar();
+    updateCircularProgressBar()
   });
 });
 
@@ -587,8 +608,10 @@ prevBtns.forEach((btn) => {
     formStepsNum--;
     updateFormSteps();
     updateProgressBar();
+    updateCircularProgressBar()
   });
 });
+
 
 function updateFormSteps() {
   // Remove 'form-step-active' class from all steps
@@ -628,48 +651,30 @@ function updateProgressBar() {
 }
 
 
-    
+  
 
 
+function updateCircularProgressBar() {
+  const totalSteps = formSteps.length;
+  const percentage = ((formStepsNum + 1) / totalSteps) * 100;
 
- //*************** STEP INDICATOR MOBILE ***************//
+  // Update the circular progress bar's stroke-dasharray
+  const circumference = 100; // Max dasharray value in percentage
+  const dashOffset = circumference - (percentage / 100) * circumference;
 
-      // Variables for the current step and total steps
-      let currentStep = 1;
-const totalSteps = 4;
+  circleProgressPath.style.strokeDasharray = `${circumference}`;
+  circleProgressPath.style.strokeDashoffset = dashOffset;
 
-// Function to update progress
-function setProgress(step) {
-  const progressPercentage = (step / totalSteps) * 100;
-  const progressCircle = document.querySelector(".circle-progress");
-  progressCircle.style.strokeDasharray = `${progressPercentage}, 100`;
+  // Update the progress text in the center of the circle
+  progressText.textContent = `${formStepsNum + 1} of ${totalSteps}`;
 
-  const progressText = document.querySelector(".progress-text");
-  progressText.textContent = `${step} of ${totalSteps}`;
-
-  // Update step details
-  // const stepTitle = document.querySelector(".step-details h3");
-  // const stepDescription = document.querySelector(".step-details p");
-  // const nextStepText = document.querySelector(".next-step");
-
-  // stepTitle.textContent = `Step ${step}`;
-  // stepDescription.textContent = `This is step ${step} description`;
-  // nextStepText.textContent =
-  //   step < totalSteps ? `Next: Step ${step + 1}` : "Finish!";
+  
+  // Update the step details text
+  const currentStep = stepWords[formStepsNum]
+  const nextStep = stepWords[formStepsNum + 1] || "Finish";
+  stepDetails.querySelector("h3").textContent = currentStep;
+  nextStepText.textContent = `Next: ${nextStep}`
 }
-
-// Add event listener to the button
-// document.querySelector(".next-button").addEventListener("click", () => {
-//   if (currentStep < totalSteps) {
-//     currentStep++;
-//     setProgress(currentStep);
-//   } else {
-//     alert("You have completed all steps!");
-//   }
-// });
-
-// Initialize step 1
-setProgress(currentStep);
 
 
     </script>
