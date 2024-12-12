@@ -306,7 +306,7 @@ li {
     stroke: #1B8354;
     stroke-width: 2.5;
     stroke-linecap: round;
-    transition: stroke-dasharray 0.4s ease;
+    transition: stroke-dasharray 0.4s ease-in-out;
   }
 
 

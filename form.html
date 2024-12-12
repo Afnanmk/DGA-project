@@ -8,15 +8,6 @@
     <link rel="stylesheet" href="main.css" />
 
     <style>
-      .circle-progress {
-  transform: rotate(-90deg); /* Starts progress from the top */
-  transform-origin: center;
-}
-
-#circle-progress {
-  transition: stroke-dashoffset 0.3s ease;
-  transform-origin: center;
-}
 
     </style>
 </head>
@@ -497,7 +488,7 @@
     </div>
 
       <!-- Right Side: Step Indicator: Desktop -->
-      <div class="self-start h-[384px] max-h-[auto] bg-[#F9FAFB] rounded-[--border-radius] w-full md:w-1/3 order-1 md:order-2 p-10 -mt-9">
+      <div class="self-start h-auto md:h-[384px] max-h-[auto] bg-[#F9FAFB] rounded-[--border-radius] w-full md:w-1/3 order-1 md:order-2 p-10 -mt-9">
         <div class='wrapper hidden md:block'>
           <div class='steps' id='steps'>
             <div class="progress" id="progress"></div>
@@ -534,13 +525,32 @@
 
 
 
-          
-      <!-- Step Indicator: Mobile -->
-<svg class="circle-progress" width="100" height="100">
-  <circle cx="50" cy="50" r="45" stroke="#ddd" stroke-width="5" fill="none"></circle>
-  <circle id="circle-progress" cx="50" cy="50" r="45" stroke="#4caf50" stroke-width="5" fill="none" stroke-linecap="round"></circle>
-</svg>
-<p id="mobile-step-text">Step 1 of 3</p>
+      <!-- Right Side: Step Indicator: MOBILE -->
+<div class="md:hidden step-container flex items-center flex-wrap gap-2">
+  <div class="progress-circle relative w-[75px] h-[75px]">
+    <svg class="circle w-full h-full transform -rotate-90" viewBox="0 0 36 36">
+      <path
+        class="circle-bg fill-none stroke-[#E5E7EB] stroke-[2.5]"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 1 1 0 31.831
+          a 15.9155 15.9155 0 1 1 0 -31.831"
+      />
+      <path
+        class="circle-progress"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 1 1 0 31.831
+          a 15.9155 15.9155 0 1 1 0 -31.831"
+        style="stroke-dasharray: 0, 100"
+      />
+    </svg>
+    <div class="progress-text absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-sm font-bold text-[#384250]">1 of 4</div>
+  </div>
+  <div class="step-details">
+    <h3 class="font-bold text-sm text-[#1F2A37]">Step One</h3>
+    <p class="my-1 text-xs text-[#384250]">this is step description</p>
+    <p class="next-step my-1 text-xs text-[#6C737F]">Next: Step Two</p>
+  </div>
+</div>
 
       </div>
 
@@ -553,15 +563,26 @@
  //*************** STEP INDICATOR  ***************//
 const prevBtns = document.querySelectorAll(".btn-prev");
 const nextBtns = document.querySelectorAll(".btn-next");
-const progress = document.getElementById("progress");
 const formSteps = document.querySelectorAll(".form-step");
+
+// Desktop Progressbar Elements
 const progressStepNumbers = document.querySelectorAll(".step-number");
+const progress = document.getElementById("progress");
 
-// Mobile Elements
-const circleProgress = document.getElementById("circle-progress");
-const mobileStepText = document.getElementById("mobile-step-text");
 
+// Mobile Progressbar Elements
+const circleProgressPath = document.querySelector(".circle-progress");
+const progressText = document.querySelector(".progress-text");
+const stepDetails = document.querySelector(".step-details");
+const nextStepText = stepDetails.querySelector(".next-step");
+
+
+// Mapping for numbers to words
+const stepWords = ["Step One", "Step Two", "Step Three"];
+
+// Initialize current step
 let formStepsNum = 0;
+
 
 // Set the first step indicator as 'current' when the page loads
 document.addEventListener("DOMContentLoaded", () => {
@@ -631,22 +652,28 @@ function updateProgressBar() {
 
 
   
- //*************** STEP INDICATOR MOBILE ***************//
 
- function updateCircularProgressBar() {
+
+function updateCircularProgressBar() {
   const totalSteps = formSteps.length;
   const percentage = ((formStepsNum + 1) / totalSteps) * 100;
 
-  // Update the circle's stroke-dashoffset
-  const radius = circleProgress.r.baseVal.value;
-  const circumference = 2 * Math.PI * radius;
-  const offset = circumference - (percentage / 100) * circumference;
+  // Update the circular progress bar's stroke-dasharray
+  const circumference = 100; // Max dasharray value in percentage
+  const dashOffset = circumference - (percentage / 100) * circumference;
 
-  circleProgress.style.strokeDasharray = `${circumference} ${circumference}`;
-  circleProgress.style.strokeDashoffset = offset;
+  circleProgressPath.style.strokeDasharray = `${circumference}`;
+  circleProgressPath.style.strokeDashoffset = dashOffset;
 
-  // Update the mobile step text
-  mobileStepText.textContent = `Step ${formStepsNum + 1} of ${totalSteps}`;
+  // Update the progress text in the center of the circle
+  progressText.textContent = `${formStepsNum + 1} of ${totalSteps}`;
+
+  
+  // Update the step details text
+  const currentStep = stepWords[formStepsNum]
+  const nextStep = stepWords[formStepsNum + 1] || "Finish";
+  stepDetails.querySelector("h3").textContent = currentStep;
+  nextStepText.textContent = `Next: ${nextStep}`
 }
 
 
